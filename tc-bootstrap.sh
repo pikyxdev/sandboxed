@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
-# tc-bootstrap.sh v2 — merged fast-restore of the ReSuSFS x86_64 build env
+# tc-bootstrap.sh v3 — merged fast-restore of the ReSuSFS x86_64 build env
+#
+# v3 change: the toolchain is now exposed on the DEFAULT PATH of the whole
+# sandbox (symlinks in /usr/local/bin, see link_global below), so `clang`,
+# `ld.lld`, `llvm-*` ... work in any shell without sourcing tc-env.sh.
+# System dirs are wiped on every sandbox recycle, so the relink runs on
+# EVERY bootstrap (warm or cold) - it costs a few milliseconds.
 #
 # Replaces BOTH previous scripts:
 #   * tc-bootstrap.sh v1      (clang-17.0.6 self-contained install)
@@ -11,7 +17,7 @@
 #   lib/   only lib/clang (builtin headers); the official release binaries are
 #          statically linked (system libc/libz/libstdc++ only, see ldd)
 #
-# One run restores four things, all idempotent, all hash-checked:
+# One run restores five things, all idempotent, all hash-checked:
 #   1. clang-17.0.6 toolchain (ThinLTO + kCFI smoke-tested on x86_64 AND
 #      aarch64; llvm-bolt + llvm-profdata kept = BOLT / PGO tooling) -> $BASE/tc
 #   2. linux-5.15.178 kernel tree + the susfs current.h x86_64 override
@@ -20,6 +26,9 @@
 #      + compat symlink /tmp/toolchain (old scripts hardcode it)
 #      + shim $BASE/toolchain/clang17/usr/lib/llvm-17/{bin,lib}
 #   4. $BASE/tc-env.sh — sourceable PATH / vars for the build scripts
+#   5. global PATH exposure: symlink every KEEP_BIN tool into
+#      $TC_GLOBAL_BIN (default /usr/local/bin) so the toolchain is usable
+#      from ANY shell in this sandbox run, no sourcing needed
 #
 # SPEED (the whole point):
 #   warm (sandbox recycled, /home/z/my-project kept): stat-cache verify of the
@@ -65,6 +74,11 @@ https://github.com/llvm/llvm-project/releases/download/llvmorg-17.0.6/clang%2Bll
 KSRC_URL_DEFAULT="https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.15.178.tar.xz"
 
 TC_DIR="${TC_DIR:-$BASE/tc}"
+# where the global (default-PATH) tool symlinks go; set TC_GLOBAL_BIN="" to
+# disable global linking entirely (note the "-" expansion, not ":-", so an
+# explicitly empty value is honored). Must be a dir that is on the sandbox's
+# default PATH (works for login AND non-login shells).
+TC_GLOBAL_BIN="${TC_GLOBAL_BIN-/usr/local/bin}"
 TC_KEEP_CACHE="${TC_KEEP_CACHE:-0}"
 KSRC="${KSRC:-$BASE/linux-5.15.178}"
 KSRC_TARBALL="${KSRC_TARBALL:-$BASE/linux-5.15.178.tar.xz}"
@@ -368,16 +382,16 @@ extern unsigned long susfs_current_task_gs_off;
 
 static __always_inline struct task_struct *get_current(void)
 {
-	struct task_struct *p;
-	unsigned long off = susfs_current_task_gs_off;
-	/* %gs:off reads current_task for THIS cpu.  The "memory" clobber
-	 * blocks reordering across the read, matching the kernel's
-	 * this_cpu_read_stable semantics. */
-	asm volatile("movq %%gs:0(,%1,1), %0"
-		     : "=r" (p)
-		     : "r" (off)
-		     : "memory");
-	return p;
+        struct task_struct *p;
+        unsigned long off = susfs_current_task_gs_off;
+        /* %gs:off reads current_task for THIS cpu.  The "memory" clobber
+         * blocks reordering across the read, matching the kernel's
+         * this_cpu_read_stable semantics. */
+        asm volatile("movq %%gs:0(,%1,1), %0"
+                     : "=r" (p)
+                     : "r" (off)
+                     : "memory");
+        return p;
 }
 
 #define current get_current()
@@ -444,6 +458,36 @@ ensure_a13() {
   fi
 }
 
+# ---------- global PATH links (v3) ---------------------------------------------
+# The sandbox recycles system dirs (only $BASE survives), so this must run on
+# EVERY bootstrap - warm or cold. Cheap (~19 symlinks), idempotent, and it
+# never clobbers a file it did not create (a pre-existing non-symlink binary
+# of the same name is left alone with a note).
+link_global() {
+  if [ -z "$TC_GLOBAL_BIN" ]; then
+    say "[global] PATH linking disabled (TC_GLOBAL_BIN empty)"
+    return 0
+  fi
+  if ! { [ -d "$TC_GLOBAL_BIN" ] || mkdir -p "$TC_GLOBAL_BIN" 2>/dev/null; } || [ ! -w "$TC_GLOBAL_BIN" ]; then
+    say "[global] WARN: $TC_GLOBAL_BIN missing/not writable - toolchain NOT on default PATH (source $ENV_FILE instead)"
+    return 0
+  fi
+  local n=0 b t
+  for b in $KEEP_BIN; do
+    t="$TC_GLOBAL_BIN/$b"
+    if [ -L "$t" ] || [ ! -e "$t" ]; then     # ours (symlink) or free
+      if ln -sfn "$TC_DIR/bin/$b" "$t" 2>/dev/null; then n=$((n+1)); fi
+    else
+      say "[global] note: $t exists and is not our symlink - left untouched"
+    fi
+  done
+  if [ "$n" -gt 0 ]; then
+    say "[global] $n toolchain tools linked into $TC_GLOBAL_BIN (default PATH, no sourcing needed)"
+  else
+    say "[global] WARN: nothing linked - is $TC_DIR/bin complete?"
+  fi
+}
+
 # ---------- env file + legacy path shim ---------------------------------------
 ensure_env() {
   # README-BUILD-V52.md section 4: toolchain/clang17/usr/lib/llvm-17/bin/clang
@@ -500,6 +544,7 @@ auto() {
   ensure_host
   if [ "$WITH_A13" = 1 ]; then ensure_a13; fi
   ensure_env
+  link_global
   finish
 }
 
@@ -512,6 +557,13 @@ check_all() {
   if [ -z "$miss" ]; then say "[check] host debs: OK ($HOST_DIR, /tmp/toolchain -> it)"; else say "[check] host debs: MISSING:$miss"; rc=1; fi
   if [ -f "$A13_TARBALL" ]; then say "[check] a13 mirror: present"; else say "[check] a13 mirror: absent (only build_v49 needs it; --with-a13 to fetch)"; fi
   if [ -f "$ENV_FILE" ]; then say "[check] env file: $ENV_FILE"; else say "[check] env file: MISSING (rerun bootstrap)"; rc=1; fi
+  if [ -z "$TC_GLOBAL_BIN" ]; then
+    say "[check] global PATH: disabled (TC_GLOBAL_BIN empty)"
+  elif [ -x "$TC_GLOBAL_BIN/clang" ] && [ -L "$TC_GLOBAL_BIN/clang" ]; then
+    say "[check] global PATH: OK ($TC_GLOBAL_BIN/clang -> $(readlink "$TC_GLOBAL_BIN/clang"))"
+  else
+    say "[check] global PATH: MISSING ($TC_GLOBAL_BIN/clang not linked; rerun bootstrap)"; rc=1
+  fi
   if [ "$rc" = 0 ]; then qok "check passed (${SECONDS}s)"; else die "check failed"; fi
 }
 
@@ -533,6 +585,7 @@ EOF
   echo "[status] host debs     : $HOST_DIR -> /tmp/toolchain ($(miss=$(host_missing); [ -z "$miss" ] && echo OK || echo "MISSING:$miss"))"
   echo "[status] a13 mirror    : $A13_TARBALL ($([ -f "$A13_TARBALL" ] && echo present || echo MISSING))"
   echo "[status] env file      : $ENV_FILE ($([ -f "$ENV_FILE" ] && echo present || echo MISSING))"
+  echo "[status] global PATH    : $([ -z "$TC_GLOBAL_BIN" ] && echo disabled || { [ -L "$TC_GLOBAL_BIN/clang" ] && echo "$TC_GLOBAL_BIN/clang -> $(readlink "$TC_GLOBAL_BIN/clang")" || echo "no link in $TC_GLOBAL_BIN (rerun bootstrap)"; })"
   exit 0
 }
 
@@ -584,7 +637,7 @@ EOF
 
 case "$MODE" in
   auto)   auto ;;
-  force)  install_tc; ensure_kernel; ensure_host; if [ "$WITH_A13" = 1 ]; then ensure_a13; fi; ensure_env; finish ;;
+  force)  install_tc; ensure_kernel; ensure_host; if [ "$WITH_A13" = 1 ]; then ensure_a13; fi; ensure_env; link_global; finish ;;
   check)  check_all ;;
   status) status_out ;;
   pack)   pack_tc ;;
