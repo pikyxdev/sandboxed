@@ -1,0 +1,1246 @@
+================ ReSuSFS kernel recon (v26.11.38) ================
+timestamp: 2026-11-26 23:11:30
+boot_id: f8dbc68038654b468f2a5bc031f729b1
+
+--- /proc/version (compiler + build string) ---
+Linux version 5.15.178+ (nobody@android-build) (Android (10087095, +pgo, +bolt, +lto, -mlgo, based on r487747c) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362), LLD 17.0.2) #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026
+--- uname -a ---
+Linux (none) 5.15.178+ #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026 x86_64 Toybox
+--- /proc/sys/kernel/osrelease (exact KMI string) ---
+5.15.178+
+--- /proc/sys/kernel/tainted ---
+4096
+--- getenforce ---
+Permissive
+--- /proc/cmdline ---
+root=/dev/ram0 init=/init mitigations=off stack_depot_disable=on cgroup_disable=pressure androidboot.selinux=permissive enforcing=0 printk.devkmsg=on androidboot.hardware=qcom nosmap nosmep quiet console=tty0 console=ttyS0 androidboot.console=tty0 ignore_loglevel cpuidle.off=1 oprofile.timer=1 oprofile.cpu_type=timer irqaffinity=0
+
+--- key sysctls ---
+kernel/kptr_restrict = 2
+kernel/dmesg_restrict = 0
+kernel/perf_event_paranoid = 2
+--- ksud availability ---
+ksud on PATH: /data/adb/ksu/bin/ksud
+KernelSU userspace cli
+
+Usage: ksud <COMMAND>
+
+Commands:
+  module          Manage KernelSU modules
+  post-fs-data    Trigger `post-fs-data` event
+  services        Trigger `service` event
+  boot-completed  Trigger `boot-complete` event
+  late-load       Load kernelsu.ko and execute late-load stage scripts
+  soft-reboot     Emulate system reboot
+  insmod          Load a kernel module with kallsyms access
+  install         Install KernelSU userspace component to system
+  unload          Unload KernelSU kernel module (LKM Only)
+  uninstall       Uninstall KernelSU modules and itself(LKM Only)
+  sepolicy        SELinux policy Patch tool
+  profile         Manage App Profiles
+  feature         Manage kernel features
+  boot-patch      Patch boot or init_boot images to apply KernelSU
+  boot-restore    Restore boot or init_boot images patched by KernelSU
+/data/adb/ksu/bin/ksud exists
+KernelSU userspace cli
+
+Usage: ksud <COMMAND>
+
+Commands:
+  module          Manage KernelSU modules
+  post-fs-data    Trigger `post-fs-data` event
+  services        Trigger `service` event
+  boot-completed  Trigger `boot-complete` event
+  late-load       Load kernelsu.ko and execute late-load stage scripts
+  soft-reboot     Emulate system reboot
+  insmod          Load a kernel module with kallsyms access
+  install         Install KernelSU userspace component to system
+  unload          Unload KernelSU kernel module (LKM Only)
+  uninstall       Uninstall KernelSU modules and itself(LKM Only)
+  sepolicy        SELinux policy Patch tool
+  profile         Manage App Profiles
+  feature         Manage kernel features
+  boot-patch      Patch boot or init_boot images to apply KernelSU
+  boot-restore    Restore boot or init_boot images patched by KernelSU
+--- KernelSU variant hints ---
+/data/adb/ksu/bin/ksud: lrwxrwxrwx 1 root root 14 2026-11-20 23:14 /data/adb/ksu/bin/ksud -> /data/adb/ksud
+/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-26 23:08 /data/adb/ksud
+--- BTF (struct layout ground truth, if present) ---
+--- IKCONFIG (/proc/config.gz -> kernel_config.txt) ---
+/proc/config.gz absent (CONFIG_IKCONFIG_PROC off) - kallsyms + version string are the layout hints
+--- /proc/modules (first 15) ---
+fastpipe_x64 45056 - - Live 0x0000000000000000 (O)
+vboxsf 81920 - - Live 0x0000000000000000 (O)
+vboxguest 380928 - - Live 0x0000000000000000 (O)
+===================================================================
+--- kallsyms: 101248 lines total, snapshot bounded to 8MB ---
+--- kallsyms table symbols (the kr_seed values) ---
+--- layout-distinguishing symbols ---
+kallsyms 'current_task': 000000000001bc40 A current_task
+kallsyms 'fixed_percpu_data': 0000000000000000 A fixed_percpu_data
+kallsyms '__per_cpu_start': 0000000000000000 A __per_cpu_start
+kallsyms '_stext': ffffffff81000000 T _stext
+kallsyms '_etext': ffffffff81c01dd9 T _etext
+kallsyms 'kallsyms_lookup_name': ffffffff810fd360 t kallsyms_lookup_name
+kallsyms 'kallsyms_lookup': ffffffff810fd840 t kallsyms_lookup
+kallsyms 'sprint_symbol': ffffffff810fdce0 t sprint_symbol
+--- LTO/CFI/BOLT markers ---
+cfi_jt symbols: 0
+ffffffff82158e80 D __start___jump_table
+================ ReSuSFS kernel recon (v26.11.38) ================
+timestamp: 2026-11-26 23:14:23
+boot_id: ef729ea7793d458883f7a6876c07519d
+
+--- /proc/version (compiler + build string) ---
+Linux version 5.15.178+ (nobody@android-build) (Android (10087095, +pgo, +bolt, +lto, -mlgo, based on r487747c) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362), LLD 17.0.2) #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026
+--- uname -a ---
+Linux (none) 5.15.178+ #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026 x86_64 Toybox
+--- /proc/sys/kernel/osrelease (exact KMI string) ---
+5.15.178+
+--- /proc/sys/kernel/tainted ---
+4096
+--- getenforce ---
+Permissive
+--- /proc/cmdline ---
+root=/dev/ram0 init=/init mitigations=off stack_depot_disable=on cgroup_disable=pressure androidboot.selinux=permissive enforcing=0 printk.devkmsg=on androidboot.hardware=qcom nosmap nosmep quiet console=tty0 console=ttyS0 androidboot.console=tty0 ignore_loglevel cpuidle.off=1 oprofile.timer=1 oprofile.cpu_type=timer irqaffinity=0
+
+--- key sysctls ---
+kernel/kptr_restrict = 2
+kernel/dmesg_restrict = 0
+kernel/perf_event_paranoid = 2
+--- ksud availability ---
+ksud on PATH: /data/adb/ksu/bin/ksud
+KernelSU userspace cli
+
+Usage: ksud <COMMAND>
+
+Commands:
+  module          Manage KernelSU modules
+  post-fs-data    Trigger `post-fs-data` event
+  services        Trigger `service` event
+  boot-completed  Trigger `boot-complete` event
+  late-load       Load kernelsu.ko and execute late-load stage scripts
+  soft-reboot     Emulate system reboot
+  insmod          Load a kernel module with kallsyms access
+  install         Install KernelSU userspace component to system
+  unload          Unload KernelSU kernel module (LKM Only)
+  uninstall       Uninstall KernelSU modules and itself(LKM Only)
+  sepolicy        SELinux policy Patch tool
+  profile         Manage App Profiles
+  feature         Manage kernel features
+  boot-patch      Patch boot or init_boot images to apply KernelSU
+  boot-restore    Restore boot or init_boot images patched by KernelSU
+/data/adb/ksu/bin/ksud exists
+KernelSU userspace cli
+
+Usage: ksud <COMMAND>
+
+Commands:
+  module          Manage KernelSU modules
+  post-fs-data    Trigger `post-fs-data` event
+  services        Trigger `service` event
+  boot-completed  Trigger `boot-complete` event
+  late-load       Load kernelsu.ko and execute late-load stage scripts
+  soft-reboot     Emulate system reboot
+  insmod          Load a kernel module with kallsyms access
+  install         Install KernelSU userspace component to system
+  unload          Unload KernelSU kernel module (LKM Only)
+  uninstall       Uninstall KernelSU modules and itself(LKM Only)
+  sepolicy        SELinux policy Patch tool
+  profile         Manage App Profiles
+  feature         Manage kernel features
+  boot-patch      Patch boot or init_boot images to apply KernelSU
+  boot-restore    Restore boot or init_boot images patched by KernelSU
+--- KernelSU variant hints ---
+/data/adb/ksu/bin/ksud: lrwxrwxrwx 1 root root 14 2026-11-20 23:14 /data/adb/ksu/bin/ksud -> /data/adb/ksud
+/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-26 23:08 /data/adb/ksud
+--- BTF (struct layout ground truth, if present) ---
+--- IKCONFIG (/proc/config.gz -> kernel_config.txt) ---
+/proc/config.gz absent (CONFIG_IKCONFIG_PROC off) - kallsyms + version string are the layout hints
+--- /proc/modules (first 15) ---
+fastpipe_x64 45056 - - Live 0x0000000000000000 (O)
+vboxsf 81920 - - Live 0x0000000000000000 (O)
+vboxguest 380928 - - Live 0x0000000000000000 (O)
+===================================================================
+--- kallsyms: 101248 lines total, snapshot bounded to 8MB ---
+--- kallsyms table symbols (the kr_seed values) ---
+--- layout-distinguishing symbols ---
+kallsyms 'current_task': 000000000001bc40 A current_task
+kallsyms 'fixed_percpu_data': 0000000000000000 A fixed_percpu_data
+kallsyms '__per_cpu_start': 0000000000000000 A __per_cpu_start
+kallsyms '_stext': ffffffff81000000 T _stext
+kallsyms '_etext': ffffffff81c01dd9 T _etext
+kallsyms 'kallsyms_lookup_name': ffffffff810fd360 t kallsyms_lookup_name
+kallsyms 'kallsyms_lookup': ffffffff810fd840 t kallsyms_lookup
+kallsyms 'sprint_symbol': ffffffff810fdce0 t sprint_symbol
+--- LTO/CFI/BOLT markers ---
+cfi_jt symbols: 0
+ffffffff82158e80 D __start___jump_table
+================ ReSuSFS kernel recon (v26.11.38) ================
+timestamp: 2026-11-26 23:18:43
+boot_id: b18a4d5bfc174de7ad39d207b0e8ba41
+
+--- /proc/version (compiler + build string) ---
+Linux version 5.15.178+ (nobody@android-build) (Android (10087095, +pgo, +bolt, +lto, -mlgo, based on r487747c) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362), LLD 17.0.2) #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026
+--- uname -a ---
+Linux (none) 5.15.178+ #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026 x86_64 Toybox
+--- /proc/sys/kernel/osrelease (exact KMI string) ---
+5.15.178+
+--- /proc/sys/kernel/tainted ---
+4096
+--- getenforce ---
+Permissive
+--- /proc/cmdline ---
+root=/dev/ram0 init=/init mitigations=off stack_depot_disable=on cgroup_disable=pressure androidboot.selinux=permissive enforcing=0 printk.devkmsg=on androidboot.hardware=qcom nosmap nosmep quiet console=tty0 console=ttyS0 androidboot.console=tty0 ignore_loglevel cpuidle.off=1 oprofile.timer=1 oprofile.cpu_type=timer irqaffinity=0
+
+--- key sysctls ---
+kernel/kptr_restrict = 2
+kernel/dmesg_restrict = 0
+kernel/perf_event_paranoid = 2
+--- ksud availability ---
+ksud on PATH: /data/adb/ksu/bin/ksud
+KernelSU userspace cli
+
+Usage: ksud <COMMAND>
+
+Commands:
+  module          Manage KernelSU modules
+  post-fs-data    Trigger `post-fs-data` event
+  services        Trigger `service` event
+  boot-completed  Trigger `boot-complete` event
+  late-load       Load kernelsu.ko and execute late-load stage scripts
+  soft-reboot     Emulate system reboot
+  insmod          Load a kernel module with kallsyms access
+  install         Install KernelSU userspace component to system
+  unload          Unload KernelSU kernel module (LKM Only)
+  uninstall       Uninstall KernelSU modules and itself(LKM Only)
+  sepolicy        SELinux policy Patch tool
+  profile         Manage App Profiles
+  feature         Manage kernel features
+  boot-patch      Patch boot or init_boot images to apply KernelSU
+  boot-restore    Restore boot or init_boot images patched by KernelSU
+/data/adb/ksu/bin/ksud exists
+KernelSU userspace cli
+
+Usage: ksud <COMMAND>
+
+Commands:
+  module          Manage KernelSU modules
+  post-fs-data    Trigger `post-fs-data` event
+  services        Trigger `service` event
+  boot-completed  Trigger `boot-complete` event
+  late-load       Load kernelsu.ko and execute late-load stage scripts
+  soft-reboot     Emulate system reboot
+  insmod          Load a kernel module with kallsyms access
+  install         Install KernelSU userspace component to system
+  unload          Unload KernelSU kernel module (LKM Only)
+  uninstall       Uninstall KernelSU modules and itself(LKM Only)
+  sepolicy        SELinux policy Patch tool
+  profile         Manage App Profiles
+  feature         Manage kernel features
+  boot-patch      Patch boot or init_boot images to apply KernelSU
+  boot-restore    Restore boot or init_boot images patched by KernelSU
+--- KernelSU variant hints ---
+/data/adb/ksu/bin/ksud: lrwxrwxrwx 1 root root 14 2026-11-20 23:14 /data/adb/ksu/bin/ksud -> /data/adb/ksud
+/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-26 23:08 /data/adb/ksud
+--- BTF (struct layout ground truth, if present) ---
+--- IKCONFIG (/proc/config.gz -> kernel_config.txt) ---
+/proc/config.gz absent (CONFIG_IKCONFIG_PROC off) - kallsyms + version string are the layout hints
+--- /proc/modules (first 15) ---
+fastpipe_x64 45056 - - Live 0x0000000000000000 (O)
+vboxsf 81920 - - Live 0x0000000000000000 (O)
+vboxguest 380928 - - Live 0x0000000000000000 (O)
+===================================================================
+--- kallsyms: 101248 lines total, snapshot bounded to 8MB ---
+--- kallsyms table symbols (the kr_seed values) ---
+--- layout-distinguishing symbols ---
+kallsyms 'current_task': 000000000001bc40 A current_task
+kallsyms 'fixed_percpu_data': 0000000000000000 A fixed_percpu_data
+kallsyms '__per_cpu_start': 0000000000000000 A __per_cpu_start
+kallsyms '_stext': ffffffff81000000 T _stext
+kallsyms '_etext': ffffffff81c01dd9 T _etext
+kallsyms 'kallsyms_lookup_name': ffffffff810fd360 t kallsyms_lookup_name
+kallsyms 'kallsyms_lookup': ffffffff810fd840 t kallsyms_lookup
+kallsyms 'sprint_symbol': ffffffff810fdce0 t sprint_symbol
+--- LTO/CFI/BOLT markers ---
+cfi_jt symbols: 0
+ffffffff82158e80 D __start___jump_table
+================ ReSuSFS kernel recon (v26.11.38) ================
+timestamp: 2026-11-26 23:23:12
+boot_id: 373be59a627b4082a9fb8eb5eaf192b9
+
+--- /proc/version (compiler + build string) ---
+Linux version 5.15.178+ (nobody@android-build) (Android (10087095, +pgo, +bolt, +lto, -mlgo, based on r487747c) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362), LLD 17.0.2) #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026
+--- uname -a ---
+Linux (none) 5.15.178+ #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026 x86_64 Toybox
+--- /proc/sys/kernel/osrelease (exact KMI string) ---
+5.15.178+
+--- /proc/sys/kernel/tainted ---
+4096
+--- getenforce ---
+Permissive
+--- /proc/cmdline ---
+root=/dev/ram0 init=/init mitigations=off stack_depot_disable=on cgroup_disable=pressure androidboot.selinux=permissive enforcing=0 printk.devkmsg=on androidboot.hardware=qcom nosmap nosmep quiet console=tty0 console=ttyS0 androidboot.console=tty0 ignore_loglevel cpuidle.off=1 oprofile.timer=1 oprofile.cpu_type=timer irqaffinity=0
+
+--- key sysctls ---
+kernel/kptr_restrict = 2
+kernel/dmesg_restrict = 0
+kernel/perf_event_paranoid = 2
+--- ksud availability ---
+ksud on PATH: /data/adb/ksu/bin/ksud
+KernelSU userspace cli
+
+Usage: ksud <COMMAND>
+
+Commands:
+  module          Manage KernelSU modules
+  post-fs-data    Trigger `post-fs-data` event
+  services        Trigger `service` event
+  boot-completed  Trigger `boot-complete` event
+  late-load       Load kernelsu.ko and execute late-load stage scripts
+  soft-reboot     Emulate system reboot
+  insmod          Load a kernel module with kallsyms access
+  install         Install KernelSU userspace component to system
+  unload          Unload KernelSU kernel module (LKM Only)
+  uninstall       Uninstall KernelSU modules and itself(LKM Only)
+  sepolicy        SELinux policy Patch tool
+  profile         Manage App Profiles
+  feature         Manage kernel features
+  boot-patch      Patch boot or init_boot images to apply KernelSU
+  boot-restore    Restore boot or init_boot images patched by KernelSU
+/data/adb/ksu/bin/ksud exists
+KernelSU userspace cli
+
+Usage: ksud <COMMAND>
+
+Commands:
+  module          Manage KernelSU modules
+  post-fs-data    Trigger `post-fs-data` event
+  services        Trigger `service` event
+  boot-completed  Trigger `boot-complete` event
+  late-load       Load kernelsu.ko and execute late-load stage scripts
+  soft-reboot     Emulate system reboot
+  insmod          Load a kernel module with kallsyms access
+  install         Install KernelSU userspace component to system
+  unload          Unload KernelSU kernel module (LKM Only)
+  uninstall       Uninstall KernelSU modules and itself(LKM Only)
+  sepolicy        SELinux policy Patch tool
+  profile         Manage App Profiles
+  feature         Manage kernel features
+  boot-patch      Patch boot or init_boot images to apply KernelSU
+  boot-restore    Restore boot or init_boot images patched by KernelSU
+--- KernelSU variant hints ---
+/data/adb/ksu/bin/ksud: lrwxrwxrwx 1 root root 14 2026-11-20 23:14 /data/adb/ksu/bin/ksud -> /data/adb/ksud
+/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-26 23:08 /data/adb/ksud
+--- BTF (struct layout ground truth, if present) ---
+--- IKCONFIG (/proc/config.gz -> kernel_config.txt) ---
+/proc/config.gz absent (CONFIG_IKCONFIG_PROC off) - kallsyms + version string are the layout hints
+--- /proc/modules (first 15) ---
+fastpipe_x64 45056 - - Live 0x0000000000000000 (O)
+vboxsf 81920 - - Live 0x0000000000000000 (O)
+vboxguest 380928 - - Live 0x0000000000000000 (O)
+===================================================================
+--- kallsyms: 101248 lines total, snapshot bounded to 8MB ---
+--- kallsyms table symbols (the kr_seed values) ---
+--- layout-distinguishing symbols ---
+kallsyms 'current_task': 000000000001bc40 A current_task
+kallsyms 'fixed_percpu_data': 0000000000000000 A fixed_percpu_data
+kallsyms '__per_cpu_start': 0000000000000000 A __per_cpu_start
+kallsyms '_stext': ffffffff81000000 T _stext
+kallsyms '_etext': ffffffff81c01dd9 T _etext
+kallsyms 'kallsyms_lookup_name': ffffffff810fd360 t kallsyms_lookup_name
+kallsyms 'kallsyms_lookup': ffffffff810fd840 t kallsyms_lookup
+kallsyms 'sprint_symbol': ffffffff810fdce0 t sprint_symbol
+--- LTO/CFI/BOLT markers ---
+cfi_jt symbols: 0
+ffffffff82158e80 D __start___jump_table
+================ ReSuSFS kernel recon (v26.11.38) ================
+timestamp: 2026-11-26 23:28:10
+boot_id: 545d98c265dc49f68015b27626f4f563
+
+--- /proc/version (compiler + build string) ---
+Linux version 5.15.178+ (nobody@android-build) (Android (10087095, +pgo, +bolt, +lto, -mlgo, based on r487747c) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362), LLD 17.0.2) #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026
+--- uname -a ---
+Linux (none) 5.15.178+ #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026 x86_64 Toybox
+--- /proc/sys/kernel/osrelease (exact KMI string) ---
+5.15.178+
+--- /proc/sys/kernel/tainted ---
+4096
+--- getenforce ---
+Permissive
+--- /proc/cmdline ---
+root=/dev/ram0 init=/init mitigations=off stack_depot_disable=on cgroup_disable=pressure androidboot.selinux=permissive enforcing=0 printk.devkmsg=on androidboot.hardware=qcom nosmap nosmep quiet console=tty0 console=ttyS0 androidboot.console=tty0 ignore_loglevel cpuidle.off=1 oprofile.timer=1 oprofile.cpu_type=timer irqaffinity=0
+
+--- key sysctls ---
+kernel/kptr_restrict = 2
+kernel/dmesg_restrict = 0
+kernel/perf_event_paranoid = 2
+--- ksud availability ---
+ksud on PATH: /data/adb/ksu/bin/ksud
+KernelSU userspace cli
+
+Usage: ksud <COMMAND>
+
+Commands:
+  module          Manage KernelSU modules
+  post-fs-data    Trigger `post-fs-data` event
+  services        Trigger `service` event
+  boot-completed  Trigger `boot-complete` event
+  late-load       Load kernelsu.ko and execute late-load stage scripts
+  soft-reboot     Emulate system reboot
+  insmod          Load a kernel module with kallsyms access
+  install         Install KernelSU userspace component to system
+  unload          Unload KernelSU kernel module (LKM Only)
+  uninstall       Uninstall KernelSU modules and itself(LKM Only)
+  sepolicy        SELinux policy Patch tool
+  profile         Manage App Profiles
+  feature         Manage kernel features
+  boot-patch      Patch boot or init_boot images to apply KernelSU
+  boot-restore    Restore boot or init_boot images patched by KernelSU
+/data/adb/ksu/bin/ksud exists
+KernelSU userspace cli
+
+Usage: ksud <COMMAND>
+
+Commands:
+  module          Manage KernelSU modules
+  post-fs-data    Trigger `post-fs-data` event
+  services        Trigger `service` event
+  boot-completed  Trigger `boot-complete` event
+  late-load       Load kernelsu.ko and execute late-load stage scripts
+  soft-reboot     Emulate system reboot
+  insmod          Load a kernel module with kallsyms access
+  install         Install KernelSU userspace component to system
+  unload          Unload KernelSU kernel module (LKM Only)
+  uninstall       Uninstall KernelSU modules and itself(LKM Only)
+  sepolicy        SELinux policy Patch tool
+  profile         Manage App Profiles
+  feature         Manage kernel features
+  boot-patch      Patch boot or init_boot images to apply KernelSU
+  boot-restore    Restore boot or init_boot images patched by KernelSU
+--- KernelSU variant hints ---
+/data/adb/ksu/bin/ksud: lrwxrwxrwx 1 root root 14 2026-11-20 23:14 /data/adb/ksu/bin/ksud -> /data/adb/ksud
+/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-26 23:08 /data/adb/ksud
+--- BTF (struct layout ground truth, if present) ---
+--- IKCONFIG (/proc/config.gz -> kernel_config.txt) ---
+/proc/config.gz absent (CONFIG_IKCONFIG_PROC off) - kallsyms + version string are the layout hints
+--- /proc/modules (first 15) ---
+fastpipe_x64 45056 - - Live 0x0000000000000000 (O)
+vboxsf 81920 - - Live 0x0000000000000000 (O)
+vboxguest 380928 - - Live 0x0000000000000000 (O)
+===================================================================
+--- kallsyms: 101248 lines total, snapshot bounded to 8MB ---
+--- kallsyms table symbols (the kr_seed values) ---
+--- layout-distinguishing symbols ---
+kallsyms 'current_task': 000000000001bc40 A current_task
+kallsyms 'fixed_percpu_data': 0000000000000000 A fixed_percpu_data
+kallsyms '__per_cpu_start': 0000000000000000 A __per_cpu_start
+kallsyms '_stext': ffffffff81000000 T _stext
+kallsyms '_etext': ffffffff81c01dd9 T _etext
+kallsyms 'kallsyms_lookup_name': ffffffff810fd360 t kallsyms_lookup_name
+kallsyms 'kallsyms_lookup': ffffffff810fd840 t kallsyms_lookup
+kallsyms 'sprint_symbol': ffffffff810fdce0 t sprint_symbol
+--- LTO/CFI/BOLT markers ---
+cfi_jt symbols: 0
+ffffffff82158e80 D __start___jump_table
+================ ReSuSFS kernel recon (v26.11.38) ================
+timestamp: 2026-11-26 23:31:20
+boot_id: 4b3feac2b5704fd49a3e3dbdd79cc7f1
+
+--- /proc/version (compiler + build string) ---
+Linux version 5.15.178+ (nobody@android-build) (Android (10087095, +pgo, +bolt, +lto, -mlgo, based on r487747c) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362), LLD 17.0.2) #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026
+--- uname -a ---
+Linux (none) 5.15.178+ #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026 x86_64 Toybox
+--- /proc/sys/kernel/osrelease (exact KMI string) ---
+5.15.178+
+--- /proc/sys/kernel/tainted ---
+4096
+--- getenforce ---
+Permissive
+--- /proc/cmdline ---
+root=/dev/ram0 init=/init mitigations=off stack_depot_disable=on cgroup_disable=pressure androidboot.selinux=permissive enforcing=0 printk.devkmsg=on androidboot.hardware=qcom nosmap nosmep quiet console=tty0 console=ttyS0 androidboot.console=tty0 ignore_loglevel cpuidle.off=1 oprofile.timer=1 oprofile.cpu_type=timer irqaffinity=0
+
+--- key sysctls ---
+kernel/kptr_restrict = 2
+kernel/dmesg_restrict = 0
+kernel/perf_event_paranoid = 2
+--- ksud availability ---
+ksud on PATH: /data/adb/ksu/bin/ksud
+KernelSU userspace cli
+
+Usage: ksud <COMMAND>
+
+Commands:
+  module          Manage KernelSU modules
+  post-fs-data    Trigger `post-fs-data` event
+  services        Trigger `service` event
+  boot-completed  Trigger `boot-complete` event
+  late-load       Load kernelsu.ko and execute late-load stage scripts
+  soft-reboot     Emulate system reboot
+  insmod          Load a kernel module with kallsyms access
+  install         Install KernelSU userspace component to system
+  unload          Unload KernelSU kernel module (LKM Only)
+  uninstall       Uninstall KernelSU modules and itself(LKM Only)
+  sepolicy        SELinux policy Patch tool
+  profile         Manage App Profiles
+  feature         Manage kernel features
+  boot-patch      Patch boot or init_boot images to apply KernelSU
+  boot-restore    Restore boot or init_boot images patched by KernelSU
+/data/adb/ksu/bin/ksud exists
+KernelSU userspace cli
+
+Usage: ksud <COMMAND>
+
+Commands:
+  module          Manage KernelSU modules
+  post-fs-data    Trigger `post-fs-data` event
+  services        Trigger `service` event
+  boot-completed  Trigger `boot-complete` event
+  late-load       Load kernelsu.ko and execute late-load stage scripts
+  soft-reboot     Emulate system reboot
+  insmod          Load a kernel module with kallsyms access
+  install         Install KernelSU userspace component to system
+  unload          Unload KernelSU kernel module (LKM Only)
+  uninstall       Uninstall KernelSU modules and itself(LKM Only)
+  sepolicy        SELinux policy Patch tool
+  profile         Manage App Profiles
+  feature         Manage kernel features
+  boot-patch      Patch boot or init_boot images to apply KernelSU
+  boot-restore    Restore boot or init_boot images patched by KernelSU
+--- KernelSU variant hints ---
+/data/adb/ksu/bin/ksud: lrwxrwxrwx 1 root root 14 2026-11-20 23:14 /data/adb/ksu/bin/ksud -> /data/adb/ksud
+/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-26 23:08 /data/adb/ksud
+--- BTF (struct layout ground truth, if present) ---
+--- IKCONFIG (/proc/config.gz -> kernel_config.txt) ---
+/proc/config.gz absent (CONFIG_IKCONFIG_PROC off) - kallsyms + version string are the layout hints
+--- /proc/modules (first 15) ---
+fastpipe_x64 45056 - - Live 0x0000000000000000 (O)
+vboxsf 81920 - - Live 0x0000000000000000 (O)
+vboxguest 380928 - - Live 0x0000000000000000 (O)
+===================================================================
+--- kallsyms: 101248 lines total, snapshot bounded to 8MB ---
+--- kallsyms table symbols (the kr_seed values) ---
+--- layout-distinguishing symbols ---
+kallsyms 'current_task': 000000000001bc40 A current_task
+kallsyms 'fixed_percpu_data': 0000000000000000 A fixed_percpu_data
+kallsyms '__per_cpu_start': 0000000000000000 A __per_cpu_start
+kallsyms '_stext': ffffffff81000000 T _stext
+kallsyms '_etext': ffffffff81c01dd9 T _etext
+kallsyms 'kallsyms_lookup_name': ffffffff810fd360 t kallsyms_lookup_name
+kallsyms 'kallsyms_lookup': ffffffff810fd840 t kallsyms_lookup
+kallsyms 'sprint_symbol': ffffffff810fdce0 t sprint_symbol
+--- LTO/CFI/BOLT markers ---
+cfi_jt symbols: 0
+ffffffff82158e80 D __start___jump_table
+================ ReSuSFS kernel recon (v26.11.38) ================
+timestamp: 2026-11-26 23:34:40
+boot_id: 52c9b4c37435470fa1cea882a74c791b
+
+--- /proc/version (compiler + build string) ---
+Linux version 5.15.178+ (nobody@android-build) (Android (10087095, +pgo, +bolt, +lto, -mlgo, based on r487747c) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362), LLD 17.0.2) #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026
+--- uname -a ---
+Linux (none) 5.15.178+ #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026 x86_64 Toybox
+--- /proc/sys/kernel/osrelease (exact KMI string) ---
+5.15.178+
+--- /proc/sys/kernel/tainted ---
+4096
+--- getenforce ---
+Permissive
+--- /proc/cmdline ---
+root=/dev/ram0 init=/init mitigations=off stack_depot_disable=on cgroup_disable=pressure androidboot.selinux=permissive enforcing=0 printk.devkmsg=on androidboot.hardware=qcom nosmap nosmep quiet console=tty0 console=ttyS0 androidboot.console=tty0 ignore_loglevel cpuidle.off=1 oprofile.timer=1 oprofile.cpu_type=timer irqaffinity=0
+
+--- key sysctls ---
+kernel/kptr_restrict = 2
+kernel/dmesg_restrict = 0
+kernel/perf_event_paranoid = 2
+--- ksud availability ---
+ksud on PATH: /data/adb/ksu/bin/ksud
+KernelSU userspace cli
+
+Usage: ksud <COMMAND>
+
+Commands:
+  module          Manage KernelSU modules
+  post-fs-data    Trigger `post-fs-data` event
+  services        Trigger `service` event
+  boot-completed  Trigger `boot-complete` event
+  late-load       Load kernelsu.ko and execute late-load stage scripts
+  soft-reboot     Emulate system reboot
+  insmod          Load a kernel module with kallsyms access
+  install         Install KernelSU userspace component to system
+  unload          Unload KernelSU kernel module (LKM Only)
+  uninstall       Uninstall KernelSU modules and itself(LKM Only)
+  sepolicy        SELinux policy Patch tool
+  profile         Manage App Profiles
+  feature         Manage kernel features
+  boot-patch      Patch boot or init_boot images to apply KernelSU
+  boot-restore    Restore boot or init_boot images patched by KernelSU
+/data/adb/ksu/bin/ksud exists
+KernelSU userspace cli
+
+Usage: ksud <COMMAND>
+
+Commands:
+  module          Manage KernelSU modules
+  post-fs-data    Trigger `post-fs-data` event
+  services        Trigger `service` event
+  boot-completed  Trigger `boot-complete` event
+  late-load       Load kernelsu.ko and execute late-load stage scripts
+  soft-reboot     Emulate system reboot
+  insmod          Load a kernel module with kallsyms access
+  install         Install KernelSU userspace component to system
+  unload          Unload KernelSU kernel module (LKM Only)
+  uninstall       Uninstall KernelSU modules and itself(LKM Only)
+  sepolicy        SELinux policy Patch tool
+  profile         Manage App Profiles
+  feature         Manage kernel features
+  boot-patch      Patch boot or init_boot images to apply KernelSU
+  boot-restore    Restore boot or init_boot images patched by KernelSU
+--- KernelSU variant hints ---
+/data/adb/ksu/bin/ksud: lrwxrwxrwx 1 root root 14 2026-11-20 23:14 /data/adb/ksu/bin/ksud -> /data/adb/ksud
+/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-26 23:08 /data/adb/ksud
+--- BTF (struct layout ground truth, if present) ---
+--- IKCONFIG (/proc/config.gz -> kernel_config.txt) ---
+/proc/config.gz absent (CONFIG_IKCONFIG_PROC off) - kallsyms + version string are the layout hints
+--- /proc/modules (first 15) ---
+fastpipe_x64 45056 - - Live 0x0000000000000000 (O)
+vboxsf 81920 - - Live 0x0000000000000000 (O)
+vboxguest 380928 - - Live 0x0000000000000000 (O)
+===================================================================
+--- kallsyms: 101248 lines total, snapshot bounded to 8MB ---
+--- kallsyms table symbols (the kr_seed values) ---
+--- layout-distinguishing symbols ---
+kallsyms 'current_task': 000000000001bc40 A current_task
+kallsyms 'fixed_percpu_data': 0000000000000000 A fixed_percpu_data
+kallsyms '__per_cpu_start': 0000000000000000 A __per_cpu_start
+kallsyms '_stext': ffffffff81000000 T _stext
+kallsyms '_etext': ffffffff81c01dd9 T _etext
+kallsyms 'kallsyms_lookup_name': ffffffff810fd360 t kallsyms_lookup_name
+kallsyms 'kallsyms_lookup': ffffffff810fd840 t kallsyms_lookup
+kallsyms 'sprint_symbol': ffffffff810fdce0 t sprint_symbol
+--- LTO/CFI/BOLT markers ---
+cfi_jt symbols: 0
+ffffffff82158e80 D __start___jump_table
+================ ReSuSFS kernel recon (v26.11.38) ================
+timestamp: 2026-11-26 23:37:37
+boot_id: df2deac1fed9450b83639d461bb70945
+
+--- /proc/version (compiler + build string) ---
+Linux version 5.15.178+ (nobody@android-build) (Android (10087095, +pgo, +bolt, +lto, -mlgo, based on r487747c) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362), LLD 17.0.2) #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026
+--- uname -a ---
+Linux (none) 5.15.178+ #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026 x86_64 Toybox
+--- /proc/sys/kernel/osrelease (exact KMI string) ---
+5.15.178+
+--- /proc/sys/kernel/tainted ---
+4096
+--- getenforce ---
+Permissive
+--- /proc/cmdline ---
+root=/dev/ram0 init=/init mitigations=off stack_depot_disable=on cgroup_disable=pressure androidboot.selinux=permissive enforcing=0 printk.devkmsg=on androidboot.hardware=qcom nosmap nosmep quiet console=tty0 console=ttyS0 androidboot.console=tty0 ignore_loglevel cpuidle.off=1 oprofile.timer=1 oprofile.cpu_type=timer irqaffinity=0
+
+--- key sysctls ---
+kernel/kptr_restrict = 2
+kernel/dmesg_restrict = 0
+kernel/perf_event_paranoid = 2
+--- ksud availability ---
+ksud on PATH: /data/adb/ksu/bin/ksud
+KernelSU userspace cli
+
+Usage: ksud <COMMAND>
+
+Commands:
+  module          Manage KernelSU modules
+  post-fs-data    Trigger `post-fs-data` event
+  services        Trigger `service` event
+  boot-completed  Trigger `boot-complete` event
+  late-load       Load kernelsu.ko and execute late-load stage scripts
+  soft-reboot     Emulate system reboot
+  insmod          Load a kernel module with kallsyms access
+  install         Install KernelSU userspace component to system
+  unload          Unload KernelSU kernel module (LKM Only)
+  uninstall       Uninstall KernelSU modules and itself(LKM Only)
+  sepolicy        SELinux policy Patch tool
+  profile         Manage App Profiles
+  feature         Manage kernel features
+  boot-patch      Patch boot or init_boot images to apply KernelSU
+  boot-restore    Restore boot or init_boot images patched by KernelSU
+/data/adb/ksu/bin/ksud exists
+KernelSU userspace cli
+
+Usage: ksud <COMMAND>
+
+Commands:
+  module          Manage KernelSU modules
+  post-fs-data    Trigger `post-fs-data` event
+  services        Trigger `service` event
+  boot-completed  Trigger `boot-complete` event
+  late-load       Load kernelsu.ko and execute late-load stage scripts
+  soft-reboot     Emulate system reboot
+  insmod          Load a kernel module with kallsyms access
+  install         Install KernelSU userspace component to system
+  unload          Unload KernelSU kernel module (LKM Only)
+  uninstall       Uninstall KernelSU modules and itself(LKM Only)
+  sepolicy        SELinux policy Patch tool
+  profile         Manage App Profiles
+  feature         Manage kernel features
+  boot-patch      Patch boot or init_boot images to apply KernelSU
+  boot-restore    Restore boot or init_boot images patched by KernelSU
+--- KernelSU variant hints ---
+/data/adb/ksu/bin/ksud: lrwxrwxrwx 1 root root 14 2026-11-20 23:14 /data/adb/ksu/bin/ksud -> /data/adb/ksud
+/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-26 23:08 /data/adb/ksud
+--- BTF (struct layout ground truth, if present) ---
+--- IKCONFIG (/proc/config.gz -> kernel_config.txt) ---
+/proc/config.gz absent (CONFIG_IKCONFIG_PROC off) - kallsyms + version string are the layout hints
+--- /proc/modules (first 15) ---
+fastpipe_x64 45056 - - Live 0x0000000000000000 (O)
+vboxsf 81920 - - Live 0x0000000000000000 (O)
+vboxguest 380928 - - Live 0x0000000000000000 (O)
+===================================================================
+--- kallsyms: 101248 lines total, snapshot bounded to 8MB ---
+--- kallsyms table symbols (the kr_seed values) ---
+--- layout-distinguishing symbols ---
+kallsyms 'current_task': 000000000001bc40 A current_task
+kallsyms 'fixed_percpu_data': 0000000000000000 A fixed_percpu_data
+kallsyms '__per_cpu_start': 0000000000000000 A __per_cpu_start
+kallsyms '_stext': ffffffff81000000 T _stext
+kallsyms '_etext': ffffffff81c01dd9 T _etext
+kallsyms 'kallsyms_lookup_name': ffffffff810fd360 t kallsyms_lookup_name
+kallsyms 'kallsyms_lookup': ffffffff810fd840 t kallsyms_lookup
+kallsyms 'sprint_symbol': ffffffff810fdce0 t sprint_symbol
+--- LTO/CFI/BOLT markers ---
+cfi_jt symbols: 0
+ffffffff82158e80 D __start___jump_table
+================ ReSuSFS kernel recon (v26.11.38) ================
+timestamp: 2026-11-26 23:41:02
+boot_id: ed00a735b46c4dc380f709366b3f2426
+
+--- /proc/version (compiler + build string) ---
+Linux version 5.15.178+ (nobody@android-build) (Android (10087095, +pgo, +bolt, +lto, -mlgo, based on r487747c) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362), LLD 17.0.2) #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026
+--- uname -a ---
+Linux (none) 5.15.178+ #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026 x86_64 Toybox
+--- /proc/sys/kernel/osrelease (exact KMI string) ---
+5.15.178+
+--- /proc/sys/kernel/tainted ---
+4096
+--- getenforce ---
+Permissive
+--- /proc/cmdline ---
+root=/dev/ram0 init=/init mitigations=off stack_depot_disable=on cgroup_disable=pressure androidboot.selinux=permissive enforcing=0 printk.devkmsg=on androidboot.hardware=qcom nosmap nosmep quiet console=tty0 console=ttyS0 androidboot.console=tty0 ignore_loglevel cpuidle.off=1 oprofile.timer=1 oprofile.cpu_type=timer irqaffinity=0
+
+--- key sysctls ---
+kernel/kptr_restrict = 2
+kernel/dmesg_restrict = 0
+kernel/perf_event_paranoid = 2
+--- ksud availability ---
+ksud on PATH: /data/adb/ksu/bin/ksud
+KernelSU userspace cli
+
+Usage: ksud <COMMAND>
+
+Commands:
+  module          Manage KernelSU modules
+  post-fs-data    Trigger `post-fs-data` event
+  services        Trigger `service` event
+  boot-completed  Trigger `boot-complete` event
+  late-load       Load kernelsu.ko and execute late-load stage scripts
+  soft-reboot     Emulate system reboot
+  insmod          Load a kernel module with kallsyms access
+  install         Install KernelSU userspace component to system
+  unload          Unload KernelSU kernel module (LKM Only)
+  uninstall       Uninstall KernelSU modules and itself(LKM Only)
+  sepolicy        SELinux policy Patch tool
+  profile         Manage App Profiles
+  feature         Manage kernel features
+  boot-patch      Patch boot or init_boot images to apply KernelSU
+  boot-restore    Restore boot or init_boot images patched by KernelSU
+/data/adb/ksu/bin/ksud exists
+KernelSU userspace cli
+
+Usage: ksud <COMMAND>
+
+Commands:
+  module          Manage KernelSU modules
+  post-fs-data    Trigger `post-fs-data` event
+  services        Trigger `service` event
+  boot-completed  Trigger `boot-complete` event
+  late-load       Load kernelsu.ko and execute late-load stage scripts
+  soft-reboot     Emulate system reboot
+  insmod          Load a kernel module with kallsyms access
+  install         Install KernelSU userspace component to system
+  unload          Unload KernelSU kernel module (LKM Only)
+  uninstall       Uninstall KernelSU modules and itself(LKM Only)
+  sepolicy        SELinux policy Patch tool
+  profile         Manage App Profiles
+  feature         Manage kernel features
+  boot-patch      Patch boot or init_boot images to apply KernelSU
+  boot-restore    Restore boot or init_boot images patched by KernelSU
+--- KernelSU variant hints ---
+/data/adb/ksu/bin/ksud: lrwxrwxrwx 1 root root 14 2026-11-20 23:14 /data/adb/ksu/bin/ksud -> /data/adb/ksud
+/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-26 23:08 /data/adb/ksud
+--- BTF (struct layout ground truth, if present) ---
+--- IKCONFIG (/proc/config.gz -> kernel_config.txt) ---
+/proc/config.gz absent (CONFIG_IKCONFIG_PROC off) - kallsyms + version string are the layout hints
+--- /proc/modules (first 15) ---
+fastpipe_x64 45056 - - Live 0x0000000000000000 (O)
+vboxsf 81920 - - Live 0x0000000000000000 (O)
+vboxguest 380928 - - Live 0x0000000000000000 (O)
+===================================================================
+--- kallsyms: 101248 lines total, snapshot bounded to 8MB ---
+--- kallsyms table symbols (the kr_seed values) ---
+--- layout-distinguishing symbols ---
+kallsyms 'current_task': 000000000001bc40 A current_task
+kallsyms 'fixed_percpu_data': 0000000000000000 A fixed_percpu_data
+kallsyms '__per_cpu_start': 0000000000000000 A __per_cpu_start
+kallsyms '_stext': ffffffff81000000 T _stext
+kallsyms '_etext': ffffffff81c01dd9 T _etext
+kallsyms 'kallsyms_lookup_name': ffffffff810fd360 t kallsyms_lookup_name
+kallsyms 'kallsyms_lookup': ffffffff810fd840 t kallsyms_lookup
+kallsyms 'sprint_symbol': ffffffff810fdce0 t sprint_symbol
+--- LTO/CFI/BOLT markers ---
+cfi_jt symbols: 0
+ffffffff82158e80 D __start___jump_table
+================ ReSuSFS kernel recon (v26.11.38) ================
+timestamp: 2026-11-26 23:45:56
+boot_id: cab5b2501d4c49e9ae3262cb2b3b76d3
+
+--- /proc/version (compiler + build string) ---
+Linux version 5.15.178+ (nobody@android-build) (Android (10087095, +pgo, +bolt, +lto, -mlgo, based on r487747c) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362), LLD 17.0.2) #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026
+--- uname -a ---
+Linux (none) 5.15.178+ #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026 x86_64 Toybox
+--- /proc/sys/kernel/osrelease (exact KMI string) ---
+5.15.178+
+--- /proc/sys/kernel/tainted ---
+4096
+--- getenforce ---
+Permissive
+--- /proc/cmdline ---
+root=/dev/ram0 init=/init mitigations=off stack_depot_disable=on cgroup_disable=pressure androidboot.selinux=permissive enforcing=0 printk.devkmsg=on androidboot.hardware=qcom nosmap nosmep quiet console=tty0 console=ttyS0 androidboot.console=tty0 ignore_loglevel cpuidle.off=1 oprofile.timer=1 oprofile.cpu_type=timer irqaffinity=0
+
+--- key sysctls ---
+kernel/kptr_restrict = 2
+kernel/dmesg_restrict = 0
+kernel/perf_event_paranoid = 2
+--- ksud availability ---
+ksud on PATH: /data/adb/ksu/bin/ksud
+KernelSU userspace cli
+
+Usage: ksud <COMMAND>
+
+Commands:
+  module          Manage KernelSU modules
+  post-fs-data    Trigger `post-fs-data` event
+  services        Trigger `service` event
+  boot-completed  Trigger `boot-complete` event
+  late-load       Load kernelsu.ko and execute late-load stage scripts
+  soft-reboot     Emulate system reboot
+  insmod          Load a kernel module with kallsyms access
+  install         Install KernelSU userspace component to system
+  unload          Unload KernelSU kernel module (LKM Only)
+  uninstall       Uninstall KernelSU modules and itself(LKM Only)
+  sepolicy        SELinux policy Patch tool
+  profile         Manage App Profiles
+  feature         Manage kernel features
+  boot-patch      Patch boot or init_boot images to apply KernelSU
+  boot-restore    Restore boot or init_boot images patched by KernelSU
+/data/adb/ksu/bin/ksud exists
+KernelSU userspace cli
+
+Usage: ksud <COMMAND>
+
+Commands:
+  module          Manage KernelSU modules
+  post-fs-data    Trigger `post-fs-data` event
+  services        Trigger `service` event
+  boot-completed  Trigger `boot-complete` event
+  late-load       Load kernelsu.ko and execute late-load stage scripts
+  soft-reboot     Emulate system reboot
+  insmod          Load a kernel module with kallsyms access
+  install         Install KernelSU userspace component to system
+  unload          Unload KernelSU kernel module (LKM Only)
+  uninstall       Uninstall KernelSU modules and itself(LKM Only)
+  sepolicy        SELinux policy Patch tool
+  profile         Manage App Profiles
+  feature         Manage kernel features
+  boot-patch      Patch boot or init_boot images to apply KernelSU
+  boot-restore    Restore boot or init_boot images patched by KernelSU
+--- KernelSU variant hints ---
+/data/adb/ksu/bin/ksud: lrwxrwxrwx 1 root root 14 2026-11-20 23:14 /data/adb/ksu/bin/ksud -> /data/adb/ksud
+/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-26 23:08 /data/adb/ksud
+--- BTF (struct layout ground truth, if present) ---
+--- IKCONFIG (/proc/config.gz -> kernel_config.txt) ---
+/proc/config.gz absent (CONFIG_IKCONFIG_PROC off) - kallsyms + version string are the layout hints
+--- /proc/modules (first 15) ---
+fastpipe_x64 45056 - - Live 0x0000000000000000 (O)
+vboxsf 81920 - - Live 0x0000000000000000 (O)
+vboxguest 380928 - - Live 0x0000000000000000 (O)
+===================================================================
+--- kallsyms: 101248 lines total, snapshot bounded to 8MB ---
+--- kallsyms table symbols (the kr_seed values) ---
+--- layout-distinguishing symbols ---
+kallsyms 'current_task': 000000000001bc40 A current_task
+kallsyms 'fixed_percpu_data': 0000000000000000 A fixed_percpu_data
+kallsyms '__per_cpu_start': 0000000000000000 A __per_cpu_start
+kallsyms '_stext': ffffffff81000000 T _stext
+kallsyms '_etext': ffffffff81c01dd9 T _etext
+kallsyms 'kallsyms_lookup_name': ffffffff810fd360 t kallsyms_lookup_name
+kallsyms 'kallsyms_lookup': ffffffff810fd840 t kallsyms_lookup
+kallsyms 'sprint_symbol': ffffffff810fdce0 t sprint_symbol
+--- LTO/CFI/BOLT markers ---
+cfi_jt symbols: 0
+ffffffff82158e80 D __start___jump_table
+================ ReSuSFS kernel recon (v26.11.38) ================
+timestamp: 2026-11-26 23:48:54
+boot_id: 68f36c18ced644e687ea93bad48359e2
+
+--- /proc/version (compiler + build string) ---
+Linux version 5.15.178+ (nobody@android-build) (Android (10087095, +pgo, +bolt, +lto, -mlgo, based on r487747c) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362), LLD 17.0.2) #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026
+--- uname -a ---
+Linux (none) 5.15.178+ #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026 x86_64 Toybox
+--- /proc/sys/kernel/osrelease (exact KMI string) ---
+5.15.178+
+--- /proc/sys/kernel/tainted ---
+4096
+--- getenforce ---
+Permissive
+--- /proc/cmdline ---
+root=/dev/ram0 init=/init mitigations=off stack_depot_disable=on cgroup_disable=pressure androidboot.selinux=permissive enforcing=0 printk.devkmsg=on androidboot.hardware=qcom nosmap nosmep quiet console=tty0 console=ttyS0 androidboot.console=tty0 ignore_loglevel cpuidle.off=1 oprofile.timer=1 oprofile.cpu_type=timer irqaffinity=0
+
+--- key sysctls ---
+kernel/kptr_restrict = 2
+kernel/dmesg_restrict = 0
+kernel/perf_event_paranoid = 2
+--- ksud availability ---
+ksud on PATH: /data/adb/ksu/bin/ksud
+KernelSU userspace cli
+
+Usage: ksud <COMMAND>
+
+Commands:
+  module          Manage KernelSU modules
+  post-fs-data    Trigger `post-fs-data` event
+  services        Trigger `service` event
+  boot-completed  Trigger `boot-complete` event
+  late-load       Load kernelsu.ko and execute late-load stage scripts
+  soft-reboot     Emulate system reboot
+  insmod          Load a kernel module with kallsyms access
+  install         Install KernelSU userspace component to system
+  unload          Unload KernelSU kernel module (LKM Only)
+  uninstall       Uninstall KernelSU modules and itself(LKM Only)
+  sepolicy        SELinux policy Patch tool
+  profile         Manage App Profiles
+  feature         Manage kernel features
+  boot-patch      Patch boot or init_boot images to apply KernelSU
+  boot-restore    Restore boot or init_boot images patched by KernelSU
+/data/adb/ksu/bin/ksud exists
+KernelSU userspace cli
+
+Usage: ksud <COMMAND>
+
+Commands:
+  module          Manage KernelSU modules
+  post-fs-data    Trigger `post-fs-data` event
+  services        Trigger `service` event
+  boot-completed  Trigger `boot-complete` event
+  late-load       Load kernelsu.ko and execute late-load stage scripts
+  soft-reboot     Emulate system reboot
+  insmod          Load a kernel module with kallsyms access
+  install         Install KernelSU userspace component to system
+  unload          Unload KernelSU kernel module (LKM Only)
+  uninstall       Uninstall KernelSU modules and itself(LKM Only)
+  sepolicy        SELinux policy Patch tool
+  profile         Manage App Profiles
+  feature         Manage kernel features
+  boot-patch      Patch boot or init_boot images to apply KernelSU
+  boot-restore    Restore boot or init_boot images patched by KernelSU
+--- KernelSU variant hints ---
+/data/adb/ksu/bin/ksud: lrwxrwxrwx 1 root root 14 2026-11-20 23:14 /data/adb/ksu/bin/ksud -> /data/adb/ksud
+/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-26 23:08 /data/adb/ksud
+--- BTF (struct layout ground truth, if present) ---
+--- IKCONFIG (/proc/config.gz -> kernel_config.txt) ---
+/proc/config.gz absent (CONFIG_IKCONFIG_PROC off) - kallsyms + version string are the layout hints
+--- /proc/modules (first 15) ---
+fastpipe_x64 45056 - - Live 0x0000000000000000 (O)
+vboxsf 81920 - - Live 0x0000000000000000 (O)
+vboxguest 380928 - - Live 0x0000000000000000 (O)
+===================================================================
+--- kallsyms: 101248 lines total, snapshot bounded to 8MB ---
+--- kallsyms table symbols (the kr_seed values) ---
+--- layout-distinguishing symbols ---
+kallsyms 'current_task': 000000000001bc40 A current_task
+kallsyms 'fixed_percpu_data': 0000000000000000 A fixed_percpu_data
+kallsyms '__per_cpu_start': 0000000000000000 A __per_cpu_start
+kallsyms '_stext': ffffffff81000000 T _stext
+kallsyms '_etext': ffffffff81c01dd9 T _etext
+kallsyms 'kallsyms_lookup_name': ffffffff810fd360 t kallsyms_lookup_name
+kallsyms 'kallsyms_lookup': ffffffff810fd840 t kallsyms_lookup
+kallsyms 'sprint_symbol': ffffffff810fdce0 t sprint_symbol
+--- LTO/CFI/BOLT markers ---
+cfi_jt symbols: 0
+ffffffff82158e80 D __start___jump_table
+================ ReSuSFS kernel recon (v26.11.38) ================
+timestamp: 2026-11-27 00:08:21
+boot_id: c29269bde69c4682bcfa21be2629f8e4
+
+--- /proc/version (compiler + build string) ---
+Linux version 5.15.178+ (nobody@android-build) (Android (10087095, +pgo, +bolt, +lto, -mlgo, based on r487747c) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362), LLD 17.0.2) #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026
+--- uname -a ---
+Linux (none) 5.15.178+ #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026 x86_64 Toybox
+--- /proc/sys/kernel/osrelease (exact KMI string) ---
+5.15.178+
+--- /proc/sys/kernel/tainted ---
+4096
+--- getenforce ---
+Permissive
+--- /proc/cmdline ---
+root=/dev/ram0 init=/init mitigations=off stack_depot_disable=on cgroup_disable=pressure androidboot.selinux=permissive enforcing=0 printk.devkmsg=on androidboot.hardware=qcom nosmap nosmep quiet console=tty0 console=ttyS0 androidboot.console=tty0 ignore_loglevel cpuidle.off=1 oprofile.timer=1 oprofile.cpu_type=timer irqaffinity=0
+
+--- key sysctls ---
+kernel/kptr_restrict = 2
+kernel/dmesg_restrict = 0
+kernel/perf_event_paranoid = 2
+--- ksud availability ---
+ksud on PATH: /data/adb/ksu/bin/ksud
+KernelSU userspace cli
+
+Usage: ksud <COMMAND>
+
+Commands:
+  module          Manage KernelSU modules
+  post-fs-data    Trigger `post-fs-data` event
+  services        Trigger `service` event
+  boot-completed  Trigger `boot-complete` event
+  late-load       Load kernelsu.ko and execute late-load stage scripts
+  soft-reboot     Emulate system reboot
+  insmod          Load a kernel module with kallsyms access
+  install         Install KernelSU userspace component to system
+  unload          Unload KernelSU kernel module (LKM Only)
+  uninstall       Uninstall KernelSU modules and itself(LKM Only)
+  sepolicy        SELinux policy Patch tool
+  profile         Manage App Profiles
+  feature         Manage kernel features
+  boot-patch      Patch boot or init_boot images to apply KernelSU
+  boot-restore    Restore boot or init_boot images patched by KernelSU
+/data/adb/ksu/bin/ksud exists
+KernelSU userspace cli
+
+Usage: ksud <COMMAND>
+
+Commands:
+  module          Manage KernelSU modules
+  post-fs-data    Trigger `post-fs-data` event
+  services        Trigger `service` event
+  boot-completed  Trigger `boot-complete` event
+  late-load       Load kernelsu.ko and execute late-load stage scripts
+  soft-reboot     Emulate system reboot
+  insmod          Load a kernel module with kallsyms access
+  install         Install KernelSU userspace component to system
+  unload          Unload KernelSU kernel module (LKM Only)
+  uninstall       Uninstall KernelSU modules and itself(LKM Only)
+  sepolicy        SELinux policy Patch tool
+  profile         Manage App Profiles
+  feature         Manage kernel features
+  boot-patch      Patch boot or init_boot images to apply KernelSU
+  boot-restore    Restore boot or init_boot images patched by KernelSU
+--- KernelSU variant hints ---
+/data/adb/ksu/bin/ksud: lrwxrwxrwx 1 root root 14 2026-11-20 23:14 /data/adb/ksu/bin/ksud -> /data/adb/ksud
+/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-26 23:08 /data/adb/ksud
+--- BTF (struct layout ground truth, if present) ---
+--- IKCONFIG (/proc/config.gz -> kernel_config.txt) ---
+/proc/config.gz absent (CONFIG_IKCONFIG_PROC off) - kallsyms + version string are the layout hints
+--- /proc/modules (first 15) ---
+fastpipe_x64 45056 - - Live 0x0000000000000000 (O)
+vboxsf 81920 - - Live 0x0000000000000000 (O)
+vboxguest 380928 - - Live 0x0000000000000000 (O)
+===================================================================
+--- kallsyms: 101248 lines total, snapshot bounded to 8MB ---
+--- kallsyms table symbols (the kr_seed values) ---
+--- layout-distinguishing symbols ---
+kallsyms 'current_task': 000000000001bc40 A current_task
+kallsyms 'fixed_percpu_data': 0000000000000000 A fixed_percpu_data
+kallsyms '__per_cpu_start': 0000000000000000 A __per_cpu_start
+kallsyms '_stext': ffffffff81000000 T _stext
+kallsyms '_etext': ffffffff81c01dd9 T _etext
+kallsyms 'kallsyms_lookup_name': ffffffff810fd360 t kallsyms_lookup_name
+kallsyms 'kallsyms_lookup': ffffffff810fd840 t kallsyms_lookup
+kallsyms 'sprint_symbol': ffffffff810fdce0 t sprint_symbol
+--- LTO/CFI/BOLT markers ---
+cfi_jt symbols: 0
+ffffffff82158e80 D __start___jump_table
+================ ReSuSFS kernel recon (v26.11.38) ================
+timestamp: 2026-11-27 00:11:44
+boot_id: 25d4d613dfe74bcaade8a5e1f7a9caaa
+
+--- /proc/version (compiler + build string) ---
+Linux version 5.15.178+ (nobody@android-build) (Android (10087095, +pgo, +bolt, +lto, -mlgo, based on r487747c) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362), LLD 17.0.2) #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026
+--- uname -a ---
+Linux (none) 5.15.178+ #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026 x86_64 Toybox
+--- /proc/sys/kernel/osrelease (exact KMI string) ---
+5.15.178+
+--- /proc/sys/kernel/tainted ---
+4096
+--- getenforce ---
+Permissive
+--- /proc/cmdline ---
+root=/dev/ram0 init=/init mitigations=off stack_depot_disable=on cgroup_disable=pressure androidboot.selinux=permissive enforcing=0 printk.devkmsg=on androidboot.hardware=qcom nosmap nosmep quiet console=tty0 console=ttyS0 androidboot.console=tty0 ignore_loglevel cpuidle.off=1 oprofile.timer=1 oprofile.cpu_type=timer irqaffinity=0
+
+--- key sysctls ---
+kernel/kptr_restrict = 2
+kernel/dmesg_restrict = 0
+kernel/perf_event_paranoid = 2
+--- ksud availability ---
+ksud on PATH: /data/adb/ksu/bin/ksud
+KernelSU userspace cli
+
+Usage: ksud <COMMAND>
+
+Commands:
+  module          Manage KernelSU modules
+  post-fs-data    Trigger `post-fs-data` event
+  services        Trigger `service` event
+  boot-completed  Trigger `boot-complete` event
+  late-load       Load kernelsu.ko and execute late-load stage scripts
+  soft-reboot     Emulate system reboot
+  insmod          Load a kernel module with kallsyms access
+  install         Install KernelSU userspace component to system
+  unload          Unload KernelSU kernel module (LKM Only)
+  uninstall       Uninstall KernelSU modules and itself(LKM Only)
+  sepolicy        SELinux policy Patch tool
+  profile         Manage App Profiles
+  feature         Manage kernel features
+  boot-patch      Patch boot or init_boot images to apply KernelSU
+  boot-restore    Restore boot or init_boot images patched by KernelSU
+/data/adb/ksu/bin/ksud exists
+KernelSU userspace cli
+
+Usage: ksud <COMMAND>
+
+Commands:
+  module          Manage KernelSU modules
+  post-fs-data    Trigger `post-fs-data` event
+  services        Trigger `service` event
+  boot-completed  Trigger `boot-complete` event
+  late-load       Load kernelsu.ko and execute late-load stage scripts
+  soft-reboot     Emulate system reboot
+  insmod          Load a kernel module with kallsyms access
+  install         Install KernelSU userspace component to system
+  unload          Unload KernelSU kernel module (LKM Only)
+  uninstall       Uninstall KernelSU modules and itself(LKM Only)
+  sepolicy        SELinux policy Patch tool
+  profile         Manage App Profiles
+  feature         Manage kernel features
+  boot-patch      Patch boot or init_boot images to apply KernelSU
+  boot-restore    Restore boot or init_boot images patched by KernelSU
+--- KernelSU variant hints ---
+/data/adb/ksu/bin/ksud: lrwxrwxrwx 1 root root 14 2026-11-20 23:14 /data/adb/ksu/bin/ksud -> /data/adb/ksud
+/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-26 23:08 /data/adb/ksud
+--- BTF (struct layout ground truth, if present) ---
+--- IKCONFIG (/proc/config.gz -> kernel_config.txt) ---
+/proc/config.gz absent (CONFIG_IKCONFIG_PROC off) - kallsyms + version string are the layout hints
+--- /proc/modules (first 15) ---
+fastpipe_x64 45056 - - Live 0x0000000000000000 (O)
+vboxsf 81920 - - Live 0x0000000000000000 (O)
+vboxguest 380928 - - Live 0x0000000000000000 (O)
+===================================================================
+--- kallsyms: 101248 lines total, snapshot bounded to 8MB ---
+--- kallsyms table symbols (the kr_seed values) ---
+--- layout-distinguishing symbols ---
+kallsyms 'current_task': 000000000001bc40 A current_task
+kallsyms 'fixed_percpu_data': 0000000000000000 A fixed_percpu_data
+kallsyms '__per_cpu_start': 0000000000000000 A __per_cpu_start
+kallsyms '_stext': ffffffff81000000 T _stext
+kallsyms '_etext': ffffffff81c01dd9 T _etext
+kallsyms 'kallsyms_lookup_name': ffffffff810fd360 t kallsyms_lookup_name
+kallsyms 'kallsyms_lookup': ffffffff810fd840 t kallsyms_lookup
+kallsyms 'sprint_symbol': ffffffff810fdce0 t sprint_symbol
+--- LTO/CFI/BOLT markers ---
+cfi_jt symbols: 0
+ffffffff82158e80 D __start___jump_table
+================ ReSuSFS kernel recon (v26.11.38) ================
+timestamp: 2026-11-27 00:15:04
+boot_id: 6d654d6521584bc38e9a0c047ac7f044
+
+--- /proc/version (compiler + build string) ---
+Linux version 5.15.178+ (nobody@android-build) (Android (10087095, +pgo, +bolt, +lto, -mlgo, based on r487747c) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362), LLD 17.0.2) #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026
+--- uname -a ---
+Linux (none) 5.15.178+ #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026 x86_64 Toybox
+--- /proc/sys/kernel/osrelease (exact KMI string) ---
+5.15.178+
+--- /proc/sys/kernel/tainted ---
+4096
+--- getenforce ---
+Permissive
+--- /proc/cmdline ---
+root=/dev/ram0 init=/init mitigations=off stack_depot_disable=on cgroup_disable=pressure androidboot.selinux=permissive enforcing=0 printk.devkmsg=on androidboot.hardware=qcom nosmap nosmep quiet console=tty0 console=ttyS0 androidboot.console=tty0 ignore_loglevel cpuidle.off=1 oprofile.timer=1 oprofile.cpu_type=timer irqaffinity=0
+
+--- key sysctls ---
+kernel/kptr_restrict = 2
+kernel/dmesg_restrict = 0
+kernel/perf_event_paranoid = 2
+--- ksud availability ---
+ksud on PATH: /data/adb/ksu/bin/ksud
+KernelSU userspace cli
+
+Usage: ksud <COMMAND>
+
+Commands:
+  module          Manage KernelSU modules
+  post-fs-data    Trigger `post-fs-data` event
+  services        Trigger `service` event
+  boot-completed  Trigger `boot-complete` event
+  late-load       Load kernelsu.ko and execute late-load stage scripts
+  soft-reboot     Emulate system reboot
+  insmod          Load a kernel module with kallsyms access
+  install         Install KernelSU userspace component to system
+  unload          Unload KernelSU kernel module (LKM Only)
+  uninstall       Uninstall KernelSU modules and itself(LKM Only)
+  sepolicy        SELinux policy Patch tool
+  profile         Manage App Profiles
+  feature         Manage kernel features
+  boot-patch      Patch boot or init_boot images to apply KernelSU
+  boot-restore    Restore boot or init_boot images patched by KernelSU
+/data/adb/ksu/bin/ksud exists
+KernelSU userspace cli
+
+Usage: ksud <COMMAND>
+
+Commands:
+  module          Manage KernelSU modules
+  post-fs-data    Trigger `post-fs-data` event
+  services        Trigger `service` event
+  boot-completed  Trigger `boot-complete` event
+  late-load       Load kernelsu.ko and execute late-load stage scripts
+  soft-reboot     Emulate system reboot
+  insmod          Load a kernel module with kallsyms access
+  install         Install KernelSU userspace component to system
+  unload          Unload KernelSU kernel module (LKM Only)
+  uninstall       Uninstall KernelSU modules and itself(LKM Only)
+  sepolicy        SELinux policy Patch tool
+  profile         Manage App Profiles
+  feature         Manage kernel features
+  boot-patch      Patch boot or init_boot images to apply KernelSU
+  boot-restore    Restore boot or init_boot images patched by KernelSU
+--- KernelSU variant hints ---
+/data/adb/ksu/bin/ksud: lrwxrwxrwx 1 root root 14 2026-11-20 23:14 /data/adb/ksu/bin/ksud -> /data/adb/ksud
+/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-26 23:08 /data/adb/ksud
+--- BTF (struct layout ground truth, if present) ---
+--- IKCONFIG (/proc/config.gz -> kernel_config.txt) ---
+/proc/config.gz absent (CONFIG_IKCONFIG_PROC off) - kallsyms + version string are the layout hints
+--- /proc/modules (first 15) ---
+fastpipe_x64 45056 - - Live 0x0000000000000000 (O)
+vboxsf 81920 - - Live 0x0000000000000000 (O)
+vboxguest 380928 - - Live 0x0000000000000000 (O)
+===================================================================
+--- kallsyms: 101248 lines total, snapshot bounded to 8MB ---
+--- kallsyms table symbols (the kr_seed values) ---
+--- layout-distinguishing symbols ---
+kallsyms 'current_task': 000000000001bc40 A current_task
+kallsyms 'fixed_percpu_data': 0000000000000000 A fixed_percpu_data
+kallsyms '__per_cpu_start': 0000000000000000 A __per_cpu_start
+kallsyms '_stext': ffffffff81000000 T _stext
+kallsyms '_etext': ffffffff81c01dd9 T _etext
+kallsyms 'kallsyms_lookup_name': ffffffff810fd360 t kallsyms_lookup_name
+kallsyms 'kallsyms_lookup': ffffffff810fd840 t kallsyms_lookup
+kallsyms 'sprint_symbol': ffffffff810fdce0 t sprint_symbol
+--- LTO/CFI/BOLT markers ---
+cfi_jt symbols: 0
+ffffffff82158e80 D __start___jump_table

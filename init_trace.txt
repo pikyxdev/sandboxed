@@ -1,0 +1,313 @@
+---- boot f8dbc68038654b468f2a5bc031f729b1 begin (v42 substep ladder; trigger_mode=sync) ----
+[2026-11-26 23:11:54] boot=f8dbc68038654b468f2a5bc031f729b1 STEP 0/7 DISPATCHING (arm_stage=0/5 marker='' mode=sync module=v26.11.56-x86_64)
+[2026-11-26 23:12:02] boot=f8dbc68038654b468f2a5bc031f729b1 seed v2 written: kln=ffffffff810fd360 gsoff=000000000001bc40
+[2026-11-26 23:12:03] boot=f8dbc68038654b468f2a5bc031f729b1 writing arm_stage=0 (layer gate)
+[2026-11-26 23:12:03] boot=f8dbc68038654b468f2a5bc031f729b1 writing init_maxstep=0 (substep gate)
+[2026-11-26 23:12:03] boot=f8dbc68038654b468f2a5bc031f729b1 diag_printk=1 armed (EMERG breadcrumbs: XYZDIAG2 at .set entry, XYZDIAG1 in the body)
+[2026-11-26 23:12:03] boot=f8dbc68038654b468f2a5bc031f729b1 dmesg baseline (last 6): [   35.393223] audit: rate limit exceeded|[   35.534076] ReSuSFS: boot-completed: kr_seed(v2) = kln=ffffffff810fd360 gsoff=000000000001bc40|[   35.731319] ReSuSFS: init-trace: writing arm_stage=0 (layer gate)|[   35.777643] ReSuSFS: init-trace: writing init_maxstep=0 (substep gate)|[   35.983397] Re
+[2026-11-26 23:12:03] boot=f8dbc68038654b468f2a5bc031f729b1 trigger_mode=sync: writing force_init=2 (v43 SYNC path: the .set calls susfs_init_body DIRECTLY - no workqueue; sentinels -70 entered, -71 already-done)
+[2026-11-26 23:12:03] boot=f8dbc68038654b468f2a5bc031f729b1 force_init=2 write returned (sync body ran to completion inside the write)
+[2026-11-26 23:12:04] boot=f8dbc68038654b468f2a5bc031f729b1 witness(bg): laststep=0 init_done=1 @0s
+[2026-11-26 23:12:04] boot=f8dbc68038654b468f2a5bc031f729b1 witness(bg): diag_log snapshot @0s (len=131)
+[2026-11-26 23:12:05] boot=f8dbc68038654b468f2a5bc031f729b1 STEP 0 COMPLETE (init_done=1 after 0s; module laststep=0)
+[2026-11-26 23:12:08] boot=f8dbc68038654b468f2a5bc031f729b1 heartbeat @1x5s (alive, uptime 40)
+[2026-11-26 23:12:11] boot=f8dbc68038654b468f2a5bc031f729b1 witness(bg): init_done=1 seen - background witness exiting @5s
+[2026-11-26 23:12:13] boot=f8dbc68038654b468f2a5bc031f729b1 heartbeat @2x5s (alive, uptime 46)
+[2026-11-26 23:12:18] boot=f8dbc68038654b468f2a5bc031f729b1 heartbeat @3x5s (alive, uptime 51)
+[2026-11-26 23:12:23] boot=f8dbc68038654b468f2a5bc031f729b1 heartbeat @4x5s (alive, uptime 56)
+[2026-11-26 23:12:28] boot=f8dbc68038654b468f2a5bc031f729b1 heartbeat @5x5s (alive, uptime 61)
+[2026-11-26 23:12:33] boot=f8dbc68038654b468f2a5bc031f729b1 heartbeat @6x5s (alive, uptime 66)
+[2026-11-26 23:12:38] boot=f8dbc68038654b468f2a5bc031f729b1 heartbeat @7x5s (alive, uptime 71)
+[2026-11-26 23:12:43] boot=f8dbc68038654b468f2a5bc031f729b1 heartbeat @8x5s (alive, uptime 76)
+[2026-11-26 23:12:43] boot=f8dbc68038654b468f2a5bc031f729b1 heartbeat window done (40s)
+---- boot ef729ea7793d458883f7a6876c07519d begin (v42 substep ladder; trigger_mode=sync) ----
+[2026-11-26 23:14:47] boot=ef729ea7793d458883f7a6876c07519d STEP 1/7 DISPATCHING (arm_stage=0/5 marker='ok 0 f8dbc68038654b468f2a5bc031f729b1' mode=sync module=v26.11.56-x86_64)
+[2026-11-26 23:14:54] boot=ef729ea7793d458883f7a6876c07519d seed v2 written: kln=ffffffff810fd360 gsoff=000000000001bc40
+[2026-11-26 23:14:55] boot=ef729ea7793d458883f7a6876c07519d writing arm_stage=0 (layer gate)
+[2026-11-26 23:14:55] boot=ef729ea7793d458883f7a6876c07519d writing init_maxstep=1 (substep gate)
+[2026-11-26 23:14:55] boot=ef729ea7793d458883f7a6876c07519d diag_printk=1 armed (EMERG breadcrumbs: XYZDIAG2 at .set entry, XYZDIAG1 in the body)
+[2026-11-26 23:14:55] boot=ef729ea7793d458883f7a6876c07519d witness(bg): laststep=-1 init_done=0 @0s
+[2026-11-26 23:14:55] boot=ef729ea7793d458883f7a6876c07519d dmesg baseline (last 6): [   34.508992] ReSuSFS: init-trace: writing arm_stage=0 (layer gate)|[   34.550336] ReSuSFS: init-trace: writing init_maxstep=1 (substep gate)|[   34.565036] ReSuSFS: boot-completed: substep seq=1 armed (init_maxstep=1 arm_stage=0; ladder: 0=dispatch 1=+imports 2=+resolver 3=+gs_off 4=+deadman 5=+cr
+[2026-11-26 23:14:55] boot=ef729ea7793d458883f7a6876c07519d trigger_mode=sync: writing force_init=2 (v43 SYNC path: the .set calls susfs_init_body DIRECTLY - no workqueue; sentinels -70 entered, -71 already-done)
+[2026-11-26 23:14:55] boot=ef729ea7793d458883f7a6876c07519d force_init=2 write returned (sync body ran to completion inside the write)
+[2026-11-26 23:14:56] boot=ef729ea7793d458883f7a6876c07519d STEP 1 COMPLETE (init_done=1 after 0s; module laststep=1)
+[2026-11-26 23:14:57] boot=ef729ea7793d458883f7a6876c07519d witness(bg): laststep=1 init_done=1 @1s
+[2026-11-26 23:14:57] boot=ef729ea7793d458883f7a6876c07519d witness(bg): diag_log snapshot @1s (len=210)
+[2026-11-26 23:15:00] boot=ef729ea7793d458883f7a6876c07519d heartbeat @1x5s (alive, uptime 39)
+[2026-11-26 23:15:02] boot=ef729ea7793d458883f7a6876c07519d witness(bg): init_done=1 seen - background witness exiting @5s
+[2026-11-26 23:15:05] boot=ef729ea7793d458883f7a6876c07519d heartbeat @2x5s (alive, uptime 44)
+[2026-11-26 23:15:10] boot=ef729ea7793d458883f7a6876c07519d heartbeat @3x5s (alive, uptime 49)
+[2026-11-26 23:15:15] boot=ef729ea7793d458883f7a6876c07519d heartbeat @4x5s (alive, uptime 54)
+[2026-11-26 23:15:20] boot=ef729ea7793d458883f7a6876c07519d heartbeat @5x5s (alive, uptime 59)
+[2026-11-26 23:15:25] boot=ef729ea7793d458883f7a6876c07519d heartbeat @6x5s (alive, uptime 64)
+[2026-11-26 23:15:30] boot=ef729ea7793d458883f7a6876c07519d heartbeat @7x5s (alive, uptime 69)
+[2026-11-26 23:15:35] boot=ef729ea7793d458883f7a6876c07519d heartbeat @8x5s (alive, uptime 74)
+[2026-11-26 23:15:35] boot=ef729ea7793d458883f7a6876c07519d heartbeat window done (40s)
+---- boot b18a4d5bfc174de7ad39d207b0e8ba41 begin (v42 substep ladder; trigger_mode=sync) ----
+[2026-11-26 23:19:06] boot=b18a4d5bfc174de7ad39d207b0e8ba41 STEP 2/7 DISPATCHING (arm_stage=0/5 marker='ok 0 ef729ea7793d458883f7a6876c07519d' mode=sync module=v26.11.56-x86_64)
+[2026-11-26 23:19:16] boot=b18a4d5bfc174de7ad39d207b0e8ba41 seed v2 written: kln=ffffffff810fd360 gsoff=000000000001bc40
+[2026-11-26 23:19:17] boot=b18a4d5bfc174de7ad39d207b0e8ba41 writing arm_stage=0 (layer gate)
+[2026-11-26 23:19:17] boot=b18a4d5bfc174de7ad39d207b0e8ba41 writing init_maxstep=2 (substep gate)
+[2026-11-26 23:19:17] boot=b18a4d5bfc174de7ad39d207b0e8ba41 diag_printk=1 armed (EMERG breadcrumbs: XYZDIAG2 at .set entry, XYZDIAG1 in the body)
+[2026-11-26 23:19:17] boot=b18a4d5bfc174de7ad39d207b0e8ba41 witness(bg): laststep=-1 init_done=0 @0s
+[2026-11-26 23:19:17] boot=b18a4d5bfc174de7ad39d207b0e8ba41 dmesg baseline (last 6): [   36.986551] ReSuSFS: init-trace: writing init_maxstep=2 (substep gate)|[   37.063806] ReSuSFS: boot-completed: substep seq=2 armed (init_maxstep=2 arm_stage=0; ladder: 0=dispatch 1=+imports 2=+resolver 3=+gs_off 4=+deadman 5=+crosscheck 6=+patch 7=+layers; max=5)|[   37.071226] type=1400 audit(17
+[2026-11-26 23:19:18] boot=b18a4d5bfc174de7ad39d207b0e8ba41 trigger_mode=sync: writing force_init=2 (v43 SYNC path: the .set calls susfs_init_body DIRECTLY - no workqueue; sentinels -70 entered, -71 already-done)
+[2026-11-26 23:19:18] boot=b18a4d5bfc174de7ad39d207b0e8ba41 force_init=2 write returned (sync body ran to completion inside the write)
+[2026-11-26 23:19:19] boot=b18a4d5bfc174de7ad39d207b0e8ba41 STEP 2 COMPLETE (init_done=1 after 0s; module laststep=2)
+[2026-11-26 23:19:19] boot=b18a4d5bfc174de7ad39d207b0e8ba41 witness(bg): laststep=2 init_done=1 @1s
+[2026-11-26 23:19:19] boot=b18a4d5bfc174de7ad39d207b0e8ba41 witness(bg): diag_log snapshot @1s (len=2376)
+[2026-11-26 23:19:22] boot=b18a4d5bfc174de7ad39d207b0e8ba41 heartbeat @1x5s (alive, uptime 42)
+[2026-11-26 23:19:24] boot=b18a4d5bfc174de7ad39d207b0e8ba41 witness(bg): init_done=1 seen - background witness exiting @5s
+[2026-11-26 23:19:27] boot=b18a4d5bfc174de7ad39d207b0e8ba41 heartbeat @2x5s (alive, uptime 47)
+[2026-11-26 23:19:32] boot=b18a4d5bfc174de7ad39d207b0e8ba41 heartbeat @3x5s (alive, uptime 52)
+[2026-11-26 23:19:37] boot=b18a4d5bfc174de7ad39d207b0e8ba41 heartbeat @4x5s (alive, uptime 57)
+[2026-11-26 23:19:42] boot=b18a4d5bfc174de7ad39d207b0e8ba41 heartbeat @5x5s (alive, uptime 62)
+[2026-11-26 23:19:47] boot=b18a4d5bfc174de7ad39d207b0e8ba41 heartbeat @6x5s (alive, uptime 67)
+[2026-11-26 23:19:52] boot=b18a4d5bfc174de7ad39d207b0e8ba41 heartbeat @7x5s (alive, uptime 72)
+[2026-11-26 23:19:57] boot=b18a4d5bfc174de7ad39d207b0e8ba41 heartbeat @8x5s (alive, uptime 77)
+[2026-11-26 23:19:57] boot=b18a4d5bfc174de7ad39d207b0e8ba41 heartbeat window done (40s)
+---- boot 373be59a627b4082a9fb8eb5eaf192b9 begin (v42 substep ladder; trigger_mode=sync) ----
+[2026-11-26 23:23:36] boot=373be59a627b4082a9fb8eb5eaf192b9 STEP 3/7 DISPATCHING (arm_stage=0/5 marker='ok 0 b18a4d5bfc174de7ad39d207b0e8ba41' mode=sync module=v26.11.56-x86_64)
+[2026-11-26 23:23:45] boot=373be59a627b4082a9fb8eb5eaf192b9 seed v2 written: kln=ffffffff810fd360 gsoff=000000000001bc40
+[2026-11-26 23:23:45] boot=373be59a627b4082a9fb8eb5eaf192b9 writing arm_stage=0 (layer gate)
+[2026-11-26 23:23:45] boot=373be59a627b4082a9fb8eb5eaf192b9 writing init_maxstep=3 (substep gate)
+[2026-11-26 23:23:45] boot=373be59a627b4082a9fb8eb5eaf192b9 diag_printk=1 armed (EMERG breadcrumbs: XYZDIAG2 at .set entry, XYZDIAG1 in the body)
+[2026-11-26 23:23:45] boot=373be59a627b4082a9fb8eb5eaf192b9 dmesg baseline (last 6): [   36.015332] type=1400 audit(1795710225.394:1166): avc:  denied  { open } for  comm="main" path="/system/vendor/firmware_mnt/dyyzn/app_sysprop" dev="sda2" ino=4900 scontext=u:r:zygote:s0 tcontext=u:object_r:vendor_file:s0 tclass=file permissive=1|[   36.091722] ReSuSFS: boot-completed: kr_seed(v2)
+[2026-11-26 23:23:46] boot=373be59a627b4082a9fb8eb5eaf192b9 witness(bg): laststep=-1 init_done=0 @0s
+[2026-11-26 23:23:46] boot=373be59a627b4082a9fb8eb5eaf192b9 trigger_mode=sync: writing force_init=2 (v43 SYNC path: the .set calls susfs_init_body DIRECTLY - no workqueue; sentinels -70 entered, -71 already-done)
+[2026-11-26 23:23:46] boot=373be59a627b4082a9fb8eb5eaf192b9 force_init=2 write returned (sync body ran to completion inside the write)
+[2026-11-26 23:23:47] boot=373be59a627b4082a9fb8eb5eaf192b9 STEP 3 COMPLETE (init_done=1 after 0s; module laststep=3)
+[2026-11-26 23:23:47] boot=373be59a627b4082a9fb8eb5eaf192b9 witness(bg): laststep=3 init_done=1 @1s
+[2026-11-26 23:23:47] boot=373be59a627b4082a9fb8eb5eaf192b9 witness(bg): diag_log snapshot @1s (len=2513)
+[2026-11-26 23:23:50] boot=373be59a627b4082a9fb8eb5eaf192b9 heartbeat @1x5s (alive, uptime 41)
+[2026-11-26 23:23:52] boot=373be59a627b4082a9fb8eb5eaf192b9 witness(bg): init_done=1 seen - background witness exiting @5s
+[2026-11-26 23:23:55] boot=373be59a627b4082a9fb8eb5eaf192b9 heartbeat @2x5s (alive, uptime 46)
+[2026-11-26 23:24:00] boot=373be59a627b4082a9fb8eb5eaf192b9 heartbeat @3x5s (alive, uptime 51)
+[2026-11-26 23:24:05] boot=373be59a627b4082a9fb8eb5eaf192b9 heartbeat @4x5s (alive, uptime 56)
+[2026-11-26 23:24:10] boot=373be59a627b4082a9fb8eb5eaf192b9 heartbeat @5x5s (alive, uptime 61)
+[2026-11-26 23:24:15] boot=373be59a627b4082a9fb8eb5eaf192b9 heartbeat @6x5s (alive, uptime 66)
+[2026-11-26 23:24:20] boot=373be59a627b4082a9fb8eb5eaf192b9 heartbeat @7x5s (alive, uptime 71)
+[2026-11-26 23:24:25] boot=373be59a627b4082a9fb8eb5eaf192b9 heartbeat @8x5s (alive, uptime 76)
+[2026-11-26 23:24:25] boot=373be59a627b4082a9fb8eb5eaf192b9 heartbeat window done (40s)
+---- boot 545d98c265dc49f68015b27626f4f563 begin (v42 substep ladder; trigger_mode=sync) ----
+[2026-11-26 23:28:34] boot=545d98c265dc49f68015b27626f4f563 STEP 4/7 DISPATCHING (arm_stage=0/5 marker='ok 0 373be59a627b4082a9fb8eb5eaf192b9' mode=sync module=v26.11.56-x86_64)
+[2026-11-26 23:28:43] boot=545d98c265dc49f68015b27626f4f563 seed v2 written: kln=ffffffff810fd360 gsoff=000000000001bc40
+[2026-11-26 23:28:43] boot=545d98c265dc49f68015b27626f4f563 writing arm_stage=0 (layer gate)
+[2026-11-26 23:28:43] boot=545d98c265dc49f68015b27626f4f563 writing init_maxstep=4 (substep gate)
+[2026-11-26 23:28:43] boot=545d98c265dc49f68015b27626f4f563 diag_printk=1 armed (EMERG breadcrumbs: XYZDIAG2 at .set entry, XYZDIAG1 in the body)
+[2026-11-26 23:28:44] boot=545d98c265dc49f68015b27626f4f563 witness(bg): laststep=-1 init_done=0 @0s
+[2026-11-26 23:28:44] boot=545d98c265dc49f68015b27626f4f563 dmesg baseline (last 6): [   35.521300] ReSuSFS: init-trace: writing arm_stage=0 (layer gate)|[   35.641708] type=1400 audit(1795710523.602:1084): avc:  denied  { nlmsg_readpriv } for  comm=4E65746C696E6B204D6F6E69746F72 scontext=u:r:untrusted_app:s0:c81,c256,c512,c768 tcontext=u:r:untrusted_app:s0:c81,c256,c512,c768 tclass
+[2026-11-26 23:28:44] boot=545d98c265dc49f68015b27626f4f563 trigger_mode=sync: writing force_init=2 (v43 SYNC path: the .set calls susfs_init_body DIRECTLY - no workqueue; sentinels -70 entered, -71 already-done)
+[2026-11-26 23:28:44] boot=545d98c265dc49f68015b27626f4f563 force_init=2 write returned (sync body ran to completion inside the write)
+[2026-11-26 23:28:45] boot=545d98c265dc49f68015b27626f4f563 STEP 4 COMPLETE (init_done=1 after 0s; module laststep=4)
+[2026-11-26 23:28:45] boot=545d98c265dc49f68015b27626f4f563 witness(bg): laststep=4 init_done=1 @1s
+[2026-11-26 23:28:45] boot=545d98c265dc49f68015b27626f4f563 witness(bg): diag_log snapshot @1s (len=2573)
+[2026-11-26 23:28:48] boot=545d98c265dc49f68015b27626f4f563 heartbeat @1x5s (alive, uptime 40)
+[2026-11-26 23:28:50] boot=545d98c265dc49f68015b27626f4f563 witness(bg): init_done=1 seen - background witness exiting @5s
+[2026-11-26 23:28:53] boot=545d98c265dc49f68015b27626f4f563 heartbeat @2x5s (alive, uptime 45)
+[2026-11-26 23:28:58] boot=545d98c265dc49f68015b27626f4f563 heartbeat @3x5s (alive, uptime 50)
+[2026-11-26 23:29:03] boot=545d98c265dc49f68015b27626f4f563 heartbeat @4x5s (alive, uptime 55)
+[2026-11-26 23:29:08] boot=545d98c265dc49f68015b27626f4f563 heartbeat @5x5s (alive, uptime 60)
+[2026-11-26 23:29:13] boot=545d98c265dc49f68015b27626f4f563 heartbeat @6x5s (alive, uptime 65)
+[2026-11-26 23:29:19] boot=545d98c265dc49f68015b27626f4f563 heartbeat @7x5s (alive, uptime 70)
+[2026-11-26 23:29:24] boot=545d98c265dc49f68015b27626f4f563 heartbeat @8x5s (alive, uptime 75)
+[2026-11-26 23:29:24] boot=545d98c265dc49f68015b27626f4f563 heartbeat window done (40s)
+---- boot 4b3feac2b5704fd49a3e3dbdd79cc7f1 begin (v42 substep ladder; trigger_mode=sync) ----
+[2026-11-26 23:31:44] boot=4b3feac2b5704fd49a3e3dbdd79cc7f1 STEP 5/7 DISPATCHING (arm_stage=0/5 marker='ok 0 545d98c265dc49f68015b27626f4f563' mode=sync module=v26.11.56-x86_64)
+[2026-11-26 23:31:52] boot=4b3feac2b5704fd49a3e3dbdd79cc7f1 seed v2 written: kln=ffffffff810fd360 gsoff=000000000001bc40
+[2026-11-26 23:31:52] boot=4b3feac2b5704fd49a3e3dbdd79cc7f1 writing arm_stage=0 (layer gate)
+[2026-11-26 23:31:52] boot=4b3feac2b5704fd49a3e3dbdd79cc7f1 writing init_maxstep=5 (substep gate)
+[2026-11-26 23:31:52] boot=4b3feac2b5704fd49a3e3dbdd79cc7f1 diag_printk=1 armed (EMERG breadcrumbs: XYZDIAG2 at .set entry, XYZDIAG1 in the body)
+[2026-11-26 23:31:52] boot=4b3feac2b5704fd49a3e3dbdd79cc7f1 witness(bg): laststep=-1 init_done=0 @0s
+[2026-11-26 23:31:53] boot=4b3feac2b5704fd49a3e3dbdd79cc7f1 dmesg baseline (last 6): [   34.744078] ReSuSFS: init-trace: writing init_maxstep=5 (substep gate)|[   34.845533] type=1400 audit(1795710712.233:1064): avc:  denied  { getattr } for  comm="main" path="/system/vendor/firmware_mnt/dyyzn/app_sysprop" dev="sda2" ino=4900 scontext=u:r:zygote:s0 tcontext=u:object_r:vendor_file:s0
+[2026-11-26 23:31:53] boot=4b3feac2b5704fd49a3e3dbdd79cc7f1 trigger_mode=sync: writing force_init=2 (v43 SYNC path: the .set calls susfs_init_body DIRECTLY - no workqueue; sentinels -70 entered, -71 already-done)
+[2026-11-26 23:31:53] boot=4b3feac2b5704fd49a3e3dbdd79cc7f1 force_init=2 write returned (sync body ran to completion inside the write)
+[2026-11-26 23:31:54] boot=4b3feac2b5704fd49a3e3dbdd79cc7f1 witness(bg): laststep=5 init_done=1 @1s
+[2026-11-26 23:31:54] boot=4b3feac2b5704fd49a3e3dbdd79cc7f1 witness(bg): diag_log snapshot @1s (len=2787)
+[2026-11-26 23:31:55] boot=4b3feac2b5704fd49a3e3dbdd79cc7f1 STEP 5 COMPLETE (init_done=1 after 0s; module laststep=5)
+[2026-11-26 23:31:57] boot=4b3feac2b5704fd49a3e3dbdd79cc7f1 heartbeat @1x5s (alive, uptime 39)
+[2026-11-26 23:31:59] boot=4b3feac2b5704fd49a3e3dbdd79cc7f1 witness(bg): init_done=1 seen - background witness exiting @5s
+[2026-11-26 23:32:02] boot=4b3feac2b5704fd49a3e3dbdd79cc7f1 heartbeat @2x5s (alive, uptime 44)
+[2026-11-26 23:32:07] boot=4b3feac2b5704fd49a3e3dbdd79cc7f1 heartbeat @3x5s (alive, uptime 49)
+[2026-11-26 23:32:12] boot=4b3feac2b5704fd49a3e3dbdd79cc7f1 heartbeat @4x5s (alive, uptime 55)
+[2026-11-26 23:32:18] boot=4b3feac2b5704fd49a3e3dbdd79cc7f1 heartbeat @5x5s (alive, uptime 60)
+[2026-11-26 23:32:23] boot=4b3feac2b5704fd49a3e3dbdd79cc7f1 heartbeat @6x5s (alive, uptime 65)
+[2026-11-26 23:32:28] boot=4b3feac2b5704fd49a3e3dbdd79cc7f1 heartbeat @7x5s (alive, uptime 70)
+[2026-11-26 23:32:33] boot=4b3feac2b5704fd49a3e3dbdd79cc7f1 heartbeat @8x5s (alive, uptime 75)
+[2026-11-26 23:32:33] boot=4b3feac2b5704fd49a3e3dbdd79cc7f1 heartbeat window done (40s)
+---- boot 52c9b4c37435470fa1cea882a74c791b begin (v42 substep ladder; trigger_mode=sync) ----
+[2026-11-26 23:35:03] boot=52c9b4c37435470fa1cea882a74c791b STEP 6/7 DISPATCHING (arm_stage=0/5 marker='ok 0 4b3feac2b5704fd49a3e3dbdd79cc7f1' mode=sync module=v26.11.56-x86_64)
+[2026-11-26 23:35:13] boot=52c9b4c37435470fa1cea882a74c791b seed v2 written: kln=ffffffff810fd360 gsoff=000000000001bc40
+[2026-11-26 23:35:13] boot=52c9b4c37435470fa1cea882a74c791b writing arm_stage=0 (layer gate)
+[2026-11-26 23:35:13] boot=52c9b4c37435470fa1cea882a74c791b writing init_maxstep=6 (substep gate)
+[2026-11-26 23:35:13] boot=52c9b4c37435470fa1cea882a74c791b diag_printk=1 armed (EMERG breadcrumbs: XYZDIAG2 at .set entry, XYZDIAG1 in the body)
+[2026-11-26 23:35:14] boot=52c9b4c37435470fa1cea882a74c791b dmesg baseline (last 6): [   36.296763] fastpipe: refcount bind: host-handle=63 pFilp=00000000ddf9e382 pSession=00000000ccec571f pid=2295 GrallocUploadTh|[   36.303128] ReSuSFS: boot-completed: kr_seed(v2) = kln=ffffffff810fd360 gsoff=000000000001bc40|[   36.429480] ReSuSFS: init-trace: writing arm_stage=0 (layer gate)|[   
+[2026-11-26 23:35:14] boot=52c9b4c37435470fa1cea882a74c791b witness(bg): laststep=-1 init_done=0 @0s
+[2026-11-26 23:35:14] boot=52c9b4c37435470fa1cea882a74c791b trigger_mode=sync: writing force_init=2 (v43 SYNC path: the .set calls susfs_init_body DIRECTLY - no workqueue; sentinels -70 entered, -71 already-done)
+[2026-11-26 23:35:15] boot=52c9b4c37435470fa1cea882a74c791b force_init=2 write returned (sync body ran to completion inside the write)
+[2026-11-26 23:35:15] boot=52c9b4c37435470fa1cea882a74c791b witness(bg): diag_log snapshot @0s (len=2831)
+[2026-11-26 23:35:15] boot=52c9b4c37435470fa1cea882a74c791b STEP 6 COMPLETE (init_done=1 after 0s; module laststep=6)
+[2026-11-26 23:35:16] boot=52c9b4c37435470fa1cea882a74c791b witness(bg): laststep=6 init_done=1 @1s
+[2026-11-26 23:35:19] boot=52c9b4c37435470fa1cea882a74c791b heartbeat @1x5s (alive, uptime 41)
+[2026-11-26 23:35:21] boot=52c9b4c37435470fa1cea882a74c791b witness(bg): init_done=1 seen - background witness exiting @5s
+[2026-11-26 23:35:24] boot=52c9b4c37435470fa1cea882a74c791b heartbeat @2x5s (alive, uptime 46)
+[2026-11-26 23:35:29] boot=52c9b4c37435470fa1cea882a74c791b heartbeat @3x5s (alive, uptime 51)
+[2026-11-26 23:35:34] boot=52c9b4c37435470fa1cea882a74c791b heartbeat @4x5s (alive, uptime 56)
+[2026-11-26 23:35:39] boot=52c9b4c37435470fa1cea882a74c791b heartbeat @5x5s (alive, uptime 61)
+[2026-11-26 23:35:44] boot=52c9b4c37435470fa1cea882a74c791b heartbeat @6x5s (alive, uptime 66)
+[2026-11-26 23:35:49] boot=52c9b4c37435470fa1cea882a74c791b heartbeat @7x5s (alive, uptime 71)
+[2026-11-26 23:35:54] boot=52c9b4c37435470fa1cea882a74c791b heartbeat @8x5s (alive, uptime 76)
+[2026-11-26 23:35:54] boot=52c9b4c37435470fa1cea882a74c791b heartbeat window done (40s)
+---- boot df2deac1fed9450b83639d461bb70945 begin (v42 substep ladder; trigger_mode=sync) ----
+[2026-11-26 23:38:01] boot=df2deac1fed9450b83639d461bb70945 STEP 7/7 DISPATCHING (arm_stage=1/5 marker='ok 0 52c9b4c37435470fa1cea882a74c791b' mode=sync module=v26.11.56-x86_64)
+[2026-11-26 23:38:09] boot=df2deac1fed9450b83639d461bb70945 seed v2 written: kln=ffffffff810fd360 gsoff=000000000001bc40
+[2026-11-26 23:38:09] boot=df2deac1fed9450b83639d461bb70945 writing arm_stage=1 (layer gate)
+[2026-11-26 23:38:10] boot=df2deac1fed9450b83639d461bb70945 writing init_maxstep=7 (substep gate)
+[2026-11-26 23:38:10] boot=df2deac1fed9450b83639d461bb70945 diag_printk=1 armed (EMERG breadcrumbs: XYZDIAG2 at .set entry, XYZDIAG1 in the body)
+[2026-11-26 23:38:10] boot=df2deac1fed9450b83639d461bb70945 witness(bg): laststep=-1 init_done=0 @0s
+[2026-11-26 23:38:10] boot=df2deac1fed9450b83639d461bb70945 dmesg baseline (last 6): [   35.476378] type=1400 audit(1795711090.090:1078): avc:  denied  { getattr } for  comm="able_art_image_" path="/system/vendor/firmware_mnt/dyyzn/app_device" dev="sda2" ino=4897 scontext=u:r:untrusted_app:s0:c81,c256,c512,c768 tcontext=u:object_r:vendor_file:s0 tclass=file permissive=1 app=org.mozi
+[2026-11-26 23:38:10] boot=df2deac1fed9450b83639d461bb70945 trigger_mode=sync: writing force_init=2 (v43 SYNC path: the .set calls susfs_init_body DIRECTLY - no workqueue; sentinels -70 entered, -71 already-done)
+[2026-11-26 23:38:12] boot=df2deac1fed9450b83639d461bb70945 force_init=2 write returned (sync body ran to completion inside the write)
+[2026-11-26 23:38:12] boot=df2deac1fed9450b83639d461bb70945 witness(bg): laststep=7 init_done=1 @1s
+[2026-11-26 23:38:12] boot=df2deac1fed9450b83639d461bb70945 witness(bg): diag_log snapshot @1s (len=4095)
+[2026-11-26 23:38:13] boot=df2deac1fed9450b83639d461bb70945 STEP 7 COMPLETE (init_done=1 after 0s; module laststep=7)
+[2026-11-26 23:38:15] boot=df2deac1fed9450b83639d461bb70945 heartbeat @1x5s (alive, uptime 40)
+[2026-11-26 23:38:17] boot=df2deac1fed9450b83639d461bb70945 witness(bg): init_done=1 seen - background witness exiting @5s
+[2026-11-26 23:38:20] boot=df2deac1fed9450b83639d461bb70945 heartbeat @2x5s (alive, uptime 45)
+[2026-11-26 23:38:25] boot=df2deac1fed9450b83639d461bb70945 heartbeat @3x5s (alive, uptime 50)
+[2026-11-26 23:38:30] boot=df2deac1fed9450b83639d461bb70945 heartbeat @4x5s (alive, uptime 55)
+[2026-11-26 23:38:35] boot=df2deac1fed9450b83639d461bb70945 heartbeat @5x5s (alive, uptime 60)
+[2026-11-26 23:38:40] boot=df2deac1fed9450b83639d461bb70945 heartbeat @6x5s (alive, uptime 65)
+[2026-11-26 23:38:45] boot=df2deac1fed9450b83639d461bb70945 heartbeat @7x5s (alive, uptime 70)
+[2026-11-26 23:38:50] boot=df2deac1fed9450b83639d461bb70945 heartbeat @8x5s (alive, uptime 75)
+[2026-11-26 23:38:50] boot=df2deac1fed9450b83639d461bb70945 heartbeat window done (40s)
+---- boot ed00a735b46c4dc380f709366b3f2426 begin (v42 substep ladder; trigger_mode=sync) ----
+[2026-11-26 23:41:26] boot=ed00a735b46c4dc380f709366b3f2426 STEP 7/7 DISPATCHING (arm_stage=2/5 marker='ok 1 df2deac1fed9450b83639d461bb70945' mode=sync module=v26.11.56-x86_64)
+[2026-11-26 23:41:35] boot=ed00a735b46c4dc380f709366b3f2426 seed v2 written: kln=ffffffff810fd360 gsoff=000000000001bc40
+[2026-11-26 23:41:35] boot=ed00a735b46c4dc380f709366b3f2426 writing arm_stage=2 (layer gate)
+[2026-11-26 23:41:35] boot=ed00a735b46c4dc380f709366b3f2426 writing init_maxstep=7 (substep gate)
+[2026-11-26 23:41:35] boot=ed00a735b46c4dc380f709366b3f2426 diag_printk=1 armed (EMERG breadcrumbs: XYZDIAG2 at .set entry, XYZDIAG1 in the body)
+[2026-11-26 23:41:35] boot=ed00a735b46c4dc380f709366b3f2426 witness(bg): laststep=-1 init_done=0 @0s
+[2026-11-26 23:41:35] boot=ed00a735b46c4dc380f709366b3f2426 dmesg baseline (last 6): [   35.827353] ReSuSFS: init-trace: writing arm_stage=2 (layer gate)|[   35.838013] ReSuSFS: init-trace: writing init_maxstep=7 (substep gate)|[   35.853018] ReSuSFS: boot-completed: substep seq=7 armed (init_maxstep=7 arm_stage=2; ladder: 0=dispatch 1=+imports 2=+resolver 3=+gs_off 4=+deadman 5=+cr
+[2026-11-26 23:41:36] boot=ed00a735b46c4dc380f709366b3f2426 trigger_mode=sync: writing force_init=2 (v43 SYNC path: the .set calls susfs_init_body DIRECTLY - no workqueue; sentinels -70 entered, -71 already-done)
+[2026-11-26 23:41:37] boot=ed00a735b46c4dc380f709366b3f2426 force_init=2 write returned (sync body ran to completion inside the write)
+[2026-11-26 23:41:37] boot=ed00a735b46c4dc380f709366b3f2426 witness(bg): laststep=7 init_done=1 @1s
+[2026-11-26 23:41:37] boot=ed00a735b46c4dc380f709366b3f2426 witness(bg): diag_log snapshot @1s (len=4095)
+[2026-11-26 23:41:38] boot=ed00a735b46c4dc380f709366b3f2426 STEP 7 COMPLETE (init_done=1 after 0s; module laststep=7)
+[2026-11-26 23:41:40] boot=ed00a735b46c4dc380f709366b3f2426 heartbeat @1x5s (alive, uptime 40)
+[2026-11-26 23:41:42] boot=ed00a735b46c4dc380f709366b3f2426 witness(bg): init_done=1 seen - background witness exiting @5s
+[2026-11-26 23:41:45] boot=ed00a735b46c4dc380f709366b3f2426 heartbeat @2x5s (alive, uptime 45)
+[2026-11-26 23:41:50] boot=ed00a735b46c4dc380f709366b3f2426 heartbeat @3x5s (alive, uptime 50)
+[2026-11-26 23:41:55] boot=ed00a735b46c4dc380f709366b3f2426 heartbeat @4x5s (alive, uptime 56)
+[2026-11-26 23:42:00] boot=ed00a735b46c4dc380f709366b3f2426 heartbeat @5x5s (alive, uptime 61)
+[2026-11-26 23:42:05] boot=ed00a735b46c4dc380f709366b3f2426 heartbeat @6x5s (alive, uptime 66)
+[2026-11-26 23:42:10] boot=ed00a735b46c4dc380f709366b3f2426 heartbeat @7x5s (alive, uptime 71)
+[2026-11-26 23:42:15] boot=ed00a735b46c4dc380f709366b3f2426 heartbeat @8x5s (alive, uptime 76)
+[2026-11-26 23:42:15] boot=ed00a735b46c4dc380f709366b3f2426 heartbeat window done (40s)
+---- boot cab5b2501d4c49e9ae3262cb2b3b76d3 begin (v42 substep ladder; trigger_mode=sync) ----
+[2026-11-26 23:46:20] boot=cab5b2501d4c49e9ae3262cb2b3b76d3 STEP 7/7 DISPATCHING (arm_stage=3/5 marker='ok 2 ed00a735b46c4dc380f709366b3f2426' mode=sync module=v26.11.56-x86_64)
+[2026-11-26 23:46:30] boot=cab5b2501d4c49e9ae3262cb2b3b76d3 seed v2 written: kln=ffffffff810fd360 gsoff=000000000001bc40
+[2026-11-26 23:46:30] boot=cab5b2501d4c49e9ae3262cb2b3b76d3 writing arm_stage=3 (layer gate)
+[2026-11-26 23:46:30] boot=cab5b2501d4c49e9ae3262cb2b3b76d3 writing init_maxstep=7 (substep gate)
+[2026-11-26 23:46:30] boot=cab5b2501d4c49e9ae3262cb2b3b76d3 diag_printk=1 armed (EMERG breadcrumbs: XYZDIAG2 at .set entry, XYZDIAG1 in the body)
+[2026-11-26 23:46:31] boot=cab5b2501d4c49e9ae3262cb2b3b76d3 witness(bg): laststep=-1 init_done=0 @0s
+[2026-11-26 23:46:31] boot=cab5b2501d4c49e9ae3262cb2b3b76d3 dmesg baseline (last 6): [   36.664749] type=1400 audit(1795711590.784:1141): avc:  denied  { open } for  comm=62674578656375746F72202333 path="/system/vendor/lib64/libstagefright_gl2enc.so" dev="sda2" ino=5892 scontext=u:r:priv_app:s0:c512,c768 tcontext=u:object_r:vendor_file:s0 tclass=file permissive=1 app=com.android.ven
+[2026-11-26 23:46:31] boot=cab5b2501d4c49e9ae3262cb2b3b76d3 trigger_mode=sync: writing force_init=2 (v43 SYNC path: the .set calls susfs_init_body DIRECTLY - no workqueue; sentinels -70 entered, -71 already-done)
+[2026-11-26 23:46:32] boot=cab5b2501d4c49e9ae3262cb2b3b76d3 force_init=2 write returned (sync body ran to completion inside the write)
+[2026-11-26 23:46:32] boot=cab5b2501d4c49e9ae3262cb2b3b76d3 witness(bg): diag_log snapshot @0s (len=4095)
+[2026-11-26 23:46:33] boot=cab5b2501d4c49e9ae3262cb2b3b76d3 STEP 7 COMPLETE (init_done=1 after 0s; module laststep=7)
+[2026-11-26 23:46:33] boot=cab5b2501d4c49e9ae3262cb2b3b76d3 witness(bg): laststep=7 init_done=1 @1s
+[2026-11-26 23:46:35] boot=cab5b2501d4c49e9ae3262cb2b3b76d3 witness(bg): diag_log snapshot @2s (len=4095)
+[2026-11-26 23:46:35] boot=cab5b2501d4c49e9ae3262cb2b3b76d3 heartbeat @1x5s (alive, uptime 41)
+[2026-11-26 23:46:39] boot=cab5b2501d4c49e9ae3262cb2b3b76d3 witness(bg): init_done=1 seen - background witness exiting @5s
+[2026-11-26 23:46:40] boot=cab5b2501d4c49e9ae3262cb2b3b76d3 heartbeat @2x5s (alive, uptime 46)
+[2026-11-26 23:46:46] boot=cab5b2501d4c49e9ae3262cb2b3b76d3 heartbeat @3x5s (alive, uptime 51)
+[2026-11-26 23:46:51] boot=cab5b2501d4c49e9ae3262cb2b3b76d3 heartbeat @4x5s (alive, uptime 56)
+[2026-11-26 23:46:56] boot=cab5b2501d4c49e9ae3262cb2b3b76d3 heartbeat @5x5s (alive, uptime 61)
+[2026-11-26 23:47:01] boot=cab5b2501d4c49e9ae3262cb2b3b76d3 heartbeat @6x5s (alive, uptime 66)
+[2026-11-26 23:47:06] boot=cab5b2501d4c49e9ae3262cb2b3b76d3 heartbeat @7x5s (alive, uptime 71)
+[2026-11-26 23:47:11] boot=cab5b2501d4c49e9ae3262cb2b3b76d3 heartbeat @8x5s (alive, uptime 76)
+[2026-11-26 23:47:11] boot=cab5b2501d4c49e9ae3262cb2b3b76d3 heartbeat window done (40s)
+---- boot 68f36c18ced644e687ea93bad48359e2 begin (v42 substep ladder; trigger_mode=sync) ----
+[2026-11-26 23:49:18] boot=68f36c18ced644e687ea93bad48359e2 STEP 7/7 DISPATCHING (arm_stage=4/5 marker='ok 3 cab5b2501d4c49e9ae3262cb2b3b76d3' mode=sync module=v26.11.56-x86_64)
+[2026-11-26 23:49:27] boot=68f36c18ced644e687ea93bad48359e2 seed v2 written: kln=ffffffff810fd360 gsoff=000000000001bc40
+[2026-11-26 23:49:27] boot=68f36c18ced644e687ea93bad48359e2 writing arm_stage=4 (layer gate)
+[2026-11-26 23:49:27] boot=68f36c18ced644e687ea93bad48359e2 writing init_maxstep=7 (substep gate)
+[2026-11-26 23:49:27] boot=68f36c18ced644e687ea93bad48359e2 diag_printk=1 armed (EMERG breadcrumbs: XYZDIAG2 at .set entry, XYZDIAG1 in the body)
+[2026-11-26 23:49:27] boot=68f36c18ced644e687ea93bad48359e2 witness(bg): laststep=-1 init_done=0 @0s
+[2026-11-26 23:49:27] boot=68f36c18ced644e687ea93bad48359e2 dmesg baseline (last 6): [   34.819745] ReSuSFS: init-trace: writing init_maxstep=7 (substep gate)|[   34.898060] ReSuSFS: boot-completed: substep seq=7 armed (init_maxstep=7 arm_stage=4; ladder: 0=dispatch 1=+imports 2=+resolver 3=+gs_off 4=+deadman 5=+crosscheck 6=+patch 7=+layers; max=5)|[   34.912345] type=1400 audit(17
+[2026-11-26 23:49:28] boot=68f36c18ced644e687ea93bad48359e2 trigger_mode=sync: writing force_init=2 (v43 SYNC path: the .set calls susfs_init_body DIRECTLY - no workqueue; sentinels -70 entered, -71 already-done)
+[2026-11-26 23:49:31] boot=68f36c18ced644e687ea93bad48359e2 force_init=2 write returned (sync body ran to completion inside the write)
+[2026-11-26 23:49:31] boot=68f36c18ced644e687ea93bad48359e2 witness(bg): PARAM READ TIMEOUT x1 @1s - mod param traffic is DEADLOCKED (kernel may still be alive; heartbeats tell) - probe the box: adb shell su -c 'dmesg > /data/adb/ReSuSFS/logs/dmesg_freeze.txt; cat /sys/module/susfs_guard_lkm/parameters/diag_log > /data/adb/ReSuSFS/logs/diag_freeze.txt; cat /proc/modules > /data/adb/ReSuSFS/logs/modules_freeze.txt; sync' then reboot
+[2026-11-26 23:49:31] boot=68f36c18ced644e687ea93bad48359e2 STEP 7 COMPLETE (init_done=1 after 0s; module laststep=7)
+[2026-11-26 23:49:32] boot=68f36c18ced644e687ea93bad48359e2 witness(bg): laststep=7 init_done=1 @2s
+[2026-11-26 23:49:32] boot=68f36c18ced644e687ea93bad48359e2 witness(bg): diag_log snapshot @2s (len=4095)
+---- boot c29269bde69c4682bcfa21be2629f8e4 begin (v42 substep ladder; trigger_mode=sync) ----
+[2026-11-27 00:08:46] boot=c29269bde69c4682bcfa21be2629f8e4 STEP 7/7 DISPATCHING (arm_stage=0/3 marker='try 4 68f36c18ced644e687ea93bad48359e2' mode=sync module=v26.11.56-x86_64)
+[2026-11-27 00:08:55] boot=c29269bde69c4682bcfa21be2629f8e4 seed v2 written: kln=ffffffff810fd360 gsoff=000000000001bc40
+[2026-11-27 00:08:55] boot=c29269bde69c4682bcfa21be2629f8e4 writing arm_stage=0 (layer gate)
+[2026-11-27 00:08:55] boot=c29269bde69c4682bcfa21be2629f8e4 writing init_maxstep=7 (substep gate)
+[2026-11-27 00:08:55] boot=c29269bde69c4682bcfa21be2629f8e4 diag_printk=1 armed (EMERG breadcrumbs: XYZDIAG2 at .set entry, XYZDIAG1 in the body)
+[2026-11-27 00:08:56] boot=c29269bde69c4682bcfa21be2629f8e4 witness(bg): laststep=-1 init_done=0 @0s
+[2026-11-27 00:08:56] boot=c29269bde69c4682bcfa21be2629f8e4 dmesg baseline (last 6): [   36.898600] BpBinder: onLastStrongRef automatically unlinking death recipients: |[   36.901313] type=1400 audit(1795712936.057:1067): avc:  denied  { read } for  comm="rootcanal" path="socket:[10082]" dev="sockfs" ino=10082 scontext=u:r:init:s0 tcontext=u:r:init:s0 tclass=tcp_socket permissive=1|
+[2026-11-27 00:08:56] boot=c29269bde69c4682bcfa21be2629f8e4 trigger_mode=sync: writing force_init=2 (v43 SYNC path: the .set calls susfs_init_body DIRECTLY - no workqueue; sentinels -70 entered, -71 already-done)
+[2026-11-27 00:08:56] boot=c29269bde69c4682bcfa21be2629f8e4 witness(bg): diag_log snapshot @0s (len=4095)
+[2026-11-27 00:08:56] boot=c29269bde69c4682bcfa21be2629f8e4 force_init=2 write returned (sync body ran to completion inside the write)
+[2026-11-27 00:08:57] boot=c29269bde69c4682bcfa21be2629f8e4 STEP 7 COMPLETE (init_done=1 after 0s; module laststep=7)
+[2026-11-27 00:08:58] boot=c29269bde69c4682bcfa21be2629f8e4 witness(bg): laststep=7 init_done=1 @1s
+[2026-11-27 00:09:00] boot=c29269bde69c4682bcfa21be2629f8e4 heartbeat @1x5s (alive, uptime 41)
+[2026-11-27 00:09:03] boot=c29269bde69c4682bcfa21be2629f8e4 witness(bg): init_done=1 seen - background witness exiting @5s
+[2026-11-27 00:09:06] boot=c29269bde69c4682bcfa21be2629f8e4 heartbeat @2x5s (alive, uptime 46)
+[2026-11-27 00:09:11] boot=c29269bde69c4682bcfa21be2629f8e4 heartbeat @3x5s (alive, uptime 51)
+[2026-11-27 00:09:16] boot=c29269bde69c4682bcfa21be2629f8e4 heartbeat @4x5s (alive, uptime 56)
+[2026-11-27 00:09:21] boot=c29269bde69c4682bcfa21be2629f8e4 heartbeat @5x5s (alive, uptime 61)
+[2026-11-27 00:09:26] boot=c29269bde69c4682bcfa21be2629f8e4 heartbeat @6x5s (alive, uptime 66)
+[2026-11-27 00:09:31] boot=c29269bde69c4682bcfa21be2629f8e4 heartbeat @7x5s (alive, uptime 71)
+[2026-11-27 00:09:36] boot=c29269bde69c4682bcfa21be2629f8e4 heartbeat @8x5s (alive, uptime 76)
+[2026-11-27 00:09:36] boot=c29269bde69c4682bcfa21be2629f8e4 heartbeat window done (40s)
+---- boot 25d4d613dfe74bcaade8a5e1f7a9caaa begin (v42 substep ladder; trigger_mode=sync) ----
+[2026-11-27 00:12:08] boot=25d4d613dfe74bcaade8a5e1f7a9caaa STEP 7/7 DISPATCHING (arm_stage=1/3 marker='ok 0 c29269bde69c4682bcfa21be2629f8e4' mode=sync module=v26.11.56-x86_64)
+[2026-11-27 00:12:16] boot=25d4d613dfe74bcaade8a5e1f7a9caaa seed v2 written: kln=ffffffff810fd360 gsoff=000000000001bc40
+[2026-11-27 00:12:17] boot=25d4d613dfe74bcaade8a5e1f7a9caaa writing arm_stage=1 (layer gate)
+[2026-11-27 00:12:17] boot=25d4d613dfe74bcaade8a5e1f7a9caaa writing init_maxstep=7 (substep gate)
+[2026-11-27 00:12:17] boot=25d4d613dfe74bcaade8a5e1f7a9caaa diag_printk=1 armed (EMERG breadcrumbs: XYZDIAG2 at .set entry, XYZDIAG1 in the body)
+[2026-11-27 00:12:17] boot=25d4d613dfe74bcaade8a5e1f7a9caaa dmesg baseline (last 6): [   35.362800] type=1400 audit(1795713137.230:1037): avc:  denied  { write } for  comm="main" name="property_service" dev="tmpfs" ino=326 scontext=u:r:zygote:s0 tcontext=u:object_r:property_socket:s0 tclass=sock_file permissive=1 app=com.android.vending|[   35.364095] type=1400 audit(1795713137.230:
+[2026-11-27 00:12:17] boot=25d4d613dfe74bcaade8a5e1f7a9caaa trigger_mode=sync: writing force_init=2 (v43 SYNC path: the .set calls susfs_init_body DIRECTLY - no workqueue; sentinels -70 entered, -71 already-done)
+[2026-11-27 00:12:17] boot=25d4d613dfe74bcaade8a5e1f7a9caaa witness(bg): laststep=-1 init_done=0 @0s
+[2026-11-27 00:12:19] boot=25d4d613dfe74bcaade8a5e1f7a9caaa force_init=2 write returned (sync body ran to completion inside the write)
+[2026-11-27 00:12:20] boot=25d4d613dfe74bcaade8a5e1f7a9caaa STEP 7 COMPLETE (init_done=1 after 0s; module laststep=7)
+[2026-11-27 00:12:20] boot=25d4d613dfe74bcaade8a5e1f7a9caaa witness(bg): laststep=7 init_done=1 @1s
+[2026-11-27 00:12:20] boot=25d4d613dfe74bcaade8a5e1f7a9caaa witness(bg): diag_log snapshot @1s (len=4095)
+[2026-11-27 00:12:22] boot=25d4d613dfe74bcaade8a5e1f7a9caaa heartbeat @1x5s (alive, uptime 40)
+[2026-11-27 00:12:25] boot=25d4d613dfe74bcaade8a5e1f7a9caaa witness(bg): init_done=1 seen - background witness exiting @5s
+[2026-11-27 00:12:27] boot=25d4d613dfe74bcaade8a5e1f7a9caaa heartbeat @2x5s (alive, uptime 45)
+[2026-11-27 00:12:32] boot=25d4d613dfe74bcaade8a5e1f7a9caaa heartbeat @3x5s (alive, uptime 50)
+[2026-11-27 00:12:37] boot=25d4d613dfe74bcaade8a5e1f7a9caaa heartbeat @4x5s (alive, uptime 55)
+[2026-11-27 00:12:42] boot=25d4d613dfe74bcaade8a5e1f7a9caaa heartbeat @5x5s (alive, uptime 60)
+[2026-11-27 00:12:47] boot=25d4d613dfe74bcaade8a5e1f7a9caaa heartbeat @6x5s (alive, uptime 65)
+[2026-11-27 00:12:52] boot=25d4d613dfe74bcaade8a5e1f7a9caaa heartbeat @7x5s (alive, uptime 70)
+[2026-11-27 00:12:57] boot=25d4d613dfe74bcaade8a5e1f7a9caaa heartbeat @8x5s (alive, uptime 75)
+[2026-11-27 00:12:57] boot=25d4d613dfe74bcaade8a5e1f7a9caaa heartbeat window done (40s)
+---- boot 6d654d6521584bc38e9a0c047ac7f044 begin (v42 substep ladder; trigger_mode=sync) ----
+[2026-11-27 00:15:27] boot=6d654d6521584bc38e9a0c047ac7f044 STEP 7/7 DISPATCHING (arm_stage=2/3 marker='ok 1 25d4d613dfe74bcaade8a5e1f7a9caaa' mode=sync module=v26.11.56-x86_64)
+[2026-11-27 00:15:37] boot=6d654d6521584bc38e9a0c047ac7f044 seed v2 written: kln=ffffffff810fd360 gsoff=000000000001bc40
+[2026-11-27 00:15:37] boot=6d654d6521584bc38e9a0c047ac7f044 writing arm_stage=2 (layer gate)
+[2026-11-27 00:15:37] boot=6d654d6521584bc38e9a0c047ac7f044 writing init_maxstep=7 (substep gate)
+[2026-11-27 00:15:38] boot=6d654d6521584bc38e9a0c047ac7f044 diag_printk=1 armed (EMERG breadcrumbs: XYZDIAG2 at .set entry, XYZDIAG1 in the body)
+[2026-11-27 00:15:38] boot=6d654d6521584bc38e9a0c047ac7f044 witness(bg): laststep=-1 init_done=0 @0s
+[2026-11-27 00:15:38] boot=6d654d6521584bc38e9a0c047ac7f044 dmesg baseline (last 6): [   36.972075] type=1400 audit(1795713338.369:1186): avc:  denied  { open } for  comm="Gecko" path="/sys/devices/virtual/dmi/id/product_name" dev="sysfs" ino=266 scontext=u:r:untrusted_app:s0:c81,c256,c512,c768 tcontext=u:object_r:sysfs:s0 tclass=file permissive=1 app=org.mozilla.firefox|[   37.1154
+[2026-11-27 00:15:38] boot=6d654d6521584bc38e9a0c047ac7f044 trigger_mode=sync: writing force_init=2 (v43 SYNC path: the .set calls susfs_init_body DIRECTLY - no workqueue; sentinels -70 entered, -71 already-done)
+[2026-11-27 00:15:39] boot=6d654d6521584bc38e9a0c047ac7f044 force_init=2 write returned (sync body ran to completion inside the write)
+[2026-11-27 00:15:40] boot=6d654d6521584bc38e9a0c047ac7f044 witness(bg): laststep=7 init_done=1 @1s
+[2026-11-27 00:15:40] boot=6d654d6521584bc38e9a0c047ac7f044 witness(bg): diag_log snapshot @1s (len=4095)
+[2026-11-27 00:15:40] boot=6d654d6521584bc38e9a0c047ac7f044 STEP 7 COMPLETE (init_done=1 after 0s; module laststep=7)
+[2026-11-27 00:15:43] boot=6d654d6521584bc38e9a0c047ac7f044 heartbeat @1x5s (alive, uptime 41)
+[2026-11-27 00:15:45] boot=6d654d6521584bc38e9a0c047ac7f044 witness(bg): init_done=1 seen - background witness exiting @5s
+[2026-11-27 00:15:48] boot=6d654d6521584bc38e9a0c047ac7f044 heartbeat @2x5s (alive, uptime 46)
+[2026-11-27 00:15:53] boot=6d654d6521584bc38e9a0c047ac7f044 heartbeat @3x5s (alive, uptime 51)
+[2026-11-27 00:15:58] boot=6d654d6521584bc38e9a0c047ac7f044 heartbeat @4x5s (alive, uptime 56)
+[2026-11-27 00:16:03] boot=6d654d6521584bc38e9a0c047ac7f044 heartbeat @5x5s (alive, uptime 61)
+[2026-11-27 00:16:08] boot=6d654d6521584bc38e9a0c047ac7f044 heartbeat @6x5s (alive, uptime 66)
+[2026-11-27 00:16:13] boot=6d654d6521584bc38e9a0c047ac7f044 heartbeat @7x5s (alive, uptime 71)
+[2026-11-27 00:16:18] boot=6d654d6521584bc38e9a0c047ac7f044 heartbeat @8x5s (alive, uptime 76)
+[2026-11-27 00:16:18] boot=6d654d6521584bc38e9a0c047ac7f044 heartbeat window done (40s)
