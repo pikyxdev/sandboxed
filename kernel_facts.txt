@@ -1,6 +1,6 @@
 ================ ReSuSFS kernel recon (v26.11.38) ================
-timestamp: 2026-11-27 02:07:53
-boot_id: 283ad15fd9fe4f95a76216bbf98c2852
+timestamp: 2026-11-27 07:29:11
+boot_id: ece6bbc1d4f04ef98e576c806d931026
 
 --- /proc/version (compiler + build string) ---
 Linux version 5.15.178+ (nobody@android-build) (Android (10087095, +pgo, +bolt, +lto, -mlgo, based on r487747c) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362), LLD 17.0.2) #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026
@@ -64,7 +64,7 @@ Commands:
   boot-restore    Restore boot or init_boot images patched by KernelSU
 --- KernelSU variant hints ---
 /data/adb/ksu/bin/ksud: lrwxrwxrwx 1 root root 14 2026-11-20 23:14 /data/adb/ksu/bin/ksud -> /data/adb/ksud
-/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-27 02:06 /data/adb/ksud
+/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-27 07:28 /data/adb/ksud
 --- BTF (struct layout ground truth, if present) ---
 --- IKCONFIG (/proc/config.gz -> kernel_config.txt) ---
 /proc/config.gz absent (CONFIG_IKCONFIG_PROC off) - kallsyms + version string are the layout hints
@@ -88,8 +88,8 @@ kallsyms 'sprint_symbol': ffffffff810fdce0 t sprint_symbol
 cfi_jt symbols: 0
 ffffffff82158e80 D __start___jump_table
 ================ ReSuSFS kernel recon (v26.11.38) ================
-timestamp: 2026-11-27 02:14:16
-boot_id: 109ee122c3384dd1af9015a7ceeeb8fc
+timestamp: 2026-11-27 07:30:24
+boot_id: 2a7615c458884946b0d22430441274e3
 
 --- /proc/version (compiler + build string) ---
 Linux version 5.15.178+ (nobody@android-build) (Android (10087095, +pgo, +bolt, +lto, -mlgo, based on r487747c) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362), LLD 17.0.2) #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026
@@ -153,7 +153,7 @@ Commands:
   boot-restore    Restore boot or init_boot images patched by KernelSU
 --- KernelSU variant hints ---
 /data/adb/ksu/bin/ksud: lrwxrwxrwx 1 root root 14 2026-11-20 23:14 /data/adb/ksu/bin/ksud -> /data/adb/ksud
-/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-27 02:06 /data/adb/ksud
+/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-27 07:28 /data/adb/ksud
 --- BTF (struct layout ground truth, if present) ---
 --- IKCONFIG (/proc/config.gz -> kernel_config.txt) ---
 /proc/config.gz absent (CONFIG_IKCONFIG_PROC off) - kallsyms + version string are the layout hints
@@ -177,8 +177,8 @@ kallsyms 'sprint_symbol': ffffffff810fdce0 t sprint_symbol
 cfi_jt symbols: 0
 ffffffff82158e80 D __start___jump_table
 ================ ReSuSFS kernel recon (v26.11.38) ================
-timestamp: 2026-11-27 02:17:06
-boot_id: 647788c1d19047f2a2c1ee447fa6932a
+timestamp: 2026-11-27 07:31:27
+boot_id: 389e7bd55f434442b01946ab8fd730e3
 
 --- /proc/version (compiler + build string) ---
 Linux version 5.15.178+ (nobody@android-build) (Android (10087095, +pgo, +bolt, +lto, -mlgo, based on r487747c) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362), LLD 17.0.2) #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026
@@ -242,7 +242,7 @@ Commands:
   boot-restore    Restore boot or init_boot images patched by KernelSU
 --- KernelSU variant hints ---
 /data/adb/ksu/bin/ksud: lrwxrwxrwx 1 root root 14 2026-11-20 23:14 /data/adb/ksu/bin/ksud -> /data/adb/ksud
-/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-27 02:06 /data/adb/ksud
+/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-27 07:30 /data/adb/ksud
 --- BTF (struct layout ground truth, if present) ---
 --- IKCONFIG (/proc/config.gz -> kernel_config.txt) ---
 /proc/config.gz absent (CONFIG_IKCONFIG_PROC off) - kallsyms + version string are the layout hints
@@ -266,8 +266,8 @@ kallsyms 'sprint_symbol': ffffffff810fdce0 t sprint_symbol
 cfi_jt symbols: 0
 ffffffff82158e80 D __start___jump_table
 ================ ReSuSFS kernel recon (v26.11.38) ================
-timestamp: 2026-11-27 02:19:56
-boot_id: 41bd310dbb3f4c28bb39e9d274c70ce1
+timestamp: 2026-11-27 07:32:26
+boot_id: 4b6594faba8f4b75b37ddd36fd7a8c18
 
 --- /proc/version (compiler + build string) ---
 Linux version 5.15.178+ (nobody@android-build) (Android (10087095, +pgo, +bolt, +lto, -mlgo, based on r487747c) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362), LLD 17.0.2) #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026
@@ -331,7 +331,7 @@ Commands:
   boot-restore    Restore boot or init_boot images patched by KernelSU
 --- KernelSU variant hints ---
 /data/adb/ksu/bin/ksud: lrwxrwxrwx 1 root root 14 2026-11-20 23:14 /data/adb/ksu/bin/ksud -> /data/adb/ksud
-/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-27 02:06 /data/adb/ksud
+/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-27 07:30 /data/adb/ksud
 --- BTF (struct layout ground truth, if present) ---
 --- IKCONFIG (/proc/config.gz -> kernel_config.txt) ---
 /proc/config.gz absent (CONFIG_IKCONFIG_PROC off) - kallsyms + version string are the layout hints
@@ -355,8 +355,8 @@ kallsyms 'sprint_symbol': ffffffff810fdce0 t sprint_symbol
 cfi_jt symbols: 0
 ffffffff82158e80 D __start___jump_table
 ================ ReSuSFS kernel recon (v26.11.38) ================
-timestamp: 2026-11-27 02:22:47
-boot_id: da85c14802a64047b87b8cd65c7fe1d8
+timestamp: 2026-11-27 07:34:09
+boot_id: 838158e7ef3842a6915d4f279141b720
 
 --- /proc/version (compiler + build string) ---
 Linux version 5.15.178+ (nobody@android-build) (Android (10087095, +pgo, +bolt, +lto, -mlgo, based on r487747c) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362), LLD 17.0.2) #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026
@@ -420,7 +420,7 @@ Commands:
   boot-restore    Restore boot or init_boot images patched by KernelSU
 --- KernelSU variant hints ---
 /data/adb/ksu/bin/ksud: lrwxrwxrwx 1 root root 14 2026-11-20 23:14 /data/adb/ksu/bin/ksud -> /data/adb/ksud
-/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-27 02:06 /data/adb/ksud
+/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-27 07:30 /data/adb/ksud
 --- BTF (struct layout ground truth, if present) ---
 --- IKCONFIG (/proc/config.gz -> kernel_config.txt) ---
 /proc/config.gz absent (CONFIG_IKCONFIG_PROC off) - kallsyms + version string are the layout hints
@@ -444,8 +444,8 @@ kallsyms 'sprint_symbol': ffffffff810fdce0 t sprint_symbol
 cfi_jt symbols: 0
 ffffffff82158e80 D __start___jump_table
 ================ ReSuSFS kernel recon (v26.11.38) ================
-timestamp: 2026-11-27 02:26:15
-boot_id: 393d080b33a440b888f6bbf5bf37d8ed
+timestamp: 2026-11-27 07:35:16
+boot_id: f39ec68f71f144fe82ffeccba8fd40a8
 
 --- /proc/version (compiler + build string) ---
 Linux version 5.15.178+ (nobody@android-build) (Android (10087095, +pgo, +bolt, +lto, -mlgo, based on r487747c) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362), LLD 17.0.2) #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026
@@ -509,7 +509,7 @@ Commands:
   boot-restore    Restore boot or init_boot images patched by KernelSU
 --- KernelSU variant hints ---
 /data/adb/ksu/bin/ksud: lrwxrwxrwx 1 root root 14 2026-11-20 23:14 /data/adb/ksu/bin/ksud -> /data/adb/ksud
-/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-27 02:06 /data/adb/ksud
+/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-27 07:30 /data/adb/ksud
 --- BTF (struct layout ground truth, if present) ---
 --- IKCONFIG (/proc/config.gz -> kernel_config.txt) ---
 /proc/config.gz absent (CONFIG_IKCONFIG_PROC off) - kallsyms + version string are the layout hints
@@ -533,8 +533,8 @@ kallsyms 'sprint_symbol': ffffffff810fdce0 t sprint_symbol
 cfi_jt symbols: 0
 ffffffff82158e80 D __start___jump_table
 ================ ReSuSFS kernel recon (v26.11.38) ================
-timestamp: 2026-11-27 02:29:27
-boot_id: 3308a18bc94e47609feaa99aa4a3cdf7
+timestamp: 2026-11-27 07:36:19
+boot_id: 9d9e15e7ecb64f56be2ff0a2281f11b1
 
 --- /proc/version (compiler + build string) ---
 Linux version 5.15.178+ (nobody@android-build) (Android (10087095, +pgo, +bolt, +lto, -mlgo, based on r487747c) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362), LLD 17.0.2) #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026
@@ -598,7 +598,7 @@ Commands:
   boot-restore    Restore boot or init_boot images patched by KernelSU
 --- KernelSU variant hints ---
 /data/adb/ksu/bin/ksud: lrwxrwxrwx 1 root root 14 2026-11-20 23:14 /data/adb/ksu/bin/ksud -> /data/adb/ksud
-/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-27 02:06 /data/adb/ksud
+/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-27 07:30 /data/adb/ksud
 --- BTF (struct layout ground truth, if present) ---
 --- IKCONFIG (/proc/config.gz -> kernel_config.txt) ---
 /proc/config.gz absent (CONFIG_IKCONFIG_PROC off) - kallsyms + version string are the layout hints
@@ -622,8 +622,8 @@ kallsyms 'sprint_symbol': ffffffff810fdce0 t sprint_symbol
 cfi_jt symbols: 0
 ffffffff82158e80 D __start___jump_table
 ================ ReSuSFS kernel recon (v26.11.38) ================
-timestamp: 2026-11-27 02:32:35
-boot_id: 83bb1ee54cd3401b925c4688befbe5c7
+timestamp: 2026-11-27 07:37:34
+boot_id: e28c4a2f7abd4546a49e64cf482d6117
 
 --- /proc/version (compiler + build string) ---
 Linux version 5.15.178+ (nobody@android-build) (Android (10087095, +pgo, +bolt, +lto, -mlgo, based on r487747c) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362), LLD 17.0.2) #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026
@@ -687,7 +687,7 @@ Commands:
   boot-restore    Restore boot or init_boot images patched by KernelSU
 --- KernelSU variant hints ---
 /data/adb/ksu/bin/ksud: lrwxrwxrwx 1 root root 14 2026-11-20 23:14 /data/adb/ksu/bin/ksud -> /data/adb/ksud
-/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-27 02:06 /data/adb/ksud
+/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-27 07:30 /data/adb/ksud
 --- BTF (struct layout ground truth, if present) ---
 --- IKCONFIG (/proc/config.gz -> kernel_config.txt) ---
 /proc/config.gz absent (CONFIG_IKCONFIG_PROC off) - kallsyms + version string are the layout hints
@@ -711,8 +711,8 @@ kallsyms 'sprint_symbol': ffffffff810fdce0 t sprint_symbol
 cfi_jt symbols: 0
 ffffffff82158e80 D __start___jump_table
 ================ ReSuSFS kernel recon (v26.11.38) ================
-timestamp: 2026-11-27 02:36:41
-boot_id: 8c2f9055ced14f4c9ce16b186e910699
+timestamp: 2026-11-27 07:38:27
+boot_id: aab0e48978df43ba8f1d538d92292f8e
 
 --- /proc/version (compiler + build string) ---
 Linux version 5.15.178+ (nobody@android-build) (Android (10087095, +pgo, +bolt, +lto, -mlgo, based on r487747c) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362), LLD 17.0.2) #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026
@@ -776,7 +776,7 @@ Commands:
   boot-restore    Restore boot or init_boot images patched by KernelSU
 --- KernelSU variant hints ---
 /data/adb/ksu/bin/ksud: lrwxrwxrwx 1 root root 14 2026-11-20 23:14 /data/adb/ksu/bin/ksud -> /data/adb/ksud
-/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-27 02:06 /data/adb/ksud
+/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-27 07:30 /data/adb/ksud
 --- BTF (struct layout ground truth, if present) ---
 --- IKCONFIG (/proc/config.gz -> kernel_config.txt) ---
 /proc/config.gz absent (CONFIG_IKCONFIG_PROC off) - kallsyms + version string are the layout hints
@@ -800,8 +800,8 @@ kallsyms 'sprint_symbol': ffffffff810fdce0 t sprint_symbol
 cfi_jt symbols: 0
 ffffffff82158e80 D __start___jump_table
 ================ ReSuSFS kernel recon (v26.11.38) ================
-timestamp: 2026-11-27 02:46:37
-boot_id: 6bdac3c8454e43af98c19852733245f3
+timestamp: 2026-11-27 07:39:16
+boot_id: d6680988c9d74cbe93d233403c2a6a11
 
 --- /proc/version (compiler + build string) ---
 Linux version 5.15.178+ (nobody@android-build) (Android (10087095, +pgo, +bolt, +lto, -mlgo, based on r487747c) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362), LLD 17.0.2) #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026
@@ -865,7 +865,7 @@ Commands:
   boot-restore    Restore boot or init_boot images patched by KernelSU
 --- KernelSU variant hints ---
 /data/adb/ksu/bin/ksud: lrwxrwxrwx 1 root root 14 2026-11-20 23:14 /data/adb/ksu/bin/ksud -> /data/adb/ksud
-/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-27 02:06 /data/adb/ksud
+/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-27 07:30 /data/adb/ksud
 --- BTF (struct layout ground truth, if present) ---
 --- IKCONFIG (/proc/config.gz -> kernel_config.txt) ---
 /proc/config.gz absent (CONFIG_IKCONFIG_PROC off) - kallsyms + version string are the layout hints
@@ -889,8 +889,8 @@ kallsyms 'sprint_symbol': ffffffff810fdce0 t sprint_symbol
 cfi_jt symbols: 0
 ffffffff82158e80 D __start___jump_table
 ================ ReSuSFS kernel recon (v26.11.38) ================
-timestamp: 2026-11-27 02:49:30
-boot_id: e68f3320d8a441ae887f3e726b237571
+timestamp: 2026-11-27 07:41:07
+boot_id: 536415ad985c49628889750fb76c5491
 
 --- /proc/version (compiler + build string) ---
 Linux version 5.15.178+ (nobody@android-build) (Android (10087095, +pgo, +bolt, +lto, -mlgo, based on r487747c) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362), LLD 17.0.2) #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026
@@ -954,7 +954,7 @@ Commands:
   boot-restore    Restore boot or init_boot images patched by KernelSU
 --- KernelSU variant hints ---
 /data/adb/ksu/bin/ksud: lrwxrwxrwx 1 root root 14 2026-11-20 23:14 /data/adb/ksu/bin/ksud -> /data/adb/ksud
-/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-27 02:06 /data/adb/ksud
+/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-27 07:30 /data/adb/ksud
 --- BTF (struct layout ground truth, if present) ---
 --- IKCONFIG (/proc/config.gz -> kernel_config.txt) ---
 /proc/config.gz absent (CONFIG_IKCONFIG_PROC off) - kallsyms + version string are the layout hints
@@ -978,8 +978,8 @@ kallsyms 'sprint_symbol': ffffffff810fdce0 t sprint_symbol
 cfi_jt symbols: 0
 ffffffff82158e80 D __start___jump_table
 ================ ReSuSFS kernel recon (v26.11.38) ================
-timestamp: 2026-11-27 02:53:32
-boot_id: a11637f594004a50ab8a195485469849
+timestamp: 2026-11-27 07:42:10
+boot_id: 71739414ec9f4541bd4bc761f9e4b682
 
 --- /proc/version (compiler + build string) ---
 Linux version 5.15.178+ (nobody@android-build) (Android (10087095, +pgo, +bolt, +lto, -mlgo, based on r487747c) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362), LLD 17.0.2) #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026
@@ -1043,7 +1043,7 @@ Commands:
   boot-restore    Restore boot or init_boot images patched by KernelSU
 --- KernelSU variant hints ---
 /data/adb/ksu/bin/ksud: lrwxrwxrwx 1 root root 14 2026-11-20 23:14 /data/adb/ksu/bin/ksud -> /data/adb/ksud
-/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-27 02:06 /data/adb/ksud
+/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-27 07:30 /data/adb/ksud
 --- BTF (struct layout ground truth, if present) ---
 --- IKCONFIG (/proc/config.gz -> kernel_config.txt) ---
 /proc/config.gz absent (CONFIG_IKCONFIG_PROC off) - kallsyms + version string are the layout hints
@@ -1067,8 +1067,8 @@ kallsyms 'sprint_symbol': ffffffff810fdce0 t sprint_symbol
 cfi_jt symbols: 0
 ffffffff82158e80 D __start___jump_table
 ================ ReSuSFS kernel recon (v26.11.38) ================
-timestamp: 2026-11-27 02:57:01
-boot_id: f83c867ada98410d88f3f4d0f118ebd9
+timestamp: 2026-11-27 07:48:09
+boot_id: d6d3b046537f43a6a7fe1c67b7fc4bbc
 
 --- /proc/version (compiler + build string) ---
 Linux version 5.15.178+ (nobody@android-build) (Android (10087095, +pgo, +bolt, +lto, -mlgo, based on r487747c) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362), LLD 17.0.2) #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026
@@ -1132,96 +1132,7 @@ Commands:
   boot-restore    Restore boot or init_boot images patched by KernelSU
 --- KernelSU variant hints ---
 /data/adb/ksu/bin/ksud: lrwxrwxrwx 1 root root 14 2026-11-20 23:14 /data/adb/ksu/bin/ksud -> /data/adb/ksud
-/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-27 02:06 /data/adb/ksud
---- BTF (struct layout ground truth, if present) ---
---- IKCONFIG (/proc/config.gz -> kernel_config.txt) ---
-/proc/config.gz absent (CONFIG_IKCONFIG_PROC off) - kallsyms + version string are the layout hints
---- /proc/modules (first 15) ---
-fastpipe_x64 45056 - - Live 0x0000000000000000 (O)
-vboxsf 81920 - - Live 0x0000000000000000 (O)
-vboxguest 380928 - - Live 0x0000000000000000 (O)
-===================================================================
---- kallsyms: 101248 lines total, snapshot bounded to 8MB ---
---- kallsyms table symbols (the kr_seed values) ---
---- layout-distinguishing symbols ---
-kallsyms 'current_task': 000000000001bc40 A current_task
-kallsyms 'fixed_percpu_data': 0000000000000000 A fixed_percpu_data
-kallsyms '__per_cpu_start': 0000000000000000 A __per_cpu_start
-kallsyms '_stext': ffffffff81000000 T _stext
-kallsyms '_etext': ffffffff81c01dd9 T _etext
-kallsyms 'kallsyms_lookup_name': ffffffff810fd360 t kallsyms_lookup_name
-kallsyms 'kallsyms_lookup': ffffffff810fd840 t kallsyms_lookup
-kallsyms 'sprint_symbol': ffffffff810fdce0 t sprint_symbol
---- LTO/CFI/BOLT markers ---
-cfi_jt symbols: 0
-ffffffff82158e80 D __start___jump_table
-================ ReSuSFS kernel recon (v26.11.38) ================
-timestamp: 2026-11-27 03:00:16
-boot_id: 9bd10315b043470e908d3014c9106ccf
-
---- /proc/version (compiler + build string) ---
-Linux version 5.15.178+ (nobody@android-build) (Android (10087095, +pgo, +bolt, +lto, -mlgo, based on r487747c) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362), LLD 17.0.2) #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026
---- uname -a ---
-Linux (none) 5.15.178+ #1 SMP PREEMPT Mon Nov 9 14:34:21 CST 2026 x86_64 Toybox
---- /proc/sys/kernel/osrelease (exact KMI string) ---
-5.15.178+
---- /proc/sys/kernel/tainted ---
-4096
---- getenforce ---
-Permissive
---- /proc/cmdline ---
-root=/dev/ram0 init=/init mitigations=off stack_depot_disable=on cgroup_disable=pressure androidboot.selinux=permissive enforcing=0 printk.devkmsg=on androidboot.hardware=qcom nosmap nosmep quiet console=tty0 console=ttyS0 androidboot.console=tty0 ignore_loglevel cpuidle.off=1 oprofile.timer=1 oprofile.cpu_type=timer irqaffinity=0
-
---- key sysctls ---
-kernel/kptr_restrict = 2
-kernel/dmesg_restrict = 0
-kernel/perf_event_paranoid = 2
---- ksud availability ---
-ksud on PATH: /data/adb/ksu/bin/ksud
-KernelSU userspace cli
-
-Usage: ksud <COMMAND>
-
-Commands:
-  module          Manage KernelSU modules
-  post-fs-data    Trigger `post-fs-data` event
-  services        Trigger `service` event
-  boot-completed  Trigger `boot-complete` event
-  late-load       Load kernelsu.ko and execute late-load stage scripts
-  soft-reboot     Emulate system reboot
-  insmod          Load a kernel module with kallsyms access
-  install         Install KernelSU userspace component to system
-  unload          Unload KernelSU kernel module (LKM Only)
-  uninstall       Uninstall KernelSU modules and itself(LKM Only)
-  sepolicy        SELinux policy Patch tool
-  profile         Manage App Profiles
-  feature         Manage kernel features
-  boot-patch      Patch boot or init_boot images to apply KernelSU
-  boot-restore    Restore boot or init_boot images patched by KernelSU
-/data/adb/ksu/bin/ksud exists
-KernelSU userspace cli
-
-Usage: ksud <COMMAND>
-
-Commands:
-  module          Manage KernelSU modules
-  post-fs-data    Trigger `post-fs-data` event
-  services        Trigger `service` event
-  boot-completed  Trigger `boot-complete` event
-  late-load       Load kernelsu.ko and execute late-load stage scripts
-  soft-reboot     Emulate system reboot
-  insmod          Load a kernel module with kallsyms access
-  install         Install KernelSU userspace component to system
-  unload          Unload KernelSU kernel module (LKM Only)
-  uninstall       Uninstall KernelSU modules and itself(LKM Only)
-  sepolicy        SELinux policy Patch tool
-  profile         Manage App Profiles
-  feature         Manage kernel features
-  boot-patch      Patch boot or init_boot images to apply KernelSU
-  boot-restore    Restore boot or init_boot images patched by KernelSU
---- KernelSU variant hints ---
-/data/adb/ksu/bin/ksud: lrwxrwxrwx 1 root root 14 2026-11-20 23:14 /data/adb/ksu/bin/ksud -> /data/adb/ksud
-/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-27 02:06 /data/adb/ksud
+/data/adb/ksud: -rwxr-xr-x 1 root root 5028720 2026-11-27 07:43 /data/adb/ksud
 --- BTF (struct layout ground truth, if present) ---
 --- IKCONFIG (/proc/config.gz -> kernel_config.txt) ---
 /proc/config.gz absent (CONFIG_IKCONFIG_PROC off) - kallsyms + version string are the layout hints
