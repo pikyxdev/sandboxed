@@ -1,4 +1,4 @@
----- v53 supercall self-test @ 2026-11-27 10:35:40 arm_stage=3 mode=FULL ----
+---- v53 supercall self-test @ 2026-11-27 11:39:25 arm_stage=3 mode=FULL ----
 cli: /data/adb/ksu/bin/ksu_susfs
 cli sha256: 7a30fa745a523a4e2897023086a2ef08d773899394781d131f68676227e80e9f (the CLI rides syscall 173; the stock reboot(169) CLI this box had during v47 is backed up at /data/adb/ReSuSFS/ksu_susfs.pre-v48.bak)
 before: sc_entry_count=0
@@ -14,7 +14,7 @@ CONFIG_KSU_SUSFS_SPOOF_CMDLINE_OR_BOOTCONFIG
 CONFIG_KSU_SUSFS_OPEN_REDIRECT
 CONFIG_KSU_SUSFS_SUS_MAP
 after: sc_entry_count=3
----- v53 FEATURE RUNG @ 2026-11-27 10:35:40 ----
+---- v53 FEATURE RUNG @ 2026-11-27 11:39:26 ----
 feature before: sc_entry_count=3
 -- ksu_susfs add_sus_path /data/local/tmp/.resusfs_v53_selftest (timeout 3; EXPECT silent success, exit=0):
    exit=0
