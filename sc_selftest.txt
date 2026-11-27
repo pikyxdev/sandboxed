@@ -1,27 +1,48 @@
----- v56 supercall self-test @ 2026-11-27 00:15:40 arm_stage=2 mode=OBSERVE-ONLY ----
+---- v53 supercall self-test @ 2026-11-27 08:25:48 arm_stage=3 mode=FULL ----
 cli: /data/adb/ksu/bin/ksu_susfs
 cli sha256: 7a30fa745a523a4e2897023086a2ef08d773899394781d131f68676227e80e9f (the CLI rides syscall 173; the stock reboot(169) CLI this box had during v47 is backed up at /data/adb/ReSuSFS/ksu_susfs.pre-v48.bak)
-before: sc_entry_count=-1
+before: sc_entry_count=0
 -- ksu_susfs show version (timeout 3):
-susfs: show version failed
+v2.3.0
 -- ksu_susfs show variant (timeout 3):
-susfs: show variant failed
+GKI-LKM
 -- ksu_susfs show enabled_features (timeout 3):
-susfs: show enabled_features failed
-after: sc_entry_count=2
-(feature probes run at arm_stage 3 only - this boot is stage 2)
-(stage-4 probes run at arm_stage >= 4 - this boot is stage 2)
-(stage-5 probes run at arm_stage >= 5 - this boot is stage 2)
+SUSFS_LKM_MODULES
+CONFIG_KSU_SUSFS_SUS_MOUNT
+CONFIG_KSU_SUSFS_ENABLE_LOG
+CONFIG_KSU_SUSFS_SPOOF_CMDLINE_OR_BOOTCONFIG
+CONFIG_KSU_SUSFS_OPEN_REDIRECT
+CONFIG_KSU_SUSFS_SUS_MAP
+after: sc_entry_count=3
+---- v53 FEATURE RUNG @ 2026-11-27 08:25:48 ----
+feature before: sc_entry_count=3
+-- ksu_susfs add_sus_path /data/local/tmp/.resusfs_v53_selftest (timeout 3; EXPECT silent success, exit=0):
+   exit=0
+-- ksu_susfs add_sus_path_loop /data/local/tmp/.resusfs_v53_selftest_loop (timeout 3; EXPECT silent success, exit=0):
+   exit=0
+-- ksu_susfs hide_sus_mnts_for_non_su_procs 1 (timeout 3; EXPECT silent success, exit=0):
+   exit=0
+-- regression: ksu_susfs show version (timeout 3; MUST still answer v2.3.0):
+v2.3.0
+feature after: sc_entry_count=7
 ---- sc_probe (/data/adb/ksu/bin/sc_probe, raw syscall view, independent of any CLI) ----
 ReSuSFS v47 transport probe (syscall 173 / 0xDEADBEEF / 0xFAFAFAFA)
-sc_entry_count before: 2
-show_version cmd=0x00000000000555e1 -> syscall rc=0xffffffffffffffea
-   payload.err=126 (0=ok/answered; 126=seed untouched, not answered)
-show_variant cmd=0x00000000000555e3 -> syscall rc=0xffffffffffffffea
-   payload.err=126 (0=ok/answered; 126=seed untouched, not answered)
-sc_entry_count after: 4
+sc_entry_count before: 7
+show_version cmd=0x00000000000555e1 -> syscall rc=0x0000000000000000
+   payload.err=0 (0=ok/answered; 126=seed untouched, not answered)
+answer: v2.3.0
+show_variant cmd=0x00000000000555e3 -> syscall rc=0x0000000000000000
+   payload.err=0 (0=ok/answered; 126=seed untouched, not answered)
+answer: GKI-LKM
+v53_feature_readback cmd=0x0000000000055f53 -> syscall rc=0x0000000000000000
+   payload.err=0 (0=ok/answered; 126=seed untouched, not answered)
+answer: v53-feature-rung add_calls=2 dups=0 toggle_calls=1 hide_mnts=1
+[0] /data/local/tmp/.resusfs_v53_selftest
+[1] /data/local/tmp/.resusfs_v53_selftest_loop (loop)
+slots_used=2/32 loops=1
+sc_entry_count after: 10
 interpretation: count moved => the patched dispatcher arm intercepted
   the call (transport LIVE); err=0 + answer => channel answering end to end;
   count unchanged + negative rc => this call hit the real ioperm(2)
   (arm not live this boot, or the caller is not on syscall 173).
-NOTE: v56 transport rides syscall(173, 0xDEADBEEF, 0xFAFAFAFA, cmd, &payload) through the LIVE sys_call_table entry; the WHOLE module is clang-17 -fsanitize=kcfi compiled with every kernel-dispatched callback carrying a kcfi_gate donor/harvest preamble (the v53 add_sus_map crash fix) AND every outbound check STRIPPED at build time (the v54 reboot-3 verdict: its own checks against kernel typeid targets can never pass - different toolchain algorithms); the uid gate reads the cred offset CALIBRATED at install from init_task/init_cred (no header-derived struct offsets); the SHOW cmd ids follow the STOCK CLI wire ABI (0x555e1=version 20B, 0x555e2=enabled_features 8196B, 0x555e3=variant 20B); v54/v55 THE FULL FEATURE RUNG forwards EVERY feature cmd to the kernel handlers gated on the armed bits (0x55550/0x55553 sus_path bit0, 0x55561 hide_mnts bit1, 0x55570/0x55571/0x55572 kstat bit2, 0x55590 uname bit3, 0x555a0 enable_log bit4, 0x555b0 cmdline bit6, 0x555c0 open_redirect bit7, 0x60020 sus_map bit8, 0x60010 avc bit9); the v49 GCC wrapper is never called.
+NOTE: v53 transport rides syscall(173, 0xDEADBEEF, 0xFAFAFAFA, cmd, &payload) through the LIVE sys_call_table entry; the entry AND the whole accept path are clang-17; the uid gate reads the cred offset CALIBRATED at install from init_task/init_cred; the SHOW ids follow the STOCK CLI wire ABI (e1=version 20B, e2=enabled_features 8196B, e3=variant 20B); v53 adds THE FIRST FEATURE RUNG: 0x55550=add_sus_path and 0x55553=add_sus_path_loop (accepted, validated, deduped, stored in a 32-slot .data table - full -> -ENOSPC), 0x55561=hide_sus_mnts (recorded), private readback 0x55f53 via sc_probe; set_uname (0x55590) / set_cmdline (0x555b0) stay not-handled until the next rung; the stored paths are NOT yet enforced (accept+store is this rung); the v49 GCC wrapper is never called.

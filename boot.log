@@ -3013,3 +3013,1184 @@ DIAG step 9: susfs_init_body RETURNING 0 (maxstep=7 laststep=7 init_done=1)
 [2026-11-27 07:48:43] boot-completed: bootcompleted scripts rc=0
 [2026-11-27 07:48:43] === boot-completed DONE ===
 [2026-11-27 07:48:48] init-trace: witness(bg): init_done=1 seen - background witness exiting @5s
+[2026-11-27 07:58:04] service: alive, 20 status reports so far
+[2026-11-27 08:08:05] service: alive, 40 status reports so far
+[2026-11-27 08:18:06] service: alive, 60 status reports so far
+[2026-11-27 08:22:47] === post-fs-data START (kernel: 5.15.178+, module: v26.11.53.1-x86_64) ===
+[2026-11-27 08:22:47] post-fs-data: kernel_recon starting (gated, 60s)
+[+] kernel recon written: /data/adb/ReSuSFS/logs/kernel_facts.txt (+kernel_kallsyms.txt; kernel_config.txt NOT written - /proc/config.gz absent on this kernel)
+[2026-11-27 08:22:56] post-fs-data: kernel_recon rc=0
+[2026-11-27 08:22:56] post-fs-data: LKM image load starting (gated, 150s; opt-in only on custom kernels)
+[2026-11-27 08:22:56] SAFEGUARD: /data/adb/ReSuSFS/enable_lkm present - loading custom-kernel LKM 'susfs_guard_lkm-x86_64-5.15.ko' (user opt-in; v26.11.38: image load only - init runs post-boot only with enable_force_init)
+[*] enable_lkm flag present: loading custom-kernel LKM image (user opt-in)
+[2026-11-27 08:22:56] LKM candidate: vanilla -> susfs_guard_lkm-x86_64-vanilla-5.15.ko
+[*] Loading susfs_guard_lkm-x86_64-vanilla-5.15.ko...
+[*] Loading susfs_guard_lkm-x86_64-vanilla-5.15.ko (ksud: /data/adb/ksu/bin/ksud)...
+Loaded kernel module: /data/adb/ReSuSFS_LKM/susfs_guard_lkm-x86_64-vanilla-5.15.ko
+[+] LKM loaded successfully (ksud: susfs_guard_lkm-x86_64-vanilla-5.15.ko)
+[2026-11-27 08:22:56] post-fs-data: LKM load rc=0
+[2026-11-27 08:22:56] post-fs-data: susfs LKM image is LIVE (image loaded)
+[2026-11-27 08:22:56] post-fs-data: module version changed ('v26.11.53-x86_64' -> 'v26.11.53.1-x86_64') - re-basing the stage ladder (arm_stage=0, stage_max=3 - the v49 ceiling, stages 4/5 retired; stale marker cleared); the substep ladder stays
+---- LKM live evidence (v26.11.28) ----
+---- supercall live test (ksu_susfs show version / variant / enabled_features) ----
+susfs: show version failed
+susfs: show variant failed
+susfs: show enabled_features failed
+---- dmesg (susfs_guard_lkm: prefix, FULL ring) ----
+[   11.957766] susfs_guard_lkm: no symbol version for module_layout
+
+---- dmesg (wider pattern, last 3000) ----
+[    0.503197] kprobes: kprobe jump-optimization is enabled. All kprobes are optimized if possible.
+[    0.626745] libata version 3.00 loaded.
+[    0.990803] KernelSU: reboot kprobe registered successfully
+[    0.994592] KernelSU: hook_manager: register_syscall_regfunc kretprobe: 0
+[    0.997504] KernelSU: hook_manager: register_syscall_unregfunc kretprobe: 0
+[    2.411489] KernelSU: unregister input kprobe: 1!
+[    2.514166] ReSuSFS: === post-fs-data START (kernel: 5.15.178+, module: v26.11.53.1-x86_64) ===
+[    2.520792] ReSuSFS: post-fs-data: kernel_recon starting (gated, 60s)
+[   11.721997] ReSuSFS: post-fs-data: kernel_recon rc=0
+[   11.725798] ReSuSFS: post-fs-data: LKM image load starting (gated, 150s; opt-in only on custom kernels)
+[   11.788531] ReSuSFS: SAFEGUARD: /data/adb/ReSuSFS/enable_lkm present - loading custom-kernel LKM 'susfs_guard_lkm-x86_64-5.15.ko' (user opt-in; v26.11.38: image load only - init runs post-boot only with enable_force_init)
+[   11.816104] ReSuSFS: LKM candidate: vanilla -> susfs_guard_lkm-x86_64-vanilla-5.15.ko
+[   11.957766] susfs_guard_lkm: no symbol version for module_layout
+[   11.968883] ReSuSFS: post-fs-data: LKM load rc=0
+[   11.973843] ReSuSFS: post-fs-data: susfs LKM image is LIVE (image loaded)
+[   11.980842] ReSuSFS: post-fs-data: module version changed ('v26.11.53-x86_64' -> 'v26.11.53.1-x86_64') - re-basing the stage ladder (arm_stage=0, stage_max=3 - the v49 ceiling, stages 4/5 retired; stale marker cleared); the substep ladder stays
+
+---- dmesg (RAW last 80 lines, no filter) ----
+[    2.311078] init: SVC_EXEC service 'derive_classpath' pid 129 (uid 1000 gid 1000+1 context default) started; waiting...
+[    2.331340] init: Service 'derive_classpath' (pid 129) exited with status 0 waiting took 0.021000 seconds
+[    2.332039] init: Sending signal 9 to service 'derive_classpath' (pid 129) process group...
+[    2.332603] libprocessgroup: Successfully killed process cgroup uid 1000 pid 129 in 0ms
+[    2.333660] init: starting service 'art_boot'...
+[    2.334864] KernelSU: hook_manager: unmark 130 exec /apex/com.android.art/bin/art_boot
+[    2.335468] init: ... started service 'art_boot' has pid 130
+[    2.335858] init: SVC_EXEC service 'art_boot' pid 130 (uid 0 gid 0+0 context default) started; waiting...
+[    2.340052] init: Service 'art_boot' (pid 130) exited with status 0 waiting took 0.005000 seconds
+[    2.340588] init: Sending signal 9 to service 'art_boot' (pid 130) process group...
+[    2.341012] libprocessgroup: Successfully killed process cgroup uid 0 pid 130 in 0ms
+[    2.341977] init: starting service 'odsign'...
+[    2.343143] KernelSU: hook_manager: unmark 131 exec /system/bin/odsign
+[    2.343630] init: ... started service 'odsign' has pid 131
+[    2.357663] init: Wait for property 'odsign.key.done=1' took 13ms
+[    2.358227] init: starting service 'exec 9 (/system/bin/fsverity_init --lock)'...
+[    2.359801] init: ... started service 'exec 9 (/system/bin/fsverity_init --lock)' has pid 132
+[    2.359807] KernelSU: hook_manager: unmark 132 exec /system/bin/fsverity_init
+[    2.360356] init: SVC_EXEC service 'exec 9 (/system/bin/fsverity_init --lock)' pid 132 (uid 0 gid 0+0 context default) started; waiting...
+[    2.361709] init: Sending signal 9 to service 'odsign' (pid 131) process group...
+[    2.367834] libprocessgroup: Successfully killed process cgroup uid 0 pid 131 in 5ms
+[    2.368610] init: Control message: Processed ctl.stop for 'odsign' from pid: 131 (/system/bin/odsign)
+[    2.369082] init: Service 'odsign' (pid 131) received signal 9
+[    2.369699] init: Service 'exec 9 (/system/bin/fsverity_init --lock)' (pid 132) exited with status 0 waiting took 0.010000 seconds
+[    2.370257] init: Sending signal 9 to service 'exec 9 (/system/bin/fsverity_init --lock)' (pid 132) process group...
+[    2.370782] libprocessgroup: Successfully killed process cgroup uid 0 pid 132 in 0ms
+[    2.371557] init: starting service 'apexd-snapshotde'...
+[    2.372843] KernelSU: hook_manager: unmark 133 exec /system/bin/apexd
+[    2.373301] init: ... started service 'apexd-snapshotde' has pid 133
+[    2.373699] init: SVC_EXEC service 'apexd-snapshotde' pid 133 (uid 0 gid 1000+0 context default) started; waiting...
+[    2.381017] apexd: This device does not support updatable APEX. Exiting
+[    2.381433] apexd: Marking APEXd as ready
+[    2.382537] init: Service 'apexd-snapshotde' (pid 133) exited with status 0 waiting took 0.010000 seconds
+[    2.383064] init: Sending signal 9 to service 'apexd-snapshotde' (pid 133) process group...
+[    2.383600] libprocessgroup: Successfully killed process cgroup uid 0 pid 133 in 0ms
+[    2.387526] init: Command 'verity_update_state' action=post-fs-data (/system/etc/init/hw/init.rc:1141) took 0ms and failed: fs_mgr_load_verity_state() failed
+[    2.388315] init: processing action (post-fs-data) from (/system/etc/init/hw/init.rc:1519)
+[    2.388725] init: service 'logd' requested start, but it is already running (flags: 4)
+[    2.389725] init: starting service 'exec 10 (/data/adb/ksud post-fs-data)'...
+[    2.390848] init: ... started service 'exec 10 (/data/adb/ksud post-fs-data)' has pid 134
+[    2.390976] KernelSU: hook_manager: escape to root for init executing ksud: 134
+[    2.391393] init: SVC_EXEC service 'exec 10 (/data/adb/ksud post-fs-data)' pid 134 (uid 0 gid 0+0 context u:r:ksu:s0) started; waiting...
+[    2.406622] KernelSU: ksu fd installed: 4 for pid 134
+[    2.407006] KernelSU: [134] install ksu fd: 4
+[    2.407339] KernelSU: post-fs-data triggered
+[    2.407616] KernelSU: on_post_fs_data!
+[    2.408313] KernelSU: allowlist version: 4
+[    2.408512] KernelSU: load_allow_uid, name: com.lonelycatgames.Xplore, uid: 10075, allow: 1
+[    2.408902] KernelSU: set root profile, key: com.lonelycatgames.Xplore, uid: 10075, gid: 0, context: u:r:ksu:s0
+[    2.409421] KernelSU: load_allow_uid, name: com.android.shell, uid: 2000, allow: 1
+[    2.409800] KernelSU: set root profile, key: com.android.shell, uid: 2000, gid: 0, context: u:r:ksu:s0
+[    2.410276] KernelSU: ksu_show_allow_list
+[    2.410480] KernelSU: uid :10075, allow: 1
+[    2.410689] KernelSU: uid :2000, allow: 1
+[    2.410958] KernelSU: watching /data/system
+[    2.411231] KernelSU: observer init done
+[    2.411489] KernelSU: unregister input kprobe: 1!
+[    2.411920] KernelSU: selinux_hide: fake status is not initialized after post-fs-data!
+[    2.415548] KernelSU: volumedown_pressed_count: 0
+[    2.434094] logd: logdr: UID=0 GID=0 PID=137 b tail=0 logMask=bf pid=0 start=0ns deadline=0ns
+[    2.471497] KernelSU: SELinux permissive or disabled when handle policy!
+[    2.473341] KernelSU: old config: 1
+[    2.473574] KernelSU: adding POLICYDB_CONFIG_ANDROID_NETLINK_ROUTE
+[    2.473885] KernelSU: adding POLICYDB_CONFIG_ANDROID_NETLINK_GETNEIGH
+[    2.474243] KernelSU: new config: 3221225473
+[    2.486099] KernelSU: volumedown_pressed_count: 0
+[    2.514166] ReSuSFS: === post-fs-data START (kernel: 5.15.178+, module: v26.11.53.1-x86_64) ===
+[    2.520792] ReSuSFS: post-fs-data: kernel_recon starting (gated, 60s)
+[   11.721997] ReSuSFS: post-fs-data: kernel_recon rc=0
+[   11.725798] ReSuSFS: post-fs-data: LKM image load starting (gated, 150s; opt-in only on custom kernels)
+[   11.788531] ReSuSFS: SAFEGUARD: /data/adb/ReSuSFS/enable_lkm present - loading custom-kernel LKM 'susfs_guard_lkm-x86_64-5.15.ko' (user opt-in; v26.11.38: image load only - init runs post-boot only with enable_force_init)
+[   11.816104] ReSuSFS: LKM candidate: vanilla -> susfs_guard_lkm-x86_64-vanilla-5.15.ko
+[   11.957766] susfs_guard_lkm: no symbol version for module_layout
+[   11.968883] ReSuSFS: post-fs-data: LKM load rc=0
+[   11.973843] ReSuSFS: post-fs-data: susfs LKM image is LIVE (image loaded)
+[   11.980842] ReSuSFS: post-fs-data: module version changed ('v26.11.53-x86_64' -> 'v26.11.53.1-x86_64') - re-basing the stage ladder (arm_stage=0, stage_max=3 - the v49 ceiling, stages 4/5 retired; stale marker cleared); the substep ladder stays
+[   12.538307] init: Untracked pid 163 exited with status 0
+[   12.538568] init: Untracked pid 163 did not have an associated service entry and will not be reaped
+[   12.733490] init: Untracked pid 238 exited with status 0
+[   12.733766] init: Untracked pid 238 did not have an associated service entry and will not be reaped
+---- kallsyms (kptr_restrict relaxed: was '2') ----
+kallsyms 'current_task': 000000000001bc40 A current_task
+kallsyms '__x64_sys_reboot': ffffffff8108faf0 t __x64_sys_reboot
+kallsyms '__per_cpu_start': 0000000000000000 A __per_cpu_start
+kallsyms 'fixed_percpu_data': 0000000000000000 A fixed_percpu_data
+kallsyms 'init_task': ffffffff822127c0 d init_task
+kallsyms 'ksu_handle_sys_reboot': not listed
+kallsyms 'ksu_handle_prctl': not listed
+kallsyms 'ksu_handle_execveat': not listed
+kallsyms 'ksu_handle_syscall': not listed
+kallsyms 'handle_superscall': not listed
+kallsyms 'susfs_suscall': not listed
+kallsyms 'ksu_try_umount': not listed
+kallsyms 'ksu_handle_sigterm': not listed
+---- kallsyms (KernelSU-prefixed, first 30) ----
+ffffffff8170bc40 t ksu_handle_umount
+ffffffff8170be40 t ksu_sulog_is_enabled
+ffffffff8170be80 t ksu_handle_faccessat_sucompat
+ffffffff8170bfc0 t ksu_handle_stat_sucompat
+ffffffff8170c0c0 t ksu_handle_execve_sucompat
+ffffffff8170c0e0 t ksu_handle_execve_sucompat_common
+ffffffff8170c3e0 t ksu_handle_execveat_sucompat
+ffffffff8170c4a0 t ksu_lsm_hook
+ffffffff8170c8b0 t ksu_lsm_hook_track
+ffffffff8170c930 t ksu_lsm_unhook
+ffffffff8170ca60 t ksu_register_lsm_hook
+ffffffff8170ca70 t ksu_unregister_lsm_hook
+ffffffff8170ca80 t ksu_handle_setresuid
+ffffffff8170cb80 t ksu_hook_newfstatat
+ffffffff8170cba0 t ksu_hook_faccessat
+ffffffff8170cbc0 t ksu_stop_ksud_execve_hook
+ffffffff8170cbe0 t ksu_hook_execve
+ffffffff8170cbf0 t ksu_hook_execve_common
+ffffffff8170ce30 t ksu_hook_execveat
+ffffffff8170ce40 t ksu_hook_setresuid
+ffffffff8170cfb0 t ksu_sys_enter_handler
+ffffffff8170d040 t ksu_tp_marker_reg_count
+ffffffff8170d050 t ksu_tp_marker_lock
+ffffffff8170d070 t ksu_tp_marker_unlock
+ffffffff8170d080 t ksu_tp_marker_inc_reg_count
+ffffffff8170d090 t ksu_tp_marker_dec_reg_count
+ffffffff8170d0a0 t ksu_clear_task_tracepoint_flag_if_needed
+ffffffff8170d0d0 t ksu_mark_all_process
+ffffffff8170d150 t ksu_unmark_all_process
+ffffffff8170d1d0 t ksu_mark_running_process_locked
+---- kretprobe registration state (best effort) ----
+debugfs mount: 
+debugfs dir exists: no
+kprobes/list exists: no
+kprobes/list (ALL, first 20): <unavailable>
+/proc/modules: susfs_guard_lkm 655360 - - Live 0x0000000000000000 (O)
+---- /proc/susfs_* control nodes ----
+/proc/susfs_path: ABSENT (-e) - created at load time per boot.log, then gone
+ls /proc (getdents view): <none visible - hidden by the module's own stealth is EXPECTED>
+---- /sys/module/susfs_guard_lkm/parameters/diag_log (module param, bypasses printk+filp) ----
+<diag_log is empty or unreadable — susfs_init did not run, or module_param not exposed>
+---- /sys/module/susfs_guard_lkm/parameters/sc_entry_count (supercall kprobe fire count) ----
+sc_entry_count (v45+: real kprobe hits): 0
+---- /sys/module/susfs_guard_lkm/parameters: v42 substep ladder ----
+init_maxstep = 0
+init_laststep = -1
+init_done = 0
+arm_stage = 0
+kr_scan = 0
+diag_printk = -1609782920
+probe_arm = 0
+force_init = present (0200 write-only by design; the v40 collector's 'not exposed' line was this read's EACCES, not a missing param)
+wd_timeout_s = <removed in v41: no kernel-side watchdog; recovery is the next boot's stand-down>
+kr_seed = <empty - not seeded this boot>
+---- end of live evidence ----
+[2026-11-27 08:23:00] post-fs-data: stage-early starting (gated, 120s)
+[+] stage: early (post-fs-data)
+[*] userspace-only mode: no kernel susfs - skipping susfs application
+[*] LKM opt-in (custom kernels): touch /data/adb/ReSuSFS/enable_lkm
+[2026-11-27 08:23:00] post-fs-data: stage-early rc=0
+[2026-11-27 08:23:00] post-fs-data: postfs user scripts starting (gated, 90s)
+[2026-11-27 08:23:00] post-fs-data: postfs scripts rc=0
+[2026-11-27 08:23:00] === post-fs-data DONE ===
+[2026-11-27 08:23:03] service: waiting for sys.boot_completed
+[2026-11-27 08:23:10] init-trace: STEP 7/7 DISPATCHING (arm_stage=0/3 marker='' mode=sync module=v26.11.53.1-x86_64)
+[2026-11-27 08:23:10] boot-completed: seeding resolver (v2: kln/gsoff preferred, tables if visible)
+[2026-11-27 08:23:10] service: boot completed after 7s - starting status loop (30s cadence)
+[2026-11-27 08:23:20] init-trace: seed v2 written: kln=ffffffff810fd360 gsoff=000000000001bc40
+[2026-11-27 08:23:20] boot-completed: kr_seed(v2) = kln=ffffffff810fd360 gsoff=000000000001bc40
+[2026-11-27 08:23:20] init-trace: writing arm_stage=0 (layer gate)
+[2026-11-27 08:23:20] init-trace: writing init_maxstep=7 (substep gate)
+[2026-11-27 08:23:21] boot-completed: substep seq=7 armed (init_maxstep=7 arm_stage=0; ladder: 0=dispatch 1=+imports 2=+resolver 3=+gs_off 4=+deadman 5=+crosscheck 6=+patch 7=+layers; max=3)
+[2026-11-27 08:23:21] init-trace: diag_printk=1 armed (EMERG breadcrumbs: XYZDIAG2 at .set entry, XYZDIAG1 in the body)
+[2026-11-27 08:23:21] init-trace: witness(bg): laststep=-1 init_done=0 @0s
+[2026-11-27 08:23:21] init-trace: dmesg baseline (last 6): [   36.394410] KernelSU: handle_setresuid from 0 to 10017|[   36.479846] ReSuSFS: boot-completed: substep seq=7 armed (init_maxstep=7 arm_stage=0; ladder: 0=dispatch 1=+imports 2=+resolver 3=+gs_off 4=+deadman 5=+crosscheck 6=+patch 7=+layers; max=3)|[   36.630604] type=1400 audit(1795742601.222:120
+[2026-11-27 08:23:21] init-trace: trigger_mode=sync: writing force_init=2 (v43 SYNC path: the .set calls susfs_init_body DIRECTLY - no workqueue; sentinels -70 entered, -71 already-done)
+[2026-11-27 08:23:21] boot-completed: triggering force_init=2 (SYNC channel, direct body call, no queueing; substep 7; system fully booted)
+[2026-11-27 08:23:23] init-trace: witness(bg): laststep=7 init_done=1 @1s
+[2026-11-27 08:23:23] init-trace: force_init=2 write returned (sync body ran to completion inside the write)
+[2026-11-27 08:23:23] init-trace: witness(bg): diag_log snapshot @1s (len=2517)
+---- diag_log final snapshot (substep 7, after 0s poll) ----
+DIAG step 1: susfs_init ENTERED (maxstep=7 arm_stage=0)
+DIAG step 2: calling imports_guard
+init v2.3.1-gki (substep ladder: maxstep=7)
+DIAG step 3: calling ksu_init_symbol_resolver (kln=/table seed; scan stays off)
+resolver: KLN mode ACTIVE (kallsyms_lookup_name@0xffffffff810fd360 validated via sprint_symbol + probe '_printk'=0xffffffff810b6d00; no table walk, no scan)
+DIAG step 4a: calling susfs_current_init
+current_task: per-CPU gs offset = 0x1bc40
+DIAG step 4: susfs_current_init done (gs_off=0x1bc40)
+DIAG step 4b: dead-man check for built-in susfs (2 lookups)
+DIAG step 5: calling imports_crosscheck
+DIAG step 5a: calling ksu_patch_memory_init
+DIAG step 6.1: layer 0 (fp_hook) SKIPPED (needs stage 1 > arm_stage 0)
+DIAG step 6.2: layer 1 (ksu_umount_gate) SKIPPED (needs stage 1 > arm_stage 0)
+DIAG step 6.3: layer 2 (ksu_allow_gate) SKIPPED (needs stage 1 > arm_stage 0)
+DIAG step 6.4: layer 3 (lsm_hook) SKIPPED (needs stage 4 > arm_stage 0)
+DIAG step 6.5: layer 4 (sus_path) SKIPPED (needs stage 4 > arm_stage 0)
+DIAG step 6.6: layer 5 (create_gate) SKIPPED (needs stage 5 > arm_stage 0)
+DIAG step 6.7: layer 6 (opath) SKIPPED (needs stage 5 > arm_stage 0)
+DIAG step 6.8: layer 7 (dirent) SKIPPED (needs stage 5 > arm_stage 0)
+DIAG step 6.9: layer 8 (uname) SKIPPED (needs stage 4 > arm_stage 0)
+DIAG step 6.10: layer 9 (kstat) SKIPPED (needs stage 5 > arm_stage 0)
+DIAG step 6.11: layer 10 (sus_map) SKIPPED (needs stage 1 > arm_stage 0)
+DIAG step 6.12: layer 11 (sus_mount) SKIPPED (needs stage 1 > arm_stage 0)
+DIAG step 6.13: layer 12 (cmdline) SKIPPED (needs stage 1 > arm_stage 0)
+DIAG step 6.14: layer 13 (open_redirect) SKIPPED (needs stage 1 > arm_stage 0)
+DIAG step 6.15: layer 14 (prop_view) SKIPPED (needs stage 1 > arm_stage 0)
+DIAG step 6.16: layer 15 (enable_log) SKIPPED (needs stage 1 > arm_stage 0)
+DIAG step 6.17: layer 16 (avc_spoof) SKIPPED (needs stage 1 > arm_stage 0)
+DIAG step 6.18: layer 17 (supercall) SKIPPED (needs stage 2 > arm_stage 0)
+DIAG step 6.19: layer 18 (hide_syms) SKIPPED (needs stage 4 > arm_stage 0)
+DIAG step 6.20: layer 19 (sus_unix) SKIPPED (needs stage 5 > arm_stage 0)
+DIAG step 7: layer loop done; self-hide/relabel SKIPPED (sus_path not armed at this stage)
+loaded. This module is filtered out of /proc/modules for every caller including root, so `lsmod | grep susfs` stays empty - check /sys/module/susfs_guard_lkm instead (a second insmod fails with -EEXIST while it is loaded).
+DIAG step 9: susfs_init_body RETURNING 0 (maxstep=7 laststep=7 init_done=1)
+---- end diag_log ----
+[2026-11-27 08:23:24] init-trace: STEP 7 COMPLETE (init_done=1 after 0s; module laststep=7)
+[2026-11-27 08:23:24] boot-completed: substep 7 init COMPLETE (init_done=1 after 0s)
+[2026-11-27 08:23:24] boot-completed: arm_stage 0 healthy (init done + boot completed) - next boot arms stage 1/3
+[2026-11-27 08:23:24] boot-completed: stage-late starting (gated, 120s)
+[+] stage: late (boot-completed)
+[*] userspace-only mode: no kernel susfs - skipping susfs application
+[2026-11-27 08:23:25] boot-completed: stage-late rc=0
+[2026-11-27 08:23:25] boot-completed: bootcompleted user scripts starting (gated, 120s)
+[2026-11-27 08:23:26] boot-completed: bootcompleted scripts rc=0
+[2026-11-27 08:23:26] === boot-completed DONE ===
+[2026-11-27 08:23:29] init-trace: witness(bg): init_done=1 seen - background witness exiting @5s
+[2026-11-27 08:23:40] === post-fs-data START (kernel: 5.15.178+, module: v26.11.53.1-x86_64) ===
+[2026-11-27 08:23:40] post-fs-data: kernel_recon starting (gated, 60s)
+[+] kernel recon written: /data/adb/ReSuSFS/logs/kernel_facts.txt (+kernel_kallsyms.txt; kernel_config.txt NOT written - /proc/config.gz absent on this kernel)
+[2026-11-27 08:23:49] post-fs-data: kernel_recon rc=0
+[2026-11-27 08:23:49] post-fs-data: LKM image load starting (gated, 150s; opt-in only on custom kernels)
+[2026-11-27 08:23:49] SAFEGUARD: /data/adb/ReSuSFS/enable_lkm present - loading custom-kernel LKM 'susfs_guard_lkm-x86_64-5.15.ko' (user opt-in; v26.11.38: image load only - init runs post-boot only with enable_force_init)
+[*] enable_lkm flag present: loading custom-kernel LKM image (user opt-in)
+[2026-11-27 08:23:49] LKM candidate: vanilla -> susfs_guard_lkm-x86_64-vanilla-5.15.ko
+[*] Loading susfs_guard_lkm-x86_64-vanilla-5.15.ko...
+[*] Loading susfs_guard_lkm-x86_64-vanilla-5.15.ko (ksud: /data/adb/ksu/bin/ksud)...
+Loaded kernel module: /data/adb/ReSuSFS_LKM/susfs_guard_lkm-x86_64-vanilla-5.15.ko
+[+] LKM loaded successfully (ksud: susfs_guard_lkm-x86_64-vanilla-5.15.ko)
+[2026-11-27 08:23:49] post-fs-data: LKM load rc=0
+[2026-11-27 08:23:49] post-fs-data: susfs LKM image is LIVE (image loaded)
+---- LKM live evidence (v26.11.28) ----
+---- supercall live test (ksu_susfs show version / variant / enabled_features) ----
+susfs: show version failed
+susfs: show variant failed
+susfs: show enabled_features failed
+---- dmesg (susfs_guard_lkm: prefix, FULL ring) ----
+[   11.740663] susfs_guard_lkm: no symbol version for module_layout
+
+---- dmesg (wider pattern, last 3000) ----
+[    0.485503] kprobes: kprobe jump-optimization is enabled. All kprobes are optimized if possible.
+[    0.591965] libata version 3.00 loaded.
+[    0.961459] KernelSU: reboot kprobe registered successfully
+[    0.964723] KernelSU: hook_manager: register_syscall_regfunc kretprobe: 0
+[    0.967416] KernelSU: hook_manager: register_syscall_unregfunc kretprobe: 0
+[    2.474360] KernelSU: unregister input kprobe: 1!
+[    2.565566] ReSuSFS: === post-fs-data START (kernel: 5.15.178+, module: v26.11.53.1-x86_64) ===
+[    2.569949] ReSuSFS: post-fs-data: kernel_recon starting (gated, 60s)
+[   11.494357] ReSuSFS: post-fs-data: kernel_recon rc=0
+[   11.499138] ReSuSFS: post-fs-data: LKM image load starting (gated, 150s; opt-in only on custom kernels)
+[   11.575683] ReSuSFS: SAFEGUARD: /data/adb/ReSuSFS/enable_lkm present - loading custom-kernel LKM 'susfs_guard_lkm-x86_64-5.15.ko' (user opt-in; v26.11.38: image load only - init runs post-boot only with enable_force_init)
+[   11.606031] ReSuSFS: LKM candidate: vanilla -> susfs_guard_lkm-x86_64-vanilla-5.15.ko
+[   11.740663] susfs_guard_lkm: no symbol version for module_layout
+[   11.750633] ReSuSFS: post-fs-data: LKM load rc=0
+[   11.755057] ReSuSFS: post-fs-data: susfs LKM image is LIVE (image loaded)
+
+---- dmesg (RAW last 80 lines, no filter) ----
+[    2.379542] init: ... started service 'derive_classpath' has pid 129
+[    2.380568] init: SVC_EXEC service 'derive_classpath' pid 129 (uid 1000 gid 1000+1 context default) started; waiting...
+[    2.395562] init: Service 'derive_classpath' (pid 129) exited with status 0 waiting took 0.016000 seconds
+[    2.396027] init: Sending signal 9 to service 'derive_classpath' (pid 129) process group...
+[    2.396601] libprocessgroup: Successfully killed process cgroup uid 1000 pid 129 in 0ms
+[    2.397446] init: starting service 'art_boot'...
+[    2.398490] KernelSU: hook_manager: unmark 130 exec /apex/com.android.art/bin/art_boot
+[    2.398748] init: ... started service 'art_boot' has pid 130
+[    2.399471] init: SVC_EXEC service 'art_boot' pid 130 (uid 0 gid 0+0 context default) started; waiting...
+[    2.404112] init: Service 'art_boot' (pid 130) exited with status 0 waiting took 0.006000 seconds
+[    2.404658] init: Sending signal 9 to service 'art_boot' (pid 130) process group...
+[    2.405084] libprocessgroup: Successfully killed process cgroup uid 0 pid 130 in 0ms
+[    2.405741] init: starting service 'odsign'...
+[    2.406715] KernelSU: hook_manager: unmark 131 exec /system/bin/odsign
+[    2.406780] init: ... started service 'odsign' has pid 131
+[    2.419142] init: Wait for property 'odsign.key.done=1' took 11ms
+[    2.419623] init: starting service 'exec 9 (/system/bin/fsverity_init --lock)'...
+[    2.420859] init: ... started service 'exec 9 (/system/bin/fsverity_init --lock)' has pid 132
+[    2.421303] init: SVC_EXEC service 'exec 9 (/system/bin/fsverity_init --lock)' pid 132 (uid 0 gid 0+0 context default) started; waiting...
+[    2.422210] init: Sending signal 9 to service 'odsign' (pid 131) process group...
+[    2.422758] KernelSU: hook_manager: unmark 132 exec /system/bin/fsverity_init
+[    2.427985] libprocessgroup: Successfully killed process cgroup uid 0 pid 131 in 5ms
+[    2.428476] init: Control message: Processed ctl.stop for 'odsign' from pid: 131 (/system/bin/odsign)
+[    2.428939] init: Service 'odsign' (pid 131) received signal 9
+[    2.429308] init: Service 'exec 9 (/system/bin/fsverity_init --lock)' (pid 132) exited with status 0 waiting took 0.008000 seconds
+[    2.429885] init: Sending signal 9 to service 'exec 9 (/system/bin/fsverity_init --lock)' (pid 132) process group...
+[    2.430438] libprocessgroup: Successfully killed process cgroup uid 0 pid 132 in 0ms
+[    2.431152] init: starting service 'apexd-snapshotde'...
+[    2.432643] KernelSU: hook_manager: unmark 133 exec /system/bin/apexd
+[    2.432743] init: ... started service 'apexd-snapshotde' has pid 133
+[    2.433373] init: SVC_EXEC service 'apexd-snapshotde' pid 133 (uid 0 gid 1000+0 context default) started; waiting...
+[    2.441889] apexd: This device does not support updatable APEX. Exiting
+[    2.442257] apexd: Marking APEXd as ready
+[    2.443615] init: Service 'apexd-snapshotde' (pid 133) exited with status 0 waiting took 0.011000 seconds
+[    2.444319] init: Sending signal 9 to service 'apexd-snapshotde' (pid 133) process group...
+[    2.444982] libprocessgroup: Successfully killed process cgroup uid 0 pid 133 in 0ms
+[    2.448035] init: Command 'verity_update_state' action=post-fs-data (/system/etc/init/hw/init.rc:1141) took 0ms and failed: fs_mgr_load_verity_state() failed
+[    2.450652] init: processing action (post-fs-data) from (/system/etc/init/hw/init.rc:1519)
+[    2.452392] init: service 'logd' requested start, but it is already running (flags: 4)
+[    2.453567] init: starting service 'exec 10 (/data/adb/ksud post-fs-data)'...
+[    2.454861] init: ... started service 'exec 10 (/data/adb/ksud post-fs-data)' has pid 134
+[    2.454958] KernelSU: hook_manager: escape to root for init executing ksud: 134
+[    2.455339] init: SVC_EXEC service 'exec 10 (/data/adb/ksud post-fs-data)' pid 134 (uid 0 gid 0+0 context u:r:ksu:s0) started; waiting...
+[    2.469797] KernelSU: ksu fd installed: 4 for pid 134
+[    2.470063] KernelSU: [134] install ksu fd: 4
+[    2.470322] KernelSU: post-fs-data triggered
+[    2.470571] KernelSU: on_post_fs_data!
+[    2.471245] KernelSU: allowlist version: 4
+[    2.471448] KernelSU: load_allow_uid, name: com.lonelycatgames.Xplore, uid: 10075, allow: 1
+[    2.471897] KernelSU: set root profile, key: com.lonelycatgames.Xplore, uid: 10075, gid: 0, context: u:r:ksu:s0
+[    2.472413] KernelSU: load_allow_uid, name: com.android.shell, uid: 2000, allow: 1
+[    2.472771] KernelSU: set root profile, key: com.android.shell, uid: 2000, gid: 0, context: u:r:ksu:s0
+[    2.473310] KernelSU: ksu_show_allow_list
+[    2.473519] KernelSU: uid :10075, allow: 1
+[    2.473729] KernelSU: uid :2000, allow: 1
+[    2.473940] KernelSU: watching /data/system
+[    2.474155] KernelSU: observer init done
+[    2.474360] KernelSU: unregister input kprobe: 1!
+[    2.474735] KernelSU: selinux_hide: fake status is not initialized after post-fs-data!
+[    2.477956] KernelSU: volumedown_pressed_count: 0
+[    2.497261] logd: logdr: UID=0 GID=0 PID=137 b tail=0 logMask=bf pid=0 start=0ns deadline=0ns
+[    2.530903] KernelSU: SELinux permissive or disabled when handle policy!
+[    2.532687] KernelSU: old config: 1
+[    2.532871] KernelSU: adding POLICYDB_CONFIG_ANDROID_NETLINK_ROUTE
+[    2.533183] KernelSU: adding POLICYDB_CONFIG_ANDROID_NETLINK_GETNEIGH
+[    2.533508] KernelSU: new config: 3221225473
+[    2.544435] KernelSU: volumedown_pressed_count: 0
+[    2.565566] ReSuSFS: === post-fs-data START (kernel: 5.15.178+, module: v26.11.53.1-x86_64) ===
+[    2.569949] ReSuSFS: post-fs-data: kernel_recon starting (gated, 60s)
+[   11.494357] ReSuSFS: post-fs-data: kernel_recon rc=0
+[   11.499138] ReSuSFS: post-fs-data: LKM image load starting (gated, 150s; opt-in only on custom kernels)
+[   11.575683] ReSuSFS: SAFEGUARD: /data/adb/ReSuSFS/enable_lkm present - loading custom-kernel LKM 'susfs_guard_lkm-x86_64-5.15.ko' (user opt-in; v26.11.38: image load only - init runs post-boot only with enable_force_init)
+[   11.578567] init: Untracked pid 163 exited with status 0
+[   11.578933] init: Untracked pid 163 did not have an associated service entry and will not be reaped
+[   11.606031] ReSuSFS: LKM candidate: vanilla -> susfs_guard_lkm-x86_64-vanilla-5.15.ko
+[   11.740663] susfs_guard_lkm: no symbol version for module_layout
+[   11.750633] ReSuSFS: post-fs-data: LKM load rc=0
+[   11.755057] ReSuSFS: post-fs-data: susfs LKM image is LIVE (image loaded)
+[   12.509750] init: Untracked pid 238 exited with status 0
+[   12.510059] init: Untracked pid 238 did not have an associated service entry and will not be reaped
+---- kallsyms (kptr_restrict relaxed: was '2') ----
+kallsyms 'current_task': 000000000001bc40 A current_task
+kallsyms '__x64_sys_reboot': ffffffff8108faf0 t __x64_sys_reboot
+kallsyms '__per_cpu_start': 0000000000000000 A __per_cpu_start
+kallsyms 'fixed_percpu_data': 0000000000000000 A fixed_percpu_data
+kallsyms 'init_task': ffffffff822127c0 d init_task
+kallsyms 'ksu_handle_sys_reboot': not listed
+kallsyms 'ksu_handle_prctl': not listed
+kallsyms 'ksu_handle_execveat': not listed
+kallsyms 'ksu_handle_syscall': not listed
+kallsyms 'handle_superscall': not listed
+kallsyms 'susfs_suscall': not listed
+kallsyms 'ksu_try_umount': not listed
+kallsyms 'ksu_handle_sigterm': not listed
+---- kallsyms (KernelSU-prefixed, first 30) ----
+ffffffff8170bc40 t ksu_handle_umount
+ffffffff8170be40 t ksu_sulog_is_enabled
+ffffffff8170be80 t ksu_handle_faccessat_sucompat
+ffffffff8170bfc0 t ksu_handle_stat_sucompat
+ffffffff8170c0c0 t ksu_handle_execve_sucompat
+ffffffff8170c0e0 t ksu_handle_execve_sucompat_common
+ffffffff8170c3e0 t ksu_handle_execveat_sucompat
+ffffffff8170c4a0 t ksu_lsm_hook
+ffffffff8170c8b0 t ksu_lsm_hook_track
+ffffffff8170c930 t ksu_lsm_unhook
+ffffffff8170ca60 t ksu_register_lsm_hook
+ffffffff8170ca70 t ksu_unregister_lsm_hook
+ffffffff8170ca80 t ksu_handle_setresuid
+ffffffff8170cb80 t ksu_hook_newfstatat
+ffffffff8170cba0 t ksu_hook_faccessat
+ffffffff8170cbc0 t ksu_stop_ksud_execve_hook
+ffffffff8170cbe0 t ksu_hook_execve
+ffffffff8170cbf0 t ksu_hook_execve_common
+ffffffff8170ce30 t ksu_hook_execveat
+ffffffff8170ce40 t ksu_hook_setresuid
+ffffffff8170cfb0 t ksu_sys_enter_handler
+ffffffff8170d040 t ksu_tp_marker_reg_count
+ffffffff8170d050 t ksu_tp_marker_lock
+ffffffff8170d070 t ksu_tp_marker_unlock
+ffffffff8170d080 t ksu_tp_marker_inc_reg_count
+ffffffff8170d090 t ksu_tp_marker_dec_reg_count
+ffffffff8170d0a0 t ksu_clear_task_tracepoint_flag_if_needed
+ffffffff8170d0d0 t ksu_mark_all_process
+ffffffff8170d150 t ksu_unmark_all_process
+ffffffff8170d1d0 t ksu_mark_running_process_locked
+---- kretprobe registration state (best effort) ----
+debugfs mount: 
+debugfs dir exists: no
+kprobes/list exists: no
+kprobes/list (ALL, first 20): <unavailable>
+/proc/modules: susfs_guard_lkm 655360 - - Live 0x0000000000000000 (O)
+---- /proc/susfs_* control nodes ----
+/proc/susfs_path: ABSENT (-e) - created at load time per boot.log, then gone
+ls /proc (getdents view): <none visible - hidden by the module's own stealth is EXPECTED>
+---- /sys/module/susfs_guard_lkm/parameters/diag_log (module param, bypasses printk+filp) ----
+<diag_log is empty or unreadable — susfs_init did not run, or module_param not exposed>
+---- /sys/module/susfs_guard_lkm/parameters/sc_entry_count (supercall kprobe fire count) ----
+sc_entry_count (v45+: real kprobe hits): 0
+---- /sys/module/susfs_guard_lkm/parameters: v42 substep ladder ----
+init_maxstep = 0
+init_laststep = -1
+init_done = 0
+arm_stage = 0
+kr_scan = 0
+diag_printk = -1609782920
+probe_arm = 0
+force_init = present (0200 write-only by design; the v40 collector's 'not exposed' line was this read's EACCES, not a missing param)
+wd_timeout_s = <removed in v41: no kernel-side watchdog; recovery is the next boot's stand-down>
+kr_seed = <empty - not seeded this boot>
+---- end of live evidence ----
+[2026-11-27 08:23:53] post-fs-data: stage-early starting (gated, 120s)
+[+] stage: early (post-fs-data)
+[*] userspace-only mode: no kernel susfs - skipping susfs application
+[*] LKM opt-in (custom kernels): touch /data/adb/ReSuSFS/enable_lkm
+[2026-11-27 08:23:53] post-fs-data: stage-early rc=0
+[2026-11-27 08:23:53] post-fs-data: postfs user scripts starting (gated, 90s)
+[2026-11-27 08:23:53] post-fs-data: postfs scripts rc=0
+[2026-11-27 08:23:53] === post-fs-data DONE ===
+[2026-11-27 08:23:56] service: waiting for sys.boot_completed
+[2026-11-27 08:24:03] init-trace: STEP 7/7 DISPATCHING (arm_stage=1/3 marker='ok 0 10edd8c1b49c423f804b1a33cb4b6a3c' mode=sync module=v26.11.53.1-x86_64)
+[2026-11-27 08:24:03] boot-completed: seeding resolver (v2: kln/gsoff preferred, tables if visible)
+[2026-11-27 08:24:04] service: boot completed after 7s - starting status loop (30s cadence)
+[2026-11-27 08:24:12] init-trace: seed v2 written: kln=ffffffff810fd360 gsoff=000000000001bc40
+[2026-11-27 08:24:12] boot-completed: kr_seed(v2) = kln=ffffffff810fd360 gsoff=000000000001bc40
+[2026-11-27 08:24:12] init-trace: writing arm_stage=1 (layer gate)
+[2026-11-27 08:24:12] init-trace: writing init_maxstep=7 (substep gate)
+[2026-11-27 08:24:12] boot-completed: substep seq=7 armed (init_maxstep=7 arm_stage=1; ladder: 0=dispatch 1=+imports 2=+resolver 3=+gs_off 4=+deadman 5=+crosscheck 6=+patch 7=+layers; max=3)
+[2026-11-27 08:24:13] init-trace: diag_printk=1 armed (EMERG breadcrumbs: XYZDIAG2 at .set entry, XYZDIAG1 in the body)
+[2026-11-27 08:24:13] init-trace: dmesg baseline (last 6): [   34.683036] ReSuSFS: init-trace: writing init_maxstep=7 (substep gate)|[   34.747238] type=1400 audit(1795742652.815:1122): avc:  denied  { bind } for  comm=4E65746C696E6B204D6F6E69746F72 scontext=u:r:untrusted_app:s0:c81,c256,c512,c768 tcontext=u:r:untrusted_app:s0:c81,c256,c512,c768 tclass=netl
+[2026-11-27 08:24:13] init-trace: witness(bg): laststep=-1 init_done=0 @0s
+[2026-11-27 08:24:13] init-trace: trigger_mode=sync: writing force_init=2 (v43 SYNC path: the .set calls susfs_init_body DIRECTLY - no workqueue; sentinels -70 entered, -71 already-done)
+[2026-11-27 08:24:13] boot-completed: triggering force_init=2 (SYNC channel, direct body call, no queueing; substep 7; system fully booted)
+[2026-11-27 08:24:14] init-trace: force_init=2 write returned (sync body ran to completion inside the write)
+---- diag_log final snapshot (substep 7, after 0s poll) ----
+DIAG step 1: susfs_init ENTERED (maxstep=7 arm_stage=1)
+DIAG step 2: calling imports_guard
+init v2.3.1-gki (substep ladder: maxstep=7)
+DIAG step 3: calling ksu_init_symbol_resolver (kln=/table seed; scan stays off)
+resolver: KLN mode ACTIVE (kallsyms_lookup_name@0xffffffff810fd360 validated via sprint_symbol + probe '_printk'=0xffffffff810b6d00; no table walk, no scan)
+DIAG step 4a: calling susfs_current_init
+current_task: per-CPU gs offset = 0x1bc40
+DIAG step 4: susfs_current_init done (gs_off=0x1bc40)
+DIAG step 4b: dead-man check for built-in susfs (2 lookups)
+DIAG step 5: calling imports_crosscheck
+DIAG step 5a: calling ksu_patch_memory_init
+DIAG step 6.1: loading layer 0 (fp_hook, fatal=0)
+DIAG step 6.2: loading layer 1 (ksu_umount_gate, fatal=0)
+DIAG step 6.3: loading layer 2 (ksu_allow_gate, fatal=0)
+DIAG step 6.4: layer 3 (lsm_hook) SKIPPED (needs stage 4 > arm_stage 1)
+DIAG step 6.5: layer 4 (sus_path) SKIPPED (needs stage 4 > arm_stage 1)
+DIAG step 6.6: layer 5 (create_gate) SKIPPED (needs stage 5 > arm_stage 1)
+DIAG step 6.7: layer 6 (opath) SKIPPED (needs stage 5 > arm_stage 1)
+DIAG step 6.8: layer 7 (dirent) SKIPPED (needs stage 5 > arm_stage 1)
+DIAG step 6.9: layer 8 (uname) SKIPPED (needs stage 4 > arm_stage 1)
+DIAG step 6.10: layer 9 (kstat) SKIPPED (needs stage 5 > arm_stage 1)
+DIAG step 6.11: loading layer 10 (sus_map, fatal=0)
+DIAG step 6.12: loading layer 11 (sus_mount, fatal=0)
+DIAG step 6.13: loading layer 12 (cmdline, fatal=0)
+DIAG step 6.14: loading layer 13 (open_redirect, fatal=0)
+DIAG step 6.15: loading layer 14 (prop_view, fatal=0)
+DIAG step 6.16: loading layer 15 (enable_log, fatal=0)
+DIAG step 6.17: loading layer 16 (avc_spoof, fatal=0)
+DIAG step 6.18: layer 17 (supercall) SKIPPED (needs stage 2 > arm_stage 1)
+DIAG step 6.19: layer 18 (hide_syms) SKIPPED (needs stage 4 > arm_stage 1)
+DIAG step 6.20: layer 19 (sus_unix) SKIPPED (needs stage 5 > arm_stage 1)
+DIAG step 7: layer loop done; self-hide/relabel SKIPPED (sus_path not armed at this stage)
+loaded. This module is filtered out of /proc/modules for every caller including root, so `lsmod | grep susfs` stays empty - check /sys/module/susfs_guard_lkm instead (a second insmod fails with -EEXIST while it is loaded).
+DIAG step 9: susfs_init_body RETURNING 0 (maxstep=7 laststep=7 init_done=1)
+---- end diag_log ----
+[2026-11-27 08:24:14] init-trace: witness(bg): laststep=7 init_done=1 @1s
+[2026-11-27 08:24:14] init-trace: STEP 7 COMPLETE (init_done=1 after 0s; module laststep=7)
+[2026-11-27 08:24:14] init-trace: witness(bg): diag_log snapshot @1s (len=2307)
+[2026-11-27 08:24:14] boot-completed: substep 7 init COMPLETE (init_done=1 after 0s)
+[2026-11-27 08:24:15] boot-completed: arm_stage 1 healthy (init done + boot completed) - next boot arms stage 2/3
+[2026-11-27 08:24:15] boot-completed: stage-late starting (gated, 120s)
+[+] stage: late (boot-completed)
+[*] userspace-only mode: no kernel susfs - skipping susfs application
+[2026-11-27 08:24:15] boot-completed: stage-late rc=0
+[2026-11-27 08:24:15] boot-completed: bootcompleted user scripts starting (gated, 120s)
+[2026-11-27 08:24:16] boot-completed: bootcompleted scripts rc=0
+[2026-11-27 08:24:16] === boot-completed DONE ===
+[2026-11-27 08:24:20] init-trace: witness(bg): init_done=1 seen - background witness exiting @5s
+[2026-11-27 08:24:27] === post-fs-data START (kernel: 5.15.178+, module: v26.11.53.1-x86_64) ===
+[2026-11-27 08:24:27] post-fs-data: kernel_recon starting (gated, 60s)
+[+] kernel recon written: /data/adb/ReSuSFS/logs/kernel_facts.txt (+kernel_kallsyms.txt; kernel_config.txt NOT written - /proc/config.gz absent on this kernel)
+[2026-11-27 08:24:36] post-fs-data: kernel_recon rc=0
+[2026-11-27 08:24:36] post-fs-data: LKM image load starting (gated, 150s; opt-in only on custom kernels)
+[2026-11-27 08:24:36] SAFEGUARD: /data/adb/ReSuSFS/enable_lkm present - loading custom-kernel LKM 'susfs_guard_lkm-x86_64-5.15.ko' (user opt-in; v26.11.38: image load only - init runs post-boot only with enable_force_init)
+[*] enable_lkm flag present: loading custom-kernel LKM image (user opt-in)
+[2026-11-27 08:24:36] LKM candidate: vanilla -> susfs_guard_lkm-x86_64-vanilla-5.15.ko
+[*] Loading susfs_guard_lkm-x86_64-vanilla-5.15.ko...
+[*] Loading susfs_guard_lkm-x86_64-vanilla-5.15.ko (ksud: /data/adb/ksu/bin/ksud)...
+Loaded kernel module: /data/adb/ReSuSFS_LKM/susfs_guard_lkm-x86_64-vanilla-5.15.ko
+[+] LKM loaded successfully (ksud: susfs_guard_lkm-x86_64-vanilla-5.15.ko)
+[2026-11-27 08:24:36] post-fs-data: LKM load rc=0
+[2026-11-27 08:24:36] post-fs-data: susfs LKM image is LIVE (image loaded)
+---- LKM live evidence (v26.11.28) ----
+---- supercall live test (ksu_susfs show version / variant / enabled_features) ----
+susfs: show version failed
+susfs: show variant failed
+susfs: show enabled_features failed
+---- dmesg (susfs_guard_lkm: prefix, FULL ring) ----
+[   11.652643] susfs_guard_lkm: no symbol version for module_layout
+
+---- dmesg (wider pattern, last 3000) ----
+[    0.482750] kprobes: kprobe jump-optimization is enabled. All kprobes are optimized if possible.
+[    0.597043] libata version 3.00 loaded.
+[    0.981021] KernelSU: reboot kprobe registered successfully
+[    0.984586] KernelSU: hook_manager: register_syscall_regfunc kretprobe: 0
+[    0.987358] KernelSU: hook_manager: register_syscall_unregfunc kretprobe: 0
+[    2.554496] KernelSU: unregister input kprobe: 1!
+[    2.680209] ReSuSFS: === post-fs-data START (kernel: 5.15.178+, module: v26.11.53.1-x86_64) ===
+[    2.684512] ReSuSFS: post-fs-data: kernel_recon starting (gated, 60s)
+[   11.401409] ReSuSFS: post-fs-data: kernel_recon rc=0
+[   11.406799] ReSuSFS: post-fs-data: LKM image load starting (gated, 150s; opt-in only on custom kernels)
+[   11.470735] ReSuSFS: SAFEGUARD: /data/adb/ReSuSFS/enable_lkm present - loading custom-kernel LKM 'susfs_guard_lkm-x86_64-5.15.ko' (user opt-in; v26.11.38: image load only - init runs post-boot only with enable_force_init)
+[   11.501384] ReSuSFS: LKM candidate: vanilla -> susfs_guard_lkm-x86_64-vanilla-5.15.ko
+[   11.652643] susfs_guard_lkm: no symbol version for module_layout
+[   11.664725] ReSuSFS: post-fs-data: LKM load rc=0
+[   11.669300] ReSuSFS: post-fs-data: susfs LKM image is LIVE (image loaded)
+
+---- dmesg (RAW last 80 lines, no filter) ----
+[    2.444804] init: SVC_EXEC service 'derive_classpath' pid 130 (uid 1000 gid 1000+1 context default) started; waiting...
+[    2.460761] derive_classpat (130) used greatest stack depth: 12376 bytes left
+[    2.460853] init: Service 'derive_classpath' (pid 130) exited with status 0 waiting took 0.017000 seconds
+[    2.461810] init: Sending signal 9 to service 'derive_classpath' (pid 130) process group...
+[    2.462401] libprocessgroup: Successfully killed process cgroup uid 1000 pid 130 in 0ms
+[    2.463647] init: starting service 'art_boot'...
+[    2.464736] KernelSU: hook_manager: unmark 131 exec /apex/com.android.art/bin/art_boot
+[    2.465580] init: ... started service 'art_boot' has pid 131
+[    2.465939] init: SVC_EXEC service 'art_boot' pid 131 (uid 0 gid 0+0 context default) started; waiting...
+[    2.470167] init: Service 'art_boot' (pid 131) exited with status 0 waiting took 0.005000 seconds
+[    2.470639] init: Sending signal 9 to service 'art_boot' (pid 131) process group...
+[    2.471062] libprocessgroup: Successfully killed process cgroup uid 0 pid 131 in 0ms
+[    2.471980] init: starting service 'odsign'...
+[    2.473911] KernelSU: hook_manager: unmark 132 exec /system/bin/odsign
+[    2.474499] init: ... started service 'odsign' has pid 132
+[    2.486103] init: Wait for property 'odsign.key.done=1' took 11ms
+[    2.486717] init: starting service 'exec 9 (/system/bin/fsverity_init --lock)'...
+[    2.487827] init: ... started service 'exec 9 (/system/bin/fsverity_init --lock)' has pid 133
+[    2.487885] KernelSU: hook_manager: unmark 133 exec /system/bin/fsverity_init
+[    2.488571] init: SVC_EXEC service 'exec 9 (/system/bin/fsverity_init --lock)' pid 133 (uid 0 gid 0+0 context default) started; waiting...
+[    2.489955] init: Sending signal 9 to service 'odsign' (pid 132) process group...
+[    2.495709] libprocessgroup: Successfully killed process cgroup uid 0 pid 132 in 5ms
+[    2.496770] init: Control message: Processed ctl.stop for 'odsign' from pid: 132 (/system/bin/odsign)
+[    2.497666] init: Service 'odsign' (pid 132) received signal 9
+[    2.498848] init: Service 'exec 9 (/system/bin/fsverity_init --lock)' (pid 133) exited with status 0 waiting took 0.011000 seconds
+[    2.500012] init: Sending signal 9 to service 'exec 9 (/system/bin/fsverity_init --lock)' (pid 133) process group...
+[    2.500995] libprocessgroup: Successfully killed process cgroup uid 0 pid 133 in 0ms
+[    2.502373] init: starting service 'apexd-snapshotde'...
+[    2.504093] KernelSU: hook_manager: unmark 134 exec /system/bin/apexd
+[    2.504961] init: ... started service 'apexd-snapshotde' has pid 134
+[    2.505536] init: SVC_EXEC service 'apexd-snapshotde' pid 134 (uid 0 gid 1000+0 context default) started; waiting...
+[    2.514693] apexd: This device does not support updatable APEX. Exiting
+[    2.515204] apexd: Marking APEXd as ready
+[    2.516251] init: Service 'apexd-snapshotde' (pid 134) exited with status 0 waiting took 0.012000 seconds
+[    2.516711] init: Sending signal 9 to service 'apexd-snapshotde' (pid 134) process group...
+[    2.517282] libprocessgroup: Successfully killed process cgroup uid 0 pid 134 in 0ms
+[    2.525302] init: Command 'verity_update_state' action=post-fs-data (/system/etc/init/hw/init.rc:1141) took 0ms and failed: fs_mgr_load_verity_state() failed
+[    2.526574] init: processing action (post-fs-data) from (/system/etc/init/hw/init.rc:1519)
+[    2.527115] init: service 'logd' requested start, but it is already running (flags: 4)
+[    2.528401] init: starting service 'exec 10 (/data/adb/ksud post-fs-data)'...
+[    2.530606] init: ... started service 'exec 10 (/data/adb/ksud post-fs-data)' has pid 135
+[    2.530712] KernelSU: hook_manager: escape to root for init executing ksud: 135
+[    2.531277] init: SVC_EXEC service 'exec 10 (/data/adb/ksud post-fs-data)' pid 135 (uid 0 gid 0+0 context u:r:ksu:s0) started; waiting...
+[    2.547544] KernelSU: ksu fd installed: 4 for pid 135
+[    2.547822] KernelSU: [135] install ksu fd: 4
+[    2.548105] KernelSU: post-fs-data triggered
+[    2.548436] KernelSU: on_post_fs_data!
+[    2.549272] KernelSU: allowlist version: 4
+[    2.549823] KernelSU: load_allow_uid, name: com.lonelycatgames.Xplore, uid: 10075, allow: 1
+[    2.550568] KernelSU: set root profile, key: com.lonelycatgames.Xplore, uid: 10075, gid: 0, context: u:r:ksu:s0
+[    2.551279] KernelSU: load_allow_uid, name: com.android.shell, uid: 2000, allow: 1
+[    2.551957] KernelSU: set root profile, key: com.android.shell, uid: 2000, gid: 0, context: u:r:ksu:s0
+[    2.552648] KernelSU: ksu_show_allow_list
+[    2.552942] KernelSU: uid :10075, allow: 1
+[    2.553436] KernelSU: uid :2000, allow: 1
+[    2.553849] KernelSU: watching /data/system
+[    2.554231] KernelSU: observer init done
+[    2.554496] KernelSU: unregister input kprobe: 1!
+[    2.554970] KernelSU: selinux_hide: fake status is not initialized after post-fs-data!
+[    2.559201] KernelSU: volumedown_pressed_count: 0
+[    2.581142] logd: logdr: UID=0 GID=0 PID=138 b tail=0 logMask=bf pid=0 start=0ns deadline=0ns
+[    2.643189] KernelSU: SELinux permissive or disabled when handle policy!
+[    2.645195] KernelSU: old config: 1
+[    2.645387] KernelSU: adding POLICYDB_CONFIG_ANDROID_NETLINK_ROUTE
+[    2.645703] KernelSU: adding POLICYDB_CONFIG_ANDROID_NETLINK_GETNEIGH
+[    2.646032] KernelSU: new config: 3221225473
+[    2.663237] KernelSU: volumedown_pressed_count: 0
+[    2.680209] ReSuSFS: === post-fs-data START (kernel: 5.15.178+, module: v26.11.53.1-x86_64) ===
+[    2.684512] ReSuSFS: post-fs-data: kernel_recon starting (gated, 60s)
+[   11.401409] ReSuSFS: post-fs-data: kernel_recon rc=0
+[   11.406799] ReSuSFS: post-fs-data: LKM image load starting (gated, 150s; opt-in only on custom kernels)
+[   11.470735] ReSuSFS: SAFEGUARD: /data/adb/ReSuSFS/enable_lkm present - loading custom-kernel LKM 'susfs_guard_lkm-x86_64-5.15.ko' (user opt-in; v26.11.38: image load only - init runs post-boot only with enable_force_init)
+[   11.501384] ReSuSFS: LKM candidate: vanilla -> susfs_guard_lkm-x86_64-vanilla-5.15.ko
+[   11.652643] susfs_guard_lkm: no symbol version for module_layout
+[   11.664725] ReSuSFS: post-fs-data: LKM load rc=0
+[   11.669300] ReSuSFS: post-fs-data: susfs LKM image is LIVE (image loaded)
+[   11.695279] init: Untracked pid 165 exited with status 0
+[   11.695557] init: Untracked pid 165 did not have an associated service entry and will not be reaped
+[   12.415540] init: Untracked pid 240 exited with status 0
+[   12.415961] init: Untracked pid 240 did not have an associated service entry and will not be reaped
+---- kallsyms (kptr_restrict relaxed: was '2') ----
+kallsyms 'current_task': 000000000001bc40 A current_task
+kallsyms '__x64_sys_reboot': ffffffff8108faf0 t __x64_sys_reboot
+kallsyms '__per_cpu_start': 0000000000000000 A __per_cpu_start
+kallsyms 'fixed_percpu_data': 0000000000000000 A fixed_percpu_data
+kallsyms 'init_task': ffffffff822127c0 d init_task
+kallsyms 'ksu_handle_sys_reboot': not listed
+kallsyms 'ksu_handle_prctl': not listed
+kallsyms 'ksu_handle_execveat': not listed
+kallsyms 'ksu_handle_syscall': not listed
+kallsyms 'handle_superscall': not listed
+kallsyms 'susfs_suscall': not listed
+kallsyms 'ksu_try_umount': not listed
+kallsyms 'ksu_handle_sigterm': not listed
+---- kallsyms (KernelSU-prefixed, first 30) ----
+ffffffff8170bc40 t ksu_handle_umount
+ffffffff8170be40 t ksu_sulog_is_enabled
+ffffffff8170be80 t ksu_handle_faccessat_sucompat
+ffffffff8170bfc0 t ksu_handle_stat_sucompat
+ffffffff8170c0c0 t ksu_handle_execve_sucompat
+ffffffff8170c0e0 t ksu_handle_execve_sucompat_common
+ffffffff8170c3e0 t ksu_handle_execveat_sucompat
+ffffffff8170c4a0 t ksu_lsm_hook
+ffffffff8170c8b0 t ksu_lsm_hook_track
+ffffffff8170c930 t ksu_lsm_unhook
+ffffffff8170ca60 t ksu_register_lsm_hook
+ffffffff8170ca70 t ksu_unregister_lsm_hook
+ffffffff8170ca80 t ksu_handle_setresuid
+ffffffff8170cb80 t ksu_hook_newfstatat
+ffffffff8170cba0 t ksu_hook_faccessat
+ffffffff8170cbc0 t ksu_stop_ksud_execve_hook
+ffffffff8170cbe0 t ksu_hook_execve
+ffffffff8170cbf0 t ksu_hook_execve_common
+ffffffff8170ce30 t ksu_hook_execveat
+ffffffff8170ce40 t ksu_hook_setresuid
+ffffffff8170cfb0 t ksu_sys_enter_handler
+ffffffff8170d040 t ksu_tp_marker_reg_count
+ffffffff8170d050 t ksu_tp_marker_lock
+ffffffff8170d070 t ksu_tp_marker_unlock
+ffffffff8170d080 t ksu_tp_marker_inc_reg_count
+ffffffff8170d090 t ksu_tp_marker_dec_reg_count
+ffffffff8170d0a0 t ksu_clear_task_tracepoint_flag_if_needed
+ffffffff8170d0d0 t ksu_mark_all_process
+ffffffff8170d150 t ksu_unmark_all_process
+ffffffff8170d1d0 t ksu_mark_running_process_locked
+---- kretprobe registration state (best effort) ----
+debugfs mount: 
+debugfs dir exists: no
+kprobes/list exists: no
+kprobes/list (ALL, first 20): <unavailable>
+/proc/modules: susfs_guard_lkm 655360 - - Live 0x0000000000000000 (O)
+---- /proc/susfs_* control nodes ----
+/proc/susfs_path: ABSENT (-e) - created at load time per boot.log, then gone
+ls /proc (getdents view): <none visible - hidden by the module's own stealth is EXPECTED>
+---- /sys/module/susfs_guard_lkm/parameters/diag_log (module param, bypasses printk+filp) ----
+<diag_log is empty or unreadable — susfs_init did not run, or module_param not exposed>
+---- /sys/module/susfs_guard_lkm/parameters/sc_entry_count (supercall kprobe fire count) ----
+sc_entry_count (v45+: real kprobe hits): 0
+---- /sys/module/susfs_guard_lkm/parameters: v42 substep ladder ----
+init_maxstep = 0
+init_laststep = -1
+init_done = 0
+arm_stage = 0
+kr_scan = 0
+diag_printk = -1609782920
+probe_arm = 0
+force_init = present (0200 write-only by design; the v40 collector's 'not exposed' line was this read's EACCES, not a missing param)
+wd_timeout_s = <removed in v41: no kernel-side watchdog; recovery is the next boot's stand-down>
+kr_seed = <empty - not seeded this boot>
+---- end of live evidence ----
+[2026-11-27 08:24:40] post-fs-data: stage-early starting (gated, 120s)
+[+] stage: early (post-fs-data)
+[*] userspace-only mode: no kernel susfs - skipping susfs application
+[*] LKM opt-in (custom kernels): touch /data/adb/ReSuSFS/enable_lkm
+[2026-11-27 08:24:40] post-fs-data: stage-early rc=0
+[2026-11-27 08:24:40] post-fs-data: postfs user scripts starting (gated, 90s)
+[2026-11-27 08:24:40] post-fs-data: postfs scripts rc=0
+[2026-11-27 08:24:40] === post-fs-data DONE ===
+[2026-11-27 08:24:43] service: waiting for sys.boot_completed
+[2026-11-27 08:24:50] service: boot completed after 7s - starting status loop (30s cadence)
+[2026-11-27 08:24:51] init-trace: STEP 7/7 DISPATCHING (arm_stage=2/3 marker='ok 1 82ae212ea5434a0a9091550d175e16c9' mode=sync module=v26.11.53.1-x86_64)
+[2026-11-27 08:24:51] boot-completed: seeding resolver (v2: kln/gsoff preferred, tables if visible)
+[2026-11-27 08:24:58] init-trace: seed v2 written: kln=ffffffff810fd360 gsoff=000000000001bc40
+[2026-11-27 08:24:58] boot-completed: kr_seed(v2) = kln=ffffffff810fd360 gsoff=000000000001bc40
+[2026-11-27 08:24:58] init-trace: writing arm_stage=2 (layer gate)
+[2026-11-27 08:24:58] init-trace: writing init_maxstep=7 (substep gate)
+[2026-11-27 08:24:58] boot-completed: substep seq=7 armed (init_maxstep=7 arm_stage=2; ladder: 0=dispatch 1=+imports 2=+resolver 3=+gs_off 4=+deadman 5=+crosscheck 6=+patch 7=+layers; max=3)
+[2026-11-27 08:24:59] init-trace: diag_printk=1 armed (EMERG breadcrumbs: XYZDIAG2 at .set entry, XYZDIAG1 in the body)
+[2026-11-27 08:24:59] init-trace: dmesg baseline (last 6): [   33.781600] ReSuSFS: init-trace: seed v2 written: kln=ffffffff810fd360 gsoff=000000000001bc40|[   33.802842] ReSuSFS: boot-completed: kr_seed(v2) = kln=ffffffff810fd360 gsoff=000000000001bc40|[   33.829422] ReSuSFS: init-trace: writing arm_stage=2 (layer gate)|[   33.838237] ReSuSFS: init-trace: 
+[2026-11-27 08:24:59] init-trace: witness(bg): laststep=-1 init_done=0 @0s
+[2026-11-27 08:24:59] init-trace: trigger_mode=sync: writing force_init=2 (v43 SYNC path: the .set calls susfs_init_body DIRECTLY - no workqueue; sentinels -70 entered, -71 already-done)
+[2026-11-27 08:24:59] boot-completed: triggering force_init=2 (SYNC channel, direct body call, no queueing; substep 7; system fully booted)
+[2026-11-27 08:25:00] init-trace: force_init=2 write returned (sync body ran to completion inside the write)
+[2026-11-27 08:25:00] init-trace: witness(bg): diag_log snapshot @0s (len=4094)
+---- diag_log final snapshot (substep 7, after 0s poll) ----
+DIAG step 1: susfs_init ENTERED (maxstep=7 arm_stage=2)
+DIAG step 2: calling imports_guard
+init v2.3.1-gki (substep ladder: maxstep=7)
+DIAG step 3: calling ksu_init_symbol_resolver (kln=/table seed; scan stays off)
+resolver: KLN mode ACTIVE (kallsyms_lookup_name@0xffffffff810fd360 validated via sprint_symbol + probe '_printk'=0xffffffff810b6d00; no table walk, no scan)
+DIAG step 4a: calling susfs_current_init
+current_task: per-CPU gs offset = 0x1bc40
+DIAG step 4: susfs_current_init done (gs_off=0x1bc40)
+DIAG step 4b: dead-man check for built-in susfs (2 lookups)
+DIAG step 5: calling imports_crosscheck
+DIAG step 5a: calling ksu_patch_memory_init
+DIAG step 6.1: loading layer 0 (fp_hook, fatal=0)
+DIAG step 6.2: loading layer 1 (ksu_umount_gate, fatal=0)
+DIAG step 6.3: loading layer 2 (ksu_allow_gate, fatal=0)
+DIAG step 6.4: layer 3 (lsm_hook) SKIPPED (needs stage 4 > arm_stage 2)
+DIAG step 6.5: layer 4 (sus_path) SKIPPED (needs stage 4 > arm_stage 2)
+DIAG step 6.6: layer 5 (create_gate) SKIPPED (needs stage 5 > arm_stage 2)
+DIAG step 6.7: layer 6 (opath) SKIPPED (needs stage 5 > arm_stage 2)
+DIAG step 6.8: layer 7 (dirent) SKIPPED (needs stage 5 > arm_stage 2)
+DIAG step 6.9: layer 8 (uname) SKIPPED (needs stage 4 > arm_stage 2)
+DIAG step 6.10: layer 9 (kstat) SKIPPED (needs stage 5 > arm_stage 2)
+DIAG step 6.11: loading layer 10 (sus_map, fatal=0)
+DIAG step 6.12: loading layer 11 (sus_mount, fatal=0)
+DIAG step 6.13: loading layer 12 (cmdline, fatal=0)
+DIAG step 6.14: loading layer 13 (open_redirect, fatal=0)
+DIAG step 6.15: loading layer 14 (prop_view, fatal=0)
+DIAG step 6.16: loading layer 15 (enable_log, fatal=0)
+DIAG step 6.17: loading layer 16 (avc_spoof, fatal=0)
+DIAG step 6.18: loading layer 17 (supercall, fatal=1)
+supercall: v53 clang accept-path init (CLI wire ABI: e1=version e2=enabled_features e3=variant; FEATURE RUNG: 55550=add_sus_path 55553=add_sus_path_loop 55561=hide_sus_mnts, readback 55f53) (stage 2, mode=OBSERVE-ONLY; entry AND accept path compiled by clang-17; the v49 GCC wrapper is never called - the v50 field verdict convicted its first execution)
+supercall: v53 calibrate: task_struct.cred at +0x7a8 (the v49 wrapper's hardcoded header offset was 0x788 - DIFFERENT, the hardcoded read was the wedge); uid at cred+8 verified against init_cred - the uid gate is calibrated
+supercall: v53 feature rung: add_sus_path/add_sus_path_loop accepted into a 32-slot .data table (accept + store this rung; enforcement wiring is the next rung), hide_sus_mnts toggle recorded, readback cmd 0x55f53 via sc_probe
+supercall: v53: table=0xffffffff8205f1d0 table[173]=0xffffffff81027650 handler(__x64_sys_ioperm)=0xffffffff81027650 dispatcher=0xffffffff8170dc00 in 1 entry (idx 134)
+supercall: v53 orig window [-16..-1): 415e415c 49c35d5f fff4c6c7 ebebffff
+supercall: v53 own window (clang preamble) : 90909090 90909090 b8909090 b02b34d9
+supercall: v53: preamble window cloned + verified (16 bytes, byte-exact)
+supercall: v53 transport LIVE - table[173] -> susfs_sc_entry (clang-17 entry + ALL-CLANG accept path; observe = counter + -EINVAL; full = magic + calibrated-uid gate + SHOW answers + the v53 FEATURE RUNG: add_sus_path/add_sus_path_loop stored (32 slots, dedup, ENOSPC-capped), hide_sus_mnts recorded, readback 0x55f53; set_uname/set_cmdline stay not-handled until the next rung; uid gate CALIBRATED)
+DIAG step 6.19: layer 18 (hide_syms) SKIPPED (needs stage 4 > arm_stage 2)
+DIAG step 6.20: layer 19 (sus_unix) SKIPPED (needs stage 5 > arm_stage 2)
+DIAG step 7: layer loop done; self-hide/relabel SKIPPED (sus_path not armed at this stage)
+loaded. This module is filtered out of /proc/modules for every caller including root, so `lsmod | grep susfs` stays empty - check /sys/module/susfs_guard_lkm instead (a second insmod fails with -EEXIST while it is loaded).
+supercall delivery patches the LIVE sys_call_table[173] entry (the table this kernel's built-in KernelSU-Next dispatches every syscall through) to susfs_sc_entry, with the original entry's kCFI type-hash preamble replicated before the thunk - no kprobe is registered anywhere, KernelS
+---- end diag_log ----
+[2026-11-27 08:25:01] init-trace: STEP 7 COMPLETE (init_done=1 after 0s; module laststep=7)
+[2026-11-27 08:25:01] boot-completed: substep 7 init COMPLETE (init_done=1 after 0s)
+[2026-11-27 08:25:01] boot-completed: init done at arm_stage 2 (transport armed) - ladder confirmation DEFERRED until the supercall self-test survives (v49)
+[2026-11-27 08:25:01] boot-completed: supercall self-test starting (stage 2 mode=OBSERVE-ONLY; transport: LIVE sys_call_table entry + 16-byte cloned preamble, v53 CLANG ACCEPT PATH + CLI WIRE ABI + THE FIRST FEATURE RUNG, nr 173; CLI: /data/adb/ksu/bin/ksu_susfs)
+[2026-11-27 08:25:02] init-trace: witness(bg): laststep=7 init_done=1 @1s
+---- v53 supercall self-test @ 2026-11-27 08:25:01 arm_stage=2 mode=OBSERVE-ONLY ----
+cli: /data/adb/ksu/bin/ksu_susfs
+cli sha256: 7a30fa745a523a4e2897023086a2ef08d773899394781d131f68676227e80e9f (the CLI rides syscall 173; the stock reboot(169) CLI this box had during v47 is backed up at /data/adb/ReSuSFS/ksu_susfs.pre-v48.bak)
+before: sc_entry_count=0
+-- ksu_susfs show version (timeout 3):
+susfs: show version failed
+-- ksu_susfs show variant (timeout 3):
+susfs: show variant failed
+-- ksu_susfs show enabled_features (timeout 3):
+susfs: show enabled_features failed
+after: sc_entry_count=3
+---- sc_probe (/data/adb/ksu/bin/sc_probe, raw syscall view, independent of any CLI) ----
+ReSuSFS v47 transport probe (syscall 173 / 0xDEADBEEF / 0xFAFAFAFA)
+sc_entry_count before: 3
+show_version cmd=0x00000000000555e1 -> syscall rc=0xffffffffffffffea
+   payload.err=126 (0=ok/answered; 126=seed untouched, not answered)
+show_variant cmd=0x00000000000555e3 -> syscall rc=0xffffffffffffffea
+   payload.err=126 (0=ok/answered; 126=seed untouched, not answered)
+v53_feature_readback cmd=0x0000000000055f53 -> syscall rc=0xffffffffffffffea
+   payload.err=126 (0=ok/answered; 126=seed untouched, not answered)
+sc_entry_count after: 6
+interpretation: count moved => the patched dispatcher arm intercepted
+  the call (transport LIVE); err=0 + answer => channel answering end to end;
+  count unchanged + negative rc => this call hit the real ioperm(2)
+  (arm not live this boot, or the caller is not on syscall 173).
+NOTE: v53 transport rides syscall(173, 0xDEADBEEF, 0xFAFAFAFA, cmd, &payload) through the LIVE sys_call_table entry; the entry AND the whole accept path are clang-17; the uid gate reads the cred offset CALIBRATED at install from init_task/init_cred; the SHOW ids follow the STOCK CLI wire ABI (e1=version 20B, e2=enabled_features 8196B, e3=variant 20B); v53 adds THE FIRST FEATURE RUNG: 0x55550=add_sus_path and 0x55553=add_sus_path_loop (accepted, validated, deduped, stored in a 32-slot .data table - full -> -ENOSPC), 0x55561=hide_sus_mnts (recorded), private readback 0x55f53 via sc_probe; set_uname (0x55590) / set_cmdline (0x555b0) stay not-handled until the next rung; the stored paths are NOT yet enforced (accept+store is this rung); the v49 GCC wrapper is never called.
+[2026-11-27 08:25:02] boot-completed: supercall self-test done (receipt: /data/adb/ReSuSFS/logs/sc_selftest.txt)
+[2026-11-27 08:25:02] boot-completed: arm_stage 2 healthy (init done + supercall self-test SURVIVED - the transport is live under traffic) - next boot arms stage 3/3
+[2026-11-27 08:25:02] boot-completed: stage-late starting (gated, 120s)
+[+] stage: late (boot-completed)
+[*] userspace-only mode: no kernel susfs - skipping susfs application
+[2026-11-27 08:25:03] boot-completed: stage-late rc=0
+[2026-11-27 08:25:03] boot-completed: bootcompleted user scripts starting (gated, 120s)
+[2026-11-27 08:25:04] boot-completed: bootcompleted scripts rc=0
+[2026-11-27 08:25:04] === boot-completed DONE ===
+[2026-11-27 08:25:12] === post-fs-data START (kernel: 5.15.178+, module: v26.11.53.1-x86_64) ===
+[2026-11-27 08:25:12] post-fs-data: kernel_recon starting (gated, 60s)
+[+] kernel recon written: /data/adb/ReSuSFS/logs/kernel_facts.txt (+kernel_kallsyms.txt; kernel_config.txt NOT written - /proc/config.gz absent on this kernel)
+[2026-11-27 08:25:21] post-fs-data: kernel_recon rc=0
+[2026-11-27 08:25:21] post-fs-data: LKM image load starting (gated, 150s; opt-in only on custom kernels)
+[2026-11-27 08:25:21] SAFEGUARD: /data/adb/ReSuSFS/enable_lkm present - loading custom-kernel LKM 'susfs_guard_lkm-x86_64-5.15.ko' (user opt-in; v26.11.38: image load only - init runs post-boot only with enable_force_init)
+[*] enable_lkm flag present: loading custom-kernel LKM image (user opt-in)
+[2026-11-27 08:25:21] LKM candidate: vanilla -> susfs_guard_lkm-x86_64-vanilla-5.15.ko
+[*] Loading susfs_guard_lkm-x86_64-vanilla-5.15.ko...
+[*] Loading susfs_guard_lkm-x86_64-vanilla-5.15.ko (ksud: /data/adb/ksu/bin/ksud)...
+Loaded kernel module: /data/adb/ReSuSFS_LKM/susfs_guard_lkm-x86_64-vanilla-5.15.ko
+[+] LKM loaded successfully (ksud: susfs_guard_lkm-x86_64-vanilla-5.15.ko)
+[2026-11-27 08:25:21] post-fs-data: LKM load rc=0
+[2026-11-27 08:25:21] post-fs-data: susfs LKM image is LIVE (image loaded)
+---- LKM live evidence (v26.11.28) ----
+---- supercall live test (ksu_susfs show version / variant / enabled_features) ----
+susfs: show version failed
+susfs: show variant failed
+susfs: show enabled_features failed
+---- dmesg (susfs_guard_lkm: prefix, FULL ring) ----
+[   11.965737] susfs_guard_lkm: no symbol version for module_layout
+
+---- dmesg (wider pattern, last 3000) ----
+[    0.488672] kprobes: kprobe jump-optimization is enabled. All kprobes are optimized if possible.
+[    0.600040] libata version 3.00 loaded.
+[    0.962890] KernelSU: reboot kprobe registered successfully
+[    0.966198] KernelSU: hook_manager: register_syscall_regfunc kretprobe: 0
+[    0.969533] KernelSU: hook_manager: register_syscall_unregfunc kretprobe: 0
+[    2.434073] KernelSU: unregister input kprobe: 1!
+[    2.526108] ReSuSFS: === post-fs-data START (kernel: 5.15.178+, module: v26.11.53.1-x86_64) ===
+[    2.530379] ReSuSFS: post-fs-data: kernel_recon starting (gated, 60s)
+[   11.719683] ReSuSFS: post-fs-data: kernel_recon rc=0
+[   11.724130] ReSuSFS: post-fs-data: LKM image load starting (gated, 150s; opt-in only on custom kernels)
+[   11.788804] ReSuSFS: SAFEGUARD: /data/adb/ReSuSFS/enable_lkm present - loading custom-kernel LKM 'susfs_guard_lkm-x86_64-5.15.ko' (user opt-in; v26.11.38: image load only - init runs post-boot only with enable_force_init)
+[   11.818694] ReSuSFS: LKM candidate: vanilla -> susfs_guard_lkm-x86_64-vanilla-5.15.ko
+[   11.965737] susfs_guard_lkm: no symbol version for module_layout
+[   11.977149] ReSuSFS: post-fs-data: LKM load rc=0
+[   11.983354] ReSuSFS: post-fs-data: susfs LKM image is LIVE (image loaded)
+
+---- dmesg (RAW last 80 lines, no filter) ----
+[    2.339229] init: ... started service 'derive_classpath' has pid 128
+[    2.340011] init: SVC_EXEC service 'derive_classpath' pid 128 (uid 1000 gid 1000+1 context default) started; waiting...
+[    2.358236] init: Service 'derive_classpath' (pid 128) exited with status 0 waiting took 0.019000 seconds
+[    2.358721] init: Sending signal 9 to service 'derive_classpath' (pid 128) process group...
+[    2.359235] libprocessgroup: Successfully killed process cgroup uid 1000 pid 128 in 0ms
+[    2.360272] init: starting service 'art_boot'...
+[    2.361137] KernelSU: hook_manager: unmark 129 exec /apex/com.android.art/bin/art_boot
+[    2.361377] init: ... started service 'art_boot' has pid 129
+[    2.361976] init: SVC_EXEC service 'art_boot' pid 129 (uid 0 gid 0+0 context default) started; waiting...
+[    2.366205] init: Service 'art_boot' (pid 129) exited with status 0 waiting took 0.005000 seconds
+[    2.366662] init: Sending signal 9 to service 'art_boot' (pid 129) process group...
+[    2.367086] libprocessgroup: Successfully killed process cgroup uid 0 pid 129 in 0ms
+[    2.367769] init: starting service 'odsign'...
+[    2.368715] KernelSU: hook_manager: unmark 130 exec /system/bin/odsign
+[    2.368777] init: ... started service 'odsign' has pid 130
+[    2.383038] init: Wait for property 'odsign.key.done=1' took 13ms
+[    2.383717] init: starting service 'exec 9 (/system/bin/fsverity_init --lock)'...
+[    2.384846] init: ... started service 'exec 9 (/system/bin/fsverity_init --lock)' has pid 131
+[    2.384920] KernelSU: hook_manager: unmark 131 exec /system/bin/fsverity_init
+[    2.385297] init: SVC_EXEC service 'exec 9 (/system/bin/fsverity_init --lock)' pid 131 (uid 0 gid 0+0 context default) started; waiting...
+[    2.386378] init: Sending signal 9 to service 'odsign' (pid 130) process group...
+[    2.392647] libprocessgroup: Successfully killed process cgroup uid 0 pid 130 in 5ms
+[    2.393248] init: Control message: Processed ctl.stop for 'odsign' from pid: 130 (/system/bin/odsign)
+[    2.393792] init: Service 'odsign' (pid 130) received signal 9
+[    2.394279] init: Service 'exec 9 (/system/bin/fsverity_init --lock)' (pid 131) exited with status 0 waiting took 0.009000 seconds
+[    2.394863] init: Sending signal 9 to service 'exec 9 (/system/bin/fsverity_init --lock)' (pid 131) process group...
+[    2.395459] libprocessgroup: Successfully killed process cgroup uid 0 pid 131 in 0ms
+[    2.396172] init: starting service 'apexd-snapshotde'...
+[    2.397628] KernelSU: hook_manager: unmark 132 exec /system/bin/apexd
+[    2.397683] init: ... started service 'apexd-snapshotde' has pid 132
+[    2.398404] init: SVC_EXEC service 'apexd-snapshotde' pid 132 (uid 0 gid 1000+0 context default) started; waiting...
+[    2.405744] apexd: This device does not support updatable APEX. Exiting
+[    2.406187] apexd: Marking APEXd as ready
+[    2.407469] init: Service 'apexd-snapshotde' (pid 132) exited with status 0 waiting took 0.010000 seconds
+[    2.407960] init: Sending signal 9 to service 'apexd-snapshotde' (pid 132) process group...
+[    2.408427] libprocessgroup: Successfully killed process cgroup uid 0 pid 132 in 0ms
+[    2.411441] init: Command 'verity_update_state' action=post-fs-data (/system/etc/init/hw/init.rc:1141) took 0ms and failed: fs_mgr_load_verity_state() failed
+[    2.412109] init: processing action (post-fs-data) from (/system/etc/init/hw/init.rc:1519)
+[    2.412634] init: service 'logd' requested start, but it is already running (flags: 4)
+[    2.413735] init: starting service 'exec 10 (/data/adb/ksud post-fs-data)'...
+[    2.414725] init: ... started service 'exec 10 (/data/adb/ksud post-fs-data)' has pid 133
+[    2.414843] KernelSU: hook_manager: escape to root for init executing ksud: 133
+[    2.415325] init: SVC_EXEC service 'exec 10 (/data/adb/ksud post-fs-data)' pid 133 (uid 0 gid 0+0 context u:r:ksu:s0) started; waiting...
+[    2.428783] KernelSU: ksu fd installed: 4 for pid 133
+[    2.429030] KernelSU: [133] install ksu fd: 4
+[    2.429457] KernelSU: post-fs-data triggered
+[    2.429739] KernelSU: on_post_fs_data!
+[    2.430572] KernelSU: allowlist version: 4
+[    2.430807] KernelSU: load_allow_uid, name: com.lonelycatgames.Xplore, uid: 10075, allow: 1
+[    2.431227] KernelSU: set root profile, key: com.lonelycatgames.Xplore, uid: 10075, gid: 0, context: u:r:ksu:s0
+[    2.431839] KernelSU: load_allow_uid, name: com.android.shell, uid: 2000, allow: 1
+[    2.432249] KernelSU: set root profile, key: com.android.shell, uid: 2000, gid: 0, context: u:r:ksu:s0
+[    2.432857] KernelSU: ksu_show_allow_list
+[    2.433064] KernelSU: uid :10075, allow: 1
+[    2.433274] KernelSU: uid :2000, allow: 1
+[    2.433485] KernelSU: watching /data/system
+[    2.433833] KernelSU: observer init done
+[    2.434073] KernelSU: unregister input kprobe: 1!
+[    2.434423] KernelSU: selinux_hide: fake status is not initialized after post-fs-data!
+[    2.437760] KernelSU: volumedown_pressed_count: 0
+[    2.454874] logd: logdr: UID=0 GID=0 PID=136 b tail=0 logMask=bf pid=0 start=0ns deadline=0ns
+[    2.488265] KernelSU: SELinux permissive or disabled when handle policy!
+[    2.495220] KernelSU: old config: 1
+[    2.495403] KernelSU: adding POLICYDB_CONFIG_ANDROID_NETLINK_ROUTE
+[    2.495804] KernelSU: adding POLICYDB_CONFIG_ANDROID_NETLINK_GETNEIGH
+[    2.496118] KernelSU: new config: 3221225473
+[    2.506642] KernelSU: volumedown_pressed_count: 0
+[    2.526108] ReSuSFS: === post-fs-data START (kernel: 5.15.178+, module: v26.11.53.1-x86_64) ===
+[    2.530379] ReSuSFS: post-fs-data: kernel_recon starting (gated, 60s)
+[   11.719683] ReSuSFS: post-fs-data: kernel_recon rc=0
+[   11.724130] ReSuSFS: post-fs-data: LKM image load starting (gated, 150s; opt-in only on custom kernels)
+[   11.788804] ReSuSFS: SAFEGUARD: /data/adb/ReSuSFS/enable_lkm present - loading custom-kernel LKM 'susfs_guard_lkm-x86_64-5.15.ko' (user opt-in; v26.11.38: image load only - init runs post-boot only with enable_force_init)
+[   11.818694] ReSuSFS: LKM candidate: vanilla -> susfs_guard_lkm-x86_64-vanilla-5.15.ko
+[   11.965737] susfs_guard_lkm: no symbol version for module_layout
+[   11.977149] ReSuSFS: post-fs-data: LKM load rc=0
+[   11.983354] ReSuSFS: post-fs-data: susfs LKM image is LIVE (image loaded)
+[   12.539654] init: Untracked pid 163 exited with status 0
+[   12.539915] init: Untracked pid 163 did not have an associated service entry and will not be reaped
+[   12.731814] init: Untracked pid 238 exited with status 0
+[   12.732126] init: Untracked pid 238 did not have an associated service entry and will not be reaped
+---- kallsyms (kptr_restrict relaxed: was '2') ----
+kallsyms 'current_task': 000000000001bc40 A current_task
+kallsyms '__x64_sys_reboot': ffffffff8108faf0 t __x64_sys_reboot
+kallsyms '__per_cpu_start': 0000000000000000 A __per_cpu_start
+kallsyms 'fixed_percpu_data': 0000000000000000 A fixed_percpu_data
+kallsyms 'init_task': ffffffff822127c0 d init_task
+kallsyms 'ksu_handle_sys_reboot': not listed
+kallsyms 'ksu_handle_prctl': not listed
+kallsyms 'ksu_handle_execveat': not listed
+kallsyms 'ksu_handle_syscall': not listed
+kallsyms 'handle_superscall': not listed
+kallsyms 'susfs_suscall': not listed
+kallsyms 'ksu_try_umount': not listed
+kallsyms 'ksu_handle_sigterm': not listed
+---- kallsyms (KernelSU-prefixed, first 30) ----
+ffffffff8170bc40 t ksu_handle_umount
+ffffffff8170be40 t ksu_sulog_is_enabled
+ffffffff8170be80 t ksu_handle_faccessat_sucompat
+ffffffff8170bfc0 t ksu_handle_stat_sucompat
+ffffffff8170c0c0 t ksu_handle_execve_sucompat
+ffffffff8170c0e0 t ksu_handle_execve_sucompat_common
+ffffffff8170c3e0 t ksu_handle_execveat_sucompat
+ffffffff8170c4a0 t ksu_lsm_hook
+ffffffff8170c8b0 t ksu_lsm_hook_track
+ffffffff8170c930 t ksu_lsm_unhook
+ffffffff8170ca60 t ksu_register_lsm_hook
+ffffffff8170ca70 t ksu_unregister_lsm_hook
+ffffffff8170ca80 t ksu_handle_setresuid
+ffffffff8170cb80 t ksu_hook_newfstatat
+ffffffff8170cba0 t ksu_hook_faccessat
+ffffffff8170cbc0 t ksu_stop_ksud_execve_hook
+ffffffff8170cbe0 t ksu_hook_execve
+ffffffff8170cbf0 t ksu_hook_execve_common
+ffffffff8170ce30 t ksu_hook_execveat
+ffffffff8170ce40 t ksu_hook_setresuid
+ffffffff8170cfb0 t ksu_sys_enter_handler
+ffffffff8170d040 t ksu_tp_marker_reg_count
+ffffffff8170d050 t ksu_tp_marker_lock
+ffffffff8170d070 t ksu_tp_marker_unlock
+ffffffff8170d080 t ksu_tp_marker_inc_reg_count
+ffffffff8170d090 t ksu_tp_marker_dec_reg_count
+ffffffff8170d0a0 t ksu_clear_task_tracepoint_flag_if_needed
+ffffffff8170d0d0 t ksu_mark_all_process
+ffffffff8170d150 t ksu_unmark_all_process
+ffffffff8170d1d0 t ksu_mark_running_process_locked
+---- kretprobe registration state (best effort) ----
+debugfs mount: 
+debugfs dir exists: no
+kprobes/list exists: no
+kprobes/list (ALL, first 20): <unavailable>
+/proc/modules: susfs_guard_lkm 655360 - - Live 0x0000000000000000 (O)
+---- /proc/susfs_* control nodes ----
+/proc/susfs_path: ABSENT (-e) - created at load time per boot.log, then gone
+ls /proc (getdents view): <none visible - hidden by the module's own stealth is EXPECTED>
+---- /sys/module/susfs_guard_lkm/parameters/diag_log (module param, bypasses printk+filp) ----
+<diag_log is empty or unreadable — susfs_init did not run, or module_param not exposed>
+---- /sys/module/susfs_guard_lkm/parameters/sc_entry_count (supercall kprobe fire count) ----
+sc_entry_count (v45+: real kprobe hits): 0
+---- /sys/module/susfs_guard_lkm/parameters: v42 substep ladder ----
+init_maxstep = 0
+init_laststep = -1
+init_done = 0
+arm_stage = 0
+kr_scan = 0
+diag_printk = -1609782920
+probe_arm = 0
+force_init = present (0200 write-only by design; the v40 collector's 'not exposed' line was this read's EACCES, not a missing param)
+wd_timeout_s = <removed in v41: no kernel-side watchdog; recovery is the next boot's stand-down>
+kr_seed = <empty - not seeded this boot>
+---- end of live evidence ----
+[2026-11-27 08:25:25] post-fs-data: stage-early starting (gated, 120s)
+[+] stage: early (post-fs-data)
+[*] userspace-only mode: no kernel susfs - skipping susfs application
+[*] LKM opt-in (custom kernels): touch /data/adb/ReSuSFS/enable_lkm
+[2026-11-27 08:25:25] post-fs-data: stage-early rc=0
+[2026-11-27 08:25:25] post-fs-data: postfs user scripts starting (gated, 90s)
+[2026-11-27 08:25:25] post-fs-data: postfs scripts rc=0
+[2026-11-27 08:25:25] === post-fs-data DONE ===
+[2026-11-27 08:25:28] service: waiting for sys.boot_completed
+[2026-11-27 08:25:35] service: boot completed after 7s - starting status loop (30s cadence)
+[2026-11-27 08:25:36] init-trace: STEP 7/7 DISPATCHING (arm_stage=3/3 marker='ok 2 4f49d4194bdc4344bd7fb93ac45d83c5' mode=sync module=v26.11.53.1-x86_64)
+[2026-11-27 08:25:36] boot-completed: seeding resolver (v2: kln/gsoff preferred, tables if visible)
+[2026-11-27 08:25:44] init-trace: seed v2 written: kln=ffffffff810fd360 gsoff=000000000001bc40
+[2026-11-27 08:25:44] boot-completed: kr_seed(v2) = kln=ffffffff810fd360 gsoff=000000000001bc40
+[2026-11-27 08:25:44] init-trace: writing arm_stage=3 (layer gate)
+[2026-11-27 08:25:45] init-trace: writing init_maxstep=7 (substep gate)
+[2026-11-27 08:25:45] boot-completed: substep seq=7 armed (init_maxstep=7 arm_stage=3; ladder: 0=dispatch 1=+imports 2=+resolver 3=+gs_off 4=+deadman 5=+crosscheck 6=+patch 7=+layers; max=3)
+[2026-11-27 08:25:45] init-trace: diag_printk=1 armed (EMERG breadcrumbs: XYZDIAG2 at .set entry, XYZDIAG1 in the body)
+[2026-11-27 08:25:45] init-trace: dmesg baseline (last 6): [   35.479497] ReSuSFS: boot-completed: substep seq=7 armed (init_maxstep=7 arm_stage=3; ladder: 0=dispatch 1=+imports 2=+resolver 3=+gs_off 4=+deadman 5=+crosscheck 6=+patch 7=+layers; max=3)|[   35.626770] fastpipe: fileOpOpen: pFilp=000000009d31bdc4 pSession=00000000d4cb4be0 pid=920 SysUiBg|[   3
+[2026-11-27 08:25:45] init-trace: witness(bg): laststep=-1 init_done=0 @0s
+[2026-11-27 08:25:45] init-trace: trigger_mode=sync: writing force_init=2 (v43 SYNC path: the .set calls susfs_init_body DIRECTLY - no workqueue; sentinels -70 entered, -71 already-done)
+[2026-11-27 08:25:45] boot-completed: triggering force_init=2 (SYNC channel, direct body call, no queueing; substep 7; system fully booted)
+[2026-11-27 08:25:47] init-trace: force_init=2 write returned (sync body ran to completion inside the write)
+[2026-11-27 08:25:47] init-trace: witness(bg): laststep=7 init_done=1 @1s
+---- diag_log final snapshot (substep 7, after 0s poll) ----
+DIAG step 1: susfs_init ENTERED (maxstep=7 arm_stage=3)
+DIAG step 2: calling imports_guard
+init v2.3.1-gki (substep ladder: maxstep=7)
+DIAG step 3: calling ksu_init_symbol_resolver (kln=/table seed; scan stays off)
+resolver: KLN mode ACTIVE (kallsyms_lookup_name@0xffffffff810fd360 validated via sprint_symbol + probe '_printk'=0xffffffff810b6d00; no table walk, no scan)
+DIAG step 4a: calling susfs_current_init
+current_task: per-CPU gs offset = 0x1bc40
+DIAG step 4: susfs_current_init done (gs_off=0x1bc40)
+DIAG step 4b: dead-man check for built-in susfs (2 lookups)
+DIAG step 5: calling imports_crosscheck
+DIAG step 5a: calling ksu_patch_memory_init
+DIAG step 6.1: loading layer 0 (fp_hook, fatal=0)
+DIAG step 6.2: loading layer 1 (ksu_umount_gate, fatal=0)
+DIAG step 6.3: loading layer 2 (ksu_allow_gate, fatal=0)
+DIAG step 6.4: layer 3 (lsm_hook) SKIPPED (needs stage 4 > arm_stage 3)
+DIAG step 6.5: layer 4 (sus_path) SKIPPED (needs stage 4 > arm_stage 3)
+DIAG step 6.6: layer 5 (create_gate) SKIPPED (needs stage 5 > arm_stage 3)
+DIAG step 6.7: layer 6 (opath) SKIPPED (needs stage 5 > arm_stage 3)
+DIAG step 6.8: layer 7 (dirent) SKIPPED (needs stage 5 > arm_stage 3)
+DIAG step 6.9: layer 8 (uname) SKIPPED (needs stage 4 > arm_stage 3)
+DIAG step 6.10: layer 9 (kstat) SKIPPED (needs stage 5 > arm_stage 3)
+DIAG step 6.11: loading layer 10 (sus_map, fatal=0)
+DIAG step 6.12: loading layer 11 (sus_mount, fatal=0)
+DIAG step 6.13: loading layer 12 (cmdline, fatal=0)
+DIAG step 6.14: loading layer 13 (open_redirect, fatal=0)
+DIAG step 6.15: loading layer 14 (prop_view, fatal=0)
+DIAG step 6.16: loading layer 15 (enable_log, fatal=0)
+DIAG step 6.17: loading layer 16 (avc_spoof, fatal=0)
+DIAG step 6.18: loading layer 17 (supercall, fatal=1)
+supercall: v53 clang accept-path init (CLI wire ABI: e1=version e2=enabled_features e3=variant; FEATURE RUNG: 55550=add_sus_path 55553=add_sus_path_loop 55561=hide_sus_mnts, readback 55f53) (stage 3, mode=FULL; entry AND accept path compiled by clang-17; the v49 GCC wrapper is never called - the v50 field verdict convicted its first execution)
+supercall: v53 calibrate: task_struct.cred at +0x7a8 (the v49 wrapper's hardcoded header offset was 0x788 - DIFFERENT, the hardcoded read was the wedge); uid at cred+8 verified against init_cred - the uid gate is calibrated
+supercall: v53 feature rung: add_sus_path/add_sus_path_loop accepted into a 32-slot .data table (accept + store this rung; enforcement wiring is the next rung), hide_sus_mnts toggle recorded, readback cmd 0x55f53 via sc_probe
+supercall: v53: table=0xffffffff8205f1d0 table[173]=0xffffffff81027650 handler(__x64_sys_ioperm)=0xffffffff81027650 dispatcher=0xffffffff8170dc00 in 1 entry (idx 134)
+supercall: v53 orig window [-16..-1): 415e415c 49c35d5f fff4c6c7 ebebffff
+supercall: v53 own window (clang preamble) : 90909090 90909090 b8909090 b02b34d9
+supercall: v53: preamble window cloned + verified (16 bytes, byte-exact)
+supercall: v53 transport LIVE - table[173] -> susfs_sc_entry (clang-17 entry + ALL-CLANG accept path; observe = counter + -EINVAL; full = magic + calibrated-uid gate + SHOW answers + the v53 FEATURE RUNG: add_sus_path/add_sus_path_loop stored (32 slots, dedup, ENOSPC-capped), hide_sus_mnts recorded, readback 0x55f53; set_uname/set_cmdline stay not-handled until the next rung; uid gate CALIBRATED)
+DIAG step 6.19: layer 18 (hide_syms) SKIPPED (needs stage 4 > arm_stage 3)
+DIAG step 6.20: layer 19 (sus_unix) SKIPPED (needs stage 5 > arm_stage 3)
+DIAG step 7: layer loop done; self-hide/relabel SKIPPED (sus_path not armed at this stage)
+loaded. This module is filtered out of /proc/modules for every caller including root, so `lsmod | grep susfs` stays empty - check /sys/module/susfs_guard_lkm instead (a second insmod fails with -EEXIST while it is loaded).
+supercall delivery patches the LIVE sys_call_table[173] entry (the table this kernel's built-in KernelSU-Next dispatches every syscall through) to susfs_sc_entry, with the original entry's kCFI type-hash preamble replicated before the thunk - no kprobe is registered anywhere, KernelSU's rebo
+---- end diag_log ----
+[2026-11-27 08:25:47] init-trace: witness(bg): diag_log snapshot @1s (len=4094)
+[2026-11-27 08:25:47] init-trace: STEP 7 COMPLETE (init_done=1 after 0s; module laststep=7)
+[2026-11-27 08:25:47] boot-completed: substep 7 init COMPLETE (init_done=1 after 0s)
+[2026-11-27 08:25:47] boot-completed: init done at arm_stage 3 (transport armed) - ladder confirmation DEFERRED until the supercall self-test survives (v49)
+[2026-11-27 08:25:48] boot-completed: supercall self-test starting (stage 3 mode=FULL; transport: LIVE sys_call_table entry + 16-byte cloned preamble, v53 CLANG ACCEPT PATH + CLI WIRE ABI + THE FIRST FEATURE RUNG, nr 173; CLI: /data/adb/ksu/bin/ksu_susfs)
+---- v53 supercall self-test @ 2026-11-27 08:25:48 arm_stage=3 mode=FULL ----
+cli: /data/adb/ksu/bin/ksu_susfs
+cli sha256: 7a30fa745a523a4e2897023086a2ef08d773899394781d131f68676227e80e9f (the CLI rides syscall 173; the stock reboot(169) CLI this box had during v47 is backed up at /data/adb/ReSuSFS/ksu_susfs.pre-v48.bak)
+before: sc_entry_count=0
+-- ksu_susfs show version (timeout 3):
+v2.3.0
+-- ksu_susfs show variant (timeout 3):
+GKI-LKM
+-- ksu_susfs show enabled_features (timeout 3):
+SUSFS_LKM_MODULES
+CONFIG_KSU_SUSFS_SUS_MOUNT
+CONFIG_KSU_SUSFS_ENABLE_LOG
+CONFIG_KSU_SUSFS_SPOOF_CMDLINE_OR_BOOTCONFIG
+CONFIG_KSU_SUSFS_OPEN_REDIRECT
+CONFIG_KSU_SUSFS_SUS_MAP
+after: sc_entry_count=3
+---- v53 FEATURE RUNG @ 2026-11-27 08:25:48 ----
+feature before: sc_entry_count=3
+-- ksu_susfs add_sus_path /data/local/tmp/.resusfs_v53_selftest (timeout 3; EXPECT silent success, exit=0):
+   exit=0
+-- ksu_susfs add_sus_path_loop /data/local/tmp/.resusfs_v53_selftest_loop (timeout 3; EXPECT silent success, exit=0):
+   exit=0
+-- ksu_susfs hide_sus_mnts_for_non_su_procs 1 (timeout 3; EXPECT silent success, exit=0):
+   exit=0
+-- regression: ksu_susfs show version (timeout 3; MUST still answer v2.3.0):
+v2.3.0
+feature after: sc_entry_count=7
+---- sc_probe (/data/adb/ksu/bin/sc_probe, raw syscall view, independent of any CLI) ----
+ReSuSFS v47 transport probe (syscall 173 / 0xDEADBEEF / 0xFAFAFAFA)
+sc_entry_count before: 7
+show_version cmd=0x00000000000555e1 -> syscall rc=0x0000000000000000
+   payload.err=0 (0=ok/answered; 126=seed untouched, not answered)
+answer: v2.3.0
+show_variant cmd=0x00000000000555e3 -> syscall rc=0x0000000000000000
+   payload.err=0 (0=ok/answered; 126=seed untouched, not answered)
+answer: GKI-LKM
+v53_feature_readback cmd=0x0000000000055f53 -> syscall rc=0x0000000000000000
+   payload.err=0 (0=ok/answered; 126=seed untouched, not answered)
+answer: v53-feature-rung add_calls=2 dups=0 toggle_calls=1 hide_mnts=1
+[0] /data/local/tmp/.resusfs_v53_selftest
+[1] /data/local/tmp/.resusfs_v53_selftest_loop (loop)
+slots_used=2/32 loops=1
+sc_entry_count after: 10
+interpretation: count moved => the patched dispatcher arm intercepted
+  the call (transport LIVE); err=0 + answer => channel answering end to end;
+  count unchanged + negative rc => this call hit the real ioperm(2)
+  (arm not live this boot, or the caller is not on syscall 173).
+NOTE: v53 transport rides syscall(173, 0xDEADBEEF, 0xFAFAFAFA, cmd, &payload) through the LIVE sys_call_table entry; the entry AND the whole accept path are clang-17; the uid gate reads the cred offset CALIBRATED at install from init_task/init_cred; the SHOW ids follow the STOCK CLI wire ABI (e1=version 20B, e2=enabled_features 8196B, e3=variant 20B); v53 adds THE FIRST FEATURE RUNG: 0x55550=add_sus_path and 0x55553=add_sus_path_loop (accepted, validated, deduped, stored in a 32-slot .data table - full -> -ENOSPC), 0x55561=hide_sus_mnts (recorded), private readback 0x55f53 via sc_probe; set_uname (0x55590) / set_cmdline (0x555b0) stay not-handled until the next rung; the stored paths are NOT yet enforced (accept+store is this rung); the v49 GCC wrapper is never called.
+[2026-11-27 08:25:48] boot-completed: supercall self-test done (receipt: /data/adb/ReSuSFS/logs/sc_selftest.txt)
+[2026-11-27 08:25:49] boot-completed: arm_stage 3 healthy - at ladder max 3 (the v49 ceiling: 10 layers live + the kCFI-preamble'd LIVE sys_call_table supercall transport; runtime configuration of the susfs lists works via ksu_susfs)
+[2026-11-27 08:25:49] boot-completed: stage-late starting (gated, 120s)
+[+] stage: late (boot-completed)
+[!] skip missing path: /system/addon.d
+[>] add_sus_path_loop /storage/emulated/0/TWRP
+[>] add_sus_path_loop /data/recovery
+[>] add_sus_path_loop /vendor/bin/install-recovery.sh
+[>] add_sus_path_loop /system/bin/install-recovery.sh
+[>] add_sus_path_loop /sdcard/TWRP
+[>] add_sus_path_loop /sdcard/MT2
+[>] add_sus_path_loop /sdcard/APKTool
+[>] add_sus_path_loop /sdcard/Apktool_M
+[>] add_sus_path_loop /sdcard/AppManager
+[>] add_sus_path_loop /sdcard/Android/data/io.github.muntashirakon.AppManager
+[>] add_sus_path_loop /sdcard/Android/media/io.github.muntashirakon.AppManager
+[>] add_sus_path_loop /data/media/0/TWRP
+[>] add_sus_path_loop /data/media/0/MT2
+[>] add_sus_path_loop /data/media/0/AppManager
+[>] add_sus_path_loop /data/media/0/Android/data/io.github.muntashirakon.AppManager
+[>] add_sus_path_loop /data/media/0/Android/media/io.github.muntashirakon.AppManager
+[>] add_sus_path_loop /data/media/0/Android/data/com.termux
+[>] add_sus_path_loop /data/media/0/Android/media/com.termux
+[>] add_sus_path_loop /data/media/0/Android/data/ru.maximoff.apktool
+[>] add_sus_path_loop /data/media/0/Android/media/ru.maximoff.apktool
+[>] add_sus_path_loop /data/media/0/Android/data/top.hookvip.pro
+[>] add_sus_path_loop /data/media/0/Android/media/top.hookvip.pro
+[>] add_sus_path_loop /data/local/tmp/main.jar
+[>] add_sus_path_loop /dev/pts/0
+[>] add_sus_path_loop /dev/pts/1
+[>] add_sus_path_loop /dev/pts/ptmx
+[>] update_sus_kstat /system/etc/hosts
+susfs: update_sus_kstat failed (kernel err -2)
+[>] update_sus_kstat /data/local/tmp
+susfs: update_sus_kstat failed (kernel err -2)
+[>] update_sus_kstat /data/adb/ReSuSFS
+susfs: update_sus_kstat failed (kernel err -2)
+[2026-11-27 08:25:52] init-trace: witness(bg): init_done=1 seen - background witness exiting @5s
+[+] v2.3.0 | GKI-LKM | features: 6
+[2026-11-27 08:25:52] boot-completed: stage-late rc=0
+[2026-11-27 08:25:52] boot-completed: bootcompleted user scripts starting (gated, 120s)
+[2026-11-27 08:25:53] boot-completed: bootcompleted scripts rc=0
+[2026-11-27 08:25:53] === boot-completed DONE ===
