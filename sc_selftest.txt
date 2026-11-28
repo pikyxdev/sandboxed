@@ -1,4 +1,4 @@
----- v53 supercall self-test @ 2026-11-27 12:42:04 arm_stage=3 mode=FULL ----
+---- v53 supercall self-test @ 2026-11-28 11:32:41 arm_stage=3 mode=FULL ----
 cli: /data/adb/ksu/bin/ksu_susfs
 cli sha256: 7a30fa745a523a4e2897023086a2ef08d773899394781d131f68676227e80e9f (the CLI rides syscall 173; the stock reboot(169) CLI this box had during v47 is backed up at /data/adb/ReSuSFS/ksu_susfs.pre-v48.bak)
 before: sc_entry_count=0
@@ -14,7 +14,7 @@ CONFIG_KSU_SUSFS_SPOOF_CMDLINE_OR_BOOTCONFIG
 CONFIG_KSU_SUSFS_OPEN_REDIRECT
 CONFIG_KSU_SUSFS_SUS_MAP
 after: sc_entry_count=3
----- v53 FEATURE RUNG @ 2026-11-27 12:42:04 ----
+---- v53 FEATURE RUNG @ 2026-11-28 11:32:41 ----
 feature before: sc_entry_count=3
 -- ksu_susfs add_sus_path /data/local/tmp/.resusfs_v53_selftest (timeout 3; EXPECT silent success, exit=0):
    exit=0
@@ -52,3 +52,48 @@ interpretation: count moved => the patched dispatcher arm intercepted
   count unchanged + negative rc => this call hit the real ioperm(2)
   (arm not live this boot, or the caller is not on syscall 173).
 NOTE: v53 transport rides syscall(173, 0xDEADBEEF, 0xFAFAFAFA, cmd, &payload) through the LIVE sys_call_table entry; the entry AND the whole accept path are clang-17; the uid gate reads the cred offset CALIBRATED at install from init_task/init_cred; the SHOW ids follow the STOCK CLI wire ABI (e1=version 20B, e2=enabled_features 8196B, e3=variant 20B); v53 adds THE FIRST FEATURE RUNG: 0x55550=add_sus_path and 0x55553=add_sus_path_loop (accepted, validated, deduped, stored in a 32-slot .data table - full -> -ENOSPC), 0x55561=hide_sus_mnts (recorded), private readback 0x55f53 via sc_probe; set_uname (0x55590) / set_cmdline (0x555b0) stay not-handled until the next rung; the stored paths are NOT yet enforced (accept+store is this rung); the v49 GCC wrapper is never called.
+---- v54 gd64_arm @ 2026-11-28 11:32:42 ----
+ReSuSFS v47 transport probe (syscall 173 / 0xDEADBEEF / 0xFAFAFAFA)
+v54 gd64_arm (private cmd 0x55f54)
+gd64_arm cmd=0x0000000000055f54 -> syscall rc=0x0000000000000000
+   payload.err=0 (0=ok/answered; 126=seed untouched, not answered)
+answer: 
+sc_entry_count after: 11
+---- v54 readback (arm state) ----
+ReSuSFS v47 transport probe (syscall 173 / 0xDEADBEEF / 0xFAFAFAFA)
+v53_v54_readback cmd=0x0000000000055f53 -> syscall rc=0x0000000000000000
+   payload.err=0 (0=ok/answered; 126=seed untouched, not answered)
+answer: v53-feature-rung add_calls=2 dups=0 toggle_calls=1 hide_mnts=1
+[0] /data/local/tmp/.resusfs_v53_selftest
+[1] /data/local/tmp/.resusfs_v53_selftest_loop (loop)
+slots_used=2/32 loops=1
+---- v54 enforcement rung ----
+gd64: installed=1 orig=0xffffffff81258810
+gd64 stats: calls=0 filtered=0 hidden=0 alloc_fail=0 copy_fail=0
+resolved rules: adds=0 dups=0
+resolved slots_used=0/48
+
+---- v54 gd64_test @ 2026-11-28 11:32:42 ----
+ReSuSFS v47 transport probe (syscall 173 / 0xDEADBEEF / 0xFAFAFAFA)
+v54_test: gid canary OK (root, gid 54321, uid 0 - show_version answered: the gate keys on UID, not GID)
+v54_test: root walk entries=13 marker=found control=found
+v54_test: marker resusfs_v54_gdtest_marker ino=132547
+v54_test: add_resolved rc=0 err=0
+v54_test: root view entries=13 marker=present control=present
+v54_test: app-uid view entries=12 marker=ABSENT control=present
+v54_test: PASS (enforcement end-to-end)
+---- v54 readback (post-test) ----
+ReSuSFS v47 transport probe (syscall 173 / 0xDEADBEEF / 0xFAFAFAFA)
+v53_v54_readback cmd=0x0000000000055f53 -> syscall rc=0x0000000000000000
+   payload.err=0 (0=ok/answered; 126=seed untouched, not answered)
+answer: v53-feature-rung add_calls=2 dups=0 toggle_calls=1 hide_mnts=1
+[0] /data/local/tmp/.resusfs_v53_selftest
+[1] /data/local/tmp/.resusfs_v53_selftest_loop (loop)
+slots_used=2/32 loops=1
+---- v54 enforcement rung ----
+gd64: installed=1 orig=0xffffffff81258810
+gd64 stats: calls=18 filtered=1 hidden=1 alloc_fail=0 copy_fail=0
+resolved rules: adds=1 dups=0
+[0] resusfs_v54_gdtest_marker ino=132547
+resolved slots_used=1/48
+
